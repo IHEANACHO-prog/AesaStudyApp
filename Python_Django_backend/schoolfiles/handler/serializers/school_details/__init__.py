@@ -1,0 +1,8 @@
+from .course_serializer import CourseSerializer
+from .department_serializer import DepartmentSerializer
+from .level_serializer import LevelSerializer
+from .topic_serializer import TopicSerializer
+from .enrollment_serializer import EnrollmentSerializer
+from .lecturenote_serializer import LectureNoteSerializer
+from .mediaresource_serializer import MediaResourceSerializer
+from .selfassessment_serializer import SAOptionSerializer, SAQuestionSerializer, SAAttemptSerializer
