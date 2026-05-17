@@ -1,0 +1,881 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   AESA DESIGN SYSTEM
+   DEFAULT: LIGHT  |  [data-theme="dark"] → DARK
+   ═══════════════════════════════════════════════════════════════
+   CHANGES FROM ORIGINAL:
+   • :root now holds LIGHT tokens (was dark)
+   • [data-theme="dark"] now holds DARK tokens (was light)
+   • color-scheme flipped accordingly
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer base {
+
+  /* ── LIGHT (default) ─────────────────────────────────────── */
+  :root {
+    color-scheme: light;
+
+    --bg-base:        #f4f6fb;
+    --bg-raised:      #ffffff;
+    --bg-overlay:     #ffffff;
+    --bg-subtle:      rgba(0,0,0,0.030);
+    --bg-hover:       rgba(0,0,0,0.050);
+    --bg-active:      rgba(6,182,212,0.08);
+
+    --border-faint:   rgba(0,0,0,0.055);
+    --border-base:    rgba(0,0,0,0.10);
+    --border-strong:  rgba(0,0,0,0.18);
+    --border-accent:  rgba(6,182,212,0.35);
+
+    --text-primary:   #0a101e;
+    --text-secondary: #52637a;
+    --text-tertiary:  #9badbe;
+    --text-accent:    #0891b2;
+    --text-on-accent: #ffffff;
+
+    --cyan:           #0891b2;
+    --cyan-dim:       rgba(8,145,178,0.10);
+    --cyan-glow:      rgba(8,145,178,0.18);
+    --violet:         #6366f1;
+    --violet-dim:     rgba(99,102,241,0.10);
+    --amber:          #d97706;
+    --emerald:        #059669;
+    --rose:           #e11d48;
+
+    --sidebar-bg:     #ffffff;
+    --sidebar-width:  252px;
+
+    --glow-cyan:      0 0 30px rgba(8,145,178,0.10);
+    --glow-card:      0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.055);
+
+    /* Tailwind compatibility tokens */
+    --background:         210 20% 96%;
+    --foreground:         222 47% 8%;
+    --card:               0 0% 100%;
+    --card-foreground:    222 47% 8%;
+    --popover:            0 0% 100%;
+    --popover-foreground: 222 47% 8%;
+    --primary:            191 91% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary:          210 20% 94%;
+    --secondary-foreground: 222 47% 12%;
+    --muted:              210 20% 92%;
+    --muted-foreground:   215 16% 46%;
+    --accent:             210 20% 94%;
+    --accent-foreground:  222 47% 12%;
+    --destructive:        0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border:             210 20% 88%;
+    --input:              210 20% 94%;
+    --ring:               191 91% 36%;
+    --radius:             0.75rem;
+  }
+
+  /* ── DARK ────────────────────────────────────────────────── */
+  :root[data-theme="dark"],
+  [data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg-base:        #07090f;
+    --bg-raised:      #0c1120;
+    --bg-overlay:     #111827;
+    --bg-subtle:      rgba(255,255,255,0.030);
+    --bg-hover:       rgba(255,255,255,0.055);
+    --bg-active:      rgba(34,211,238,0.10);
+
+    --border-faint:   rgba(255,255,255,0.055);
+    --border-base:    rgba(255,255,255,0.09);
+    --border-strong:  rgba(255,255,255,0.15);
+    --border-accent:  rgba(34,211,238,0.30);
+
+    --text-primary:   #f0f4ff;
+    --text-secondary: #8899b4;
+    --text-tertiary:  #4a5568;
+    --text-accent:    #22d3ee;
+    --text-on-accent: #001820;
+
+    --cyan:           #22d3ee;
+    --cyan-dim:       rgba(34,211,238,0.12);
+    --cyan-glow:      rgba(34,211,238,0.20);
+    --violet:         #818cf8;
+    --violet-dim:     rgba(129,140,248,0.12);
+    --amber:          #fbbf24;
+    --emerald:        #10b981;
+    --rose:           #f43f5e;
+
+    --sidebar-bg:     #080c18;
+
+    --glow-cyan:      0 0 40px rgba(34,211,238,0.12);
+    --glow-card:      0 1px 3px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.055);
+
+    --background:         222 47% 4%;
+    --foreground:         210 40% 92%;
+    --card:               222 40% 6%;
+    --card-foreground:    210 40% 92%;
+    --popover:            222 40% 7%;
+    --popover-foreground: 210 40% 92%;
+    --primary:            191 91% 42%;
+    --primary-foreground: 210 40% 98%;
+    --secondary:          222 30% 12%;
+    --secondary-foreground: 210 40% 80%;
+    --muted:              222 30% 10%;
+    --muted-foreground:   215 16% 50%;
+    --accent:             222 30% 12%;
+    --accent-foreground:  210 40% 90%;
+    --destructive:        0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border:             222 30% 14%;
+    --input:              222 30% 12%;
+    --ring:               191 91% 42%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL RESETS
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar               { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track         { background: transparent; }
+  ::-webkit-scrollbar-thumb         { background: var(--border-base); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover   { background: var(--cyan-glow); }
+
+  /* Selection */
+  ::selection {
+    background: var(--cyan-dim);
+    color: var(--text-accent);
+  }
+
+  /* Focus rings */
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOT & APP SHELL
+   ═══════════════════════════════════════════════════════════════ */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-base);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY SCALE
+   ═══════════════════════════════════════════════════════════════ */
+
+.display-1  { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.display-2  { font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; }
+.heading-1  { font-size: 1.5rem;   font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+.heading-2  { font-size: 1.25rem;  font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; }
+.heading-3  { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
+.body-lg    { font-size: 0.9375rem; font-weight: 400; line-height: 1.65; }
+.body-sm    { font-size: 0.8125rem; font-weight: 400; line-height: 1.55; }
+.caption    { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.mono       { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   AESA COMPONENT PRIMITIVES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Card ── */
+.aesa-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-faint);
+  border-radius: 16px;
+  box-shadow: var(--glow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.aesa-card:hover {
+  border-color: var(--border-base);
+  box-shadow: var(--glow-card), 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* ── Glass card variant ── */
+.aesa-card-glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-faint);
+  border-radius: 16px;
+}
+[data-theme="dark"] .aesa-card-glass {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* ── Accent card ── */
+.aesa-card-accent {
+  background: linear-gradient(135deg, rgba(8,145,178,0.07) 0%, rgba(99,102,241,0.05) 100%);
+  border: 1px solid var(--border-accent);
+  border-radius: 16px;
+}
+[data-theme="dark"] .aesa-card-accent {
+  background: linear-gradient(135deg, rgba(34,211,238,0.08) 0%, rgba(129,140,248,0.06) 100%);
+}
+
+/* ── Pill badge ── */
+.aesa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.aesa-badge-cyan    { background: var(--cyan-dim);    color: var(--cyan);    border: 1px solid var(--border-accent); }
+.aesa-badge-violet  { background: var(--violet-dim);  color: var(--violet);  border: 1px solid rgba(99,102,241,0.25); }
+.aesa-badge-amber   { background: rgba(217,119,6,0.10);  color: var(--amber);   border: 1px solid rgba(217,119,6,0.22); }
+.aesa-badge-emerald { background: rgba(5,150,105,0.10);  color: var(--emerald); border: 1px solid rgba(5,150,105,0.22); }
+.aesa-badge-rose    { background: rgba(225,29,72,0.10);  color: var(--rose);    border: 1px solid rgba(225,29,72,0.22); }
+
+/* ── Button ── */
+.aesa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 20px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.aesa-btn:active { transform: scale(0.97); }
+
+.aesa-btn-primary {
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(8,145,178,0.25), 0 1px 3px rgba(0,0,0,0.12);
+}
+.aesa-btn-primary:hover {
+  box-shadow: 0 6px 24px rgba(8,145,178,0.35), 0 1px 3px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+[data-theme="dark"] .aesa-btn-primary {
+  background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+  color: #001a20;
+  box-shadow: 0 4px 16px rgba(34,211,238,0.25), 0 1px 3px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] .aesa-btn-primary:hover {
+  box-shadow: 0 6px 24px rgba(34,211,238,0.35), 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.aesa-btn-ghost {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-faint);
+}
+.aesa-btn-ghost:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-base);
+}
+
+/* ── Input ── */
+.aesa-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-base);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.18s ease;
+  outline: none;
+}
+.aesa-input::placeholder { color: var(--text-tertiary); }
+.aesa-input:focus {
+  border-color: var(--cyan);
+  background: var(--bg-active);
+  box-shadow: 0 0 0 3px var(--cyan-dim);
+}
+
+/* ── Nav link ── */
+.aesa-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.16s ease;
+  position: relative;
+  text-decoration: none;
+}
+.aesa-nav-link:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+.aesa-nav-link.active {
+  background: var(--bg-active);
+  color: var(--text-accent);
+  font-weight: 600;
+}
+.aesa-nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: var(--cyan);
+  border-radius: 0 3px 3px 0;
+}
+
+/* ── Icon wrapper ── */
+.aesa-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-faint);
+  transition: all 0.16s ease;
+}
+.aesa-nav-link.active .aesa-icon-wrap {
+  background: var(--cyan-dim);
+  border-color: var(--border-accent);
+}
+.aesa-nav-link:hover:not(.active) .aesa-icon-wrap {
+  background: var(--bg-hover);
+  border-color: var(--border-base);
+}
+
+/* ── Divider ── */
+.aesa-divider {
+  height: 1px;
+  background: var(--border-faint);
+  margin: 6px 0;
+}
+
+/* ── Section label ── */
+.aesa-section-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 0 12px;
+  margin: 8px 0 4px;
+}
+
+/* ── Progress ring ── */
+.aesa-ring { transform: rotate(-90deg); transform-origin: 50% 50%; }
+.aesa-ring-track { fill: none; stroke: var(--border-base); }
+.aesa-ring-fill  { fill: none; stroke: var(--cyan); stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
+
+/* ── Stat chip ── */
+.aesa-stat {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-faint);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+.aesa-stat strong { color: var(--text-primary); font-weight: 600; }
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+@keyframes pulse-cyan {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,211,238,0.0); }
+  50%       { box-shadow: 0 0 0 6px rgba(34,211,238,0.08); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.animate-fade-up { animation: fadeUp 0.4s ease both; }
+.animate-fade-in { animation: fadeIn 0.3s ease both; }
+.animate-spin    { animation: spin 0.85s linear infinite; }
+
+/* Staggered children */
+.stagger > *:nth-child(1) { animation-delay: 0.04s; }
+.stagger > *:nth-child(2) { animation-delay: 0.08s; }
+.stagger > *:nth-child(3) { animation-delay: 0.12s; }
+.stagger > *:nth-child(4) { animation-delay: 0.16s; }
+.stagger > *:nth-child(5) { animation-delay: 0.20s; }
+.stagger > *:nth-child(6) { animation-delay: 0.24s; }
+
+/* Skeleton shimmer */
+.aesa-skeleton {
+  background: linear-gradient(90deg,
+    var(--bg-raised) 0%,
+    var(--bg-hover)  50%,
+    var(--bg-raised) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SHADCN OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Dialog / Popover */
+[data-radix-popper-content-wrapper],
+[role="dialog"],
+[role="listbox"] {
+  background-color: var(--bg-overlay) !important;
+  border: 1px solid var(--border-base) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Inputs */
+input, textarea, select {
+  background-color: var(--bg-subtle) !important;
+  border-color: var(--border-base) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+input::placeholder, textarea::placeholder { color: var(--text-tertiary) !important; }
+input:focus, textarea:focus {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 0 3px var(--cyan-dim) !important;
+  outline: none !important;
+}
+
+/* Select trigger */
+[data-radix-select-trigger] {
+  background-color: var(--bg-subtle) !important;
+  border-color: var(--border-base) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Tabs */
+[role="tablist"] {
+  background-color: var(--bg-subtle) !important;
+  border: 1px solid var(--border-faint) !important;
+  padding: 3px !important;
+  border-radius: 11px !important;
+}
+[role="tab"] {
+  color: var(--text-tertiary) !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.16s ease !important;
+}
+[role="tab"][data-state="active"] {
+  background-color: var(--bg-active) !important;
+  color: var(--cyan) !important;
+  font-weight: 600 !important;
+}
+
+/* Progress bar */
+[role="progressbar"] > * {
+  background: linear-gradient(90deg, var(--cyan), #818cf8) !important;
+  border-radius: 999px !important;
+}
+
+/* Text utilities */
+.text-slate-900 { color: var(--text-primary)   !important; }
+.text-slate-800 { color: var(--text-primary)   !important; }
+.text-slate-700 { color: var(--text-secondary) !important; }
+.text-slate-600 { color: var(--text-secondary) !important; }
+.text-slate-500 { color: var(--text-secondary) !important; }
+
+/* Background utilities */
+.bg-white    { background-color: var(--bg-raised) !important; }
+.bg-slate-50 { background-color: var(--bg-base)   !important; }
+
+/* Badge utilities */
+.bg-blue-100   { background-color: var(--cyan-dim)             !important; }
+.text-blue-700 { color: var(--cyan)                            !important; }
+.bg-green-100  { background-color: rgba(5,150,105,0.10)        !important; }
+.text-green-700{ color: var(--emerald)                         !important; }
+
+/* Borders */
+.border-slate-200 { border-color: var(--border-faint) !important; }
+.border-t         { border-color: var(--border-faint) !important; }
+
+/* ── DARK overrides for shadcn components ── */
+[data-theme="dark"] [data-radix-popper-content-wrapper],
+[data-theme="dark"] [role="dialog"],
+[data-theme="dark"] [role="listbox"] {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.07) !important;
+}
+[data-theme="dark"] .bg-blue-50    { background-color: rgba(34,211,238,0.06)  !important; }
+[data-theme="dark"] .bg-indigo-50  { background-color: rgba(99,102,241,0.08)  !important; }
+[data-theme="dark"] .text-indigo-600 { color: #818cf8 !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   PROSE (lecture notes)
+   ═══════════════════════════════════════════════════════════════ */
+
+.prose-aesa p, .prose-aesa li, .prose-aesa td { color: var(--text-secondary); }
+.prose-aesa h1,.prose-aesa h2,.prose-aesa h3  { color: var(--text-primary); font-weight: 700; letter-spacing: -0.01em; }
+.prose-aesa strong, .prose-aesa b             { color: var(--text-primary); }
+.prose-aesa a                                  { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+.prose-aesa code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  padding: 0.15em 0.45em;
+  border-radius: 5px;
+  border: 1px solid var(--border-accent);
+}
+.prose-aesa blockquote {
+  color: var(--text-secondary);
+  border-left: 3px solid var(--border-accent);
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+}
+.prose-aesa hr { border-color: var(--border-faint); }
+
+/* backward-compat alias */
+.prose-invert p,.prose-invert li,.prose-invert td,.prose-invert th,.prose-invert span { color: var(--text-secondary) !important; }
+.prose-invert h1,.prose-invert h2,.prose-invert h3,.prose-invert h4               { color: var(--text-primary)   !important; }
+.prose-invert a   { color: var(--cyan) !important; }
+.prose-invert code{ color: var(--cyan) !important; background: var(--cyan-dim) !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY
+   ═══════════════════════════════════════════════════════════════ */
+
+.scroll-touch  { -webkit-overflow-scrolling: touch; }
+.no-scrollbar  { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Noise overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.4;
+}
+
+/* Glow dot decoration */
+.aesa-glow-dot {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+[data-theme="dark"] .aesa-glow-dot {
+  background: radial-gradient(circle, rgba(34,211,238,0.07) 0%, transparent 70%);
+}
+
+css
+
+/* ═══════════════════════════════════════════════════════════════
+   APPEND THIS ENTIRE BLOCK TO THE BOTTOM OF src/index.css
+   ═══════════════════════════════════════════════════════════════
+   These rules make every page that uses standard Tailwind classes
+   (bg-white, bg-slate-50, text-slate-900, etc.) automatically
+   respond to both light and dark themes without touching each
+   page's component code. The :root is now LIGHT by default, so
+   these rules only need to override for [data-theme="dark"].
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Dark mode overrides for Tailwind utility classes ── */
+
+[data-theme="dark"] {
+
+  /* ── Page / body backgrounds ── */
+  .bg-white         { background-color: var(--bg-raised)  !important; }
+  .bg-slate-50      { background-color: var(--bg-base)    !important; }
+  .bg-slate-100     { background-color: var(--bg-subtle)  !important; }
+  .bg-slate-200     { background-color: var(--bg-hover)   !important; }
+  .bg-gray-50       { background-color: var(--bg-base)    !important; }
+  .bg-gray-100      { background-color: var(--bg-subtle)  !important; }
+
+  /* ── Text ── */
+  .text-slate-900   { color: var(--text-primary)   !important; }
+  .text-slate-800   { color: var(--text-primary)   !important; }
+  .text-slate-700   { color: var(--text-secondary) !important; }
+  .text-slate-600   { color: var(--text-secondary) !important; }
+  .text-slate-500   { color: var(--text-secondary) !important; }
+  .text-slate-400   { color: var(--text-tertiary)  !important; }
+  .text-slate-300   { color: var(--text-tertiary)  !important; }
+  .text-gray-900    { color: var(--text-primary)   !important; }
+  .text-gray-700    { color: var(--text-secondary) !important; }
+  .text-gray-500    { color: var(--text-secondary) !important; }
+
+  /* ── Borders ── */
+  .border-slate-100 { border-color: var(--border-faint)  !important; }
+  .border-slate-200 { border-color: var(--border-faint)  !important; }
+  .border-slate-300 { border-color: var(--border-base)   !important; }
+  .border-gray-200  { border-color: var(--border-faint)  !important; }
+
+  /* ── Cards + panels ── */
+  .shadow-sm        { box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04) !important; }
+
+  /* ── Stat / metric cards (DashboardPage, PerformancePage) ── */
+  .bg-cyan-50       { background-color: var(--cyan-dim)             !important; }
+  .bg-emerald-50    { background-color: rgba(16,185,129,0.10)       !important; }
+  .bg-amber-50      { background-color: rgba(251,191,36,0.10)       !important; }
+  .bg-violet-50     { background-color: rgba(129,140,248,0.10)      !important; }
+  .bg-red-50        { background-color: rgba(244,63,94,0.10)        !important; }
+  .bg-indigo-50     { background-color: rgba(99,102,241,0.10)       !important; }
+
+  /* Accent ring colours (used in metric cards) */
+  .ring-cyan-100    { --tw-ring-color: rgba(34,211,238,0.15)  !important; }
+  .ring-emerald-100 { --tw-ring-color: rgba(16,185,129,0.15)  !important; }
+  .ring-amber-100   { --tw-ring-color: rgba(251,191,36,0.15)  !important; }
+  .ring-violet-100  { --tw-ring-color: rgba(129,140,248,0.15) !important; }
+
+  /* ── Badge backgrounds ── */
+  .bg-blue-100      { background-color: var(--cyan-dim)             !important; }
+  .text-blue-700    { color: var(--cyan)                            !important; }
+  .bg-green-100     { background-color: rgba(16,185,129,0.10)       !important; }
+  .text-green-700   { color: #10b981                                !important; }
+  .bg-red-100       { background-color: rgba(244,63,94,0.10)        !important; }
+  .text-red-700     { color: #f87171                                !important; }
+  .bg-amber-100     { background-color: rgba(251,191,36,0.10)       !important; }
+  .text-amber-700   { color: #fbbf24                                !important; }
+  .border-emerald-200 { border-color: rgba(16,185,129,0.2)         !important; }
+  .border-amber-200   { border-color: rgba(251,191,36,0.2)         !important; }
+  .border-red-200     { border-color: rgba(244,63,94,0.2)          !important; }
+  .border-blue-200    { border-color: var(--border-accent)         !important; }
+  .border-cyan-200    { border-color: var(--border-accent)         !important; }
+  .border-indigo-100  { border-color: rgba(99,102,241,0.2)         !important; }
+
+  /* ── Progress bars ── */
+  .bg-slate-100 > * { /* handled by [role="progressbar"] above */ }
+
+  /* ── Dividers ── */
+  .divide-slate-50  > * + * { border-color: var(--border-faint) !important; }
+  .divide-slate-100 > * + * { border-color: var(--border-faint) !important; }
+  .divide-y         > * + * { border-color: var(--border-faint) !important; }
+
+  /* ── Hover states ── */
+  .hover\:bg-slate-50:hover  { background-color: var(--bg-hover)  !important; }
+  .hover\:bg-slate-100:hover { background-color: var(--bg-hover)  !important; }
+  .hover\:bg-cyan-50:hover   { background-color: var(--bg-active) !important; }
+  .hover\:bg-emerald-50:hover{ background-color: rgba(16,185,129,0.08) !important; }
+  .hover\:bg-red-50:hover    { background-color: rgba(244,63,94,0.08)  !important; }
+  .hover\:bg-amber-50:hover  { background-color: rgba(251,191,36,0.08) !important; }
+  .hover\:border-slate-300:hover { border-color: var(--border-base) !important; }
+  .hover\:border-cyan-200:hover  { border-color: var(--border-accent) !important; }
+
+  /* ── Charts (Recharts tooltip) ── */
+  .recharts-tooltip-wrapper .recharts-default-tooltip {
+    background-color: var(--bg-overlay) !important;
+    border-color: var(--border-base)    !important;
+    color: var(--text-primary)          !important;
+    border-radius: 12px                 !important;
+  }
+
+  /* ── Forum / Thread pages (use inline <style> blocks + className) ── */
+  /* These pages inject their own <style> tags. The tag approach means
+     we target the generated class names here. */
+  .forum-root,
+  .thread-root {
+    color: var(--text-primary);
+  }
+  /* Forum filter card */
+  .forum-filters {
+    background: var(--bg-raised)  !important;
+    border-color: var(--border-faint) !important;
+  }
+  .forum-select {
+    background-color: var(--bg-subtle)   !important;
+    border-color: var(--border-base)     !important;
+    color: var(--text-primary)           !important;
+  }
+  .forum-select option {
+    background-color: var(--bg-overlay)  !important;
+    color: var(--text-primary)           !important;
+  }
+  .forum-search {
+    background: var(--bg-raised)         !important;
+    border-color: var(--border-base)     !important;
+    color: var(--text-primary)           !important;
+  }
+  /* Forum post cards */
+  .forum-post {
+    background: var(--bg-raised)         !important;
+    border-color: var(--border-faint)    !important;
+  }
+  .forum-post-title { color: var(--text-primary)   !important; }
+  .forum-post-snippet { color: var(--text-secondary) !important; }
+  /* Forum empty state */
+  .forum-empty {
+    background: var(--bg-subtle)         !important;
+    border-color: var(--border-faint)    !important;
+  }
+  .forum-count { color: var(--text-secondary) !important; }
+  .forum-count strong { color: var(--text-primary) !important; }
+  /* Forum dialog */
+  .forum-dialog-input,
+  .forum-dialog-textarea {
+    background: var(--bg-subtle)         !important;
+    border-color: var(--border-base)     !important;
+    color: var(--text-primary)           !important;
+  }
+  .forum-dialog-cancel {
+    background: var(--bg-subtle)         !important;
+    border-color: var(--border-base)     !important;
+    color: var(--text-secondary)         !important;
+  }
+  /* Thread page */
+  .thread-q,
+  .thread-reply {
+    background: var(--bg-raised)         !important;
+    border-color: var(--border-faint)    !important;
+  }
+  .thread-q-title   { color: var(--text-primary)   !important; }
+  .thread-q-text    { color: var(--text-secondary) !important; }
+  .thread-reply-text{ color: var(--text-secondary) !important; }
+  .thread-reply-name{ color: var(--text-primary)   !important; }
+  .thread-meta-chip { color: var(--text-secondary) !important; }
+  .thread-meta-chip strong { color: var(--text-primary) !important; }
+  .thread-no-replies {
+    border-color: var(--border-faint)    !important;
+    color: var(--text-tertiary)          !important;
+  }
+  .thread-composer {
+    background: rgba(7,9,15,0.92)        !important;
+    border-color: var(--border-faint)    !important;
+  }
+  .thread-composer-textarea {
+    background: var(--bg-subtle)         !important;
+    border-color: var(--border-base)     !important;
+    color: var(--text-primary)           !important;
+  }
+  .thread-back { color: var(--text-secondary) !important; }
+
+  /* ── ProfilePage (uses inline scoped <style>) ── */
+  .pp-card {
+    background: var(--bg-raised)         !important;
+    border-color: var(--border-faint)    !important;
+  }
+  .pp-fval   { color: var(--text-primary)   !important; }
+  .pp-flabel { color: var(--text-secondary) !important; }
+  .pp-input  {
+    background: var(--bg-subtle)         !important;
+    border-color: var(--border-base)     !important;
+    color: var(--text-primary)           !important;
+  }
+  .pp-danger {
+    background: var(--bg-raised)         !important;
+    border-color: rgba(244,63,94,0.25)   !important;
+  }
+  .pp-danger h3 { color: #f87171 !important; }
+  .pp-danger p  { color: var(--text-tertiary) !important; }
+  .pp-locked    { background: var(--bg-subtle) !important; color: var(--text-tertiary) !important; }
+
+  /* ── SelfAssessmentPage ── */
+  /* Question card */
+  .bg-white.rounded-2xl,
+  .bg-white.rounded-xl {
+    background-color: var(--bg-raised) !important;
+  }
+  /* Make sure option buttons in dark mode look correct */
+  .border-slate-200.hover\:border-slate-300 {
+    border-color: var(--border-faint) !important;
+  }
+
+  /* ── AdminPage ── */
+  .bg-white.border.border-slate-100 {
+    background-color: var(--bg-raised) !important;
+    border-color: var(--border-faint)  !important;
+  }
+  /* Table rows */
+  .hover\:bg-cyan-50\/40:hover  { background-color: var(--bg-active) !important; }
+  .hover\:bg-slate-50\/60:hover { background-color: var(--bg-hover)  !important; }
+  /* Table header */
+  .bg-slate-50\/80 { background-color: var(--bg-subtle) !important; }
+  /* Table borders */
+  .border-slate-50  { border-color: var(--border-faint) !important; }
+
+  /* ── ExamManagePage ── */
+  .hover\:border-primary\/50:hover { border-color: var(--border-accent) !important; }
+}
+
+/* ── Light mode explicit overrides (ensure inline styles from pages
+   like ProfilePage hero don't bleed into light mode) ── */
+:root:not([data-theme="dark"]) {
+  /* Forum/Thread pages — ensure white backgrounds in light mode */
+  .forum-filters { background: #ffffff !important; border-color: #e2e8f0 !important; }
+  .forum-post    { background: #ffffff !important; border-color: #e2e8f0 !important; }
+  .forum-empty   { background: #fafafa !important; border-color: #e2e8f0 !important; }
+  .thread-q      { background: #ffffff !important; border-color: #e2e8f0 !important; }
+  .thread-reply  { background: #ffffff !important; border-color: #e2e8f0 !important; }
+  .thread-composer { background: rgba(255,255,255,0.95) !important; border-color: #e2e8f0 !important; }
+  .pp-card       { background: #ffffff !important; border-color: #e2e8f0 !important; }
+  .pp-danger     { background: #ffffff !important; }
+}
+
+/* ── Theme transition — smooth switch between modes ── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Don't animate things that shouldn't animate */
+svg, img, video, canvas, input, textarea, select,
+[class*="animate-"], [class*="transition-"],
+.aesa-skeleton {
+  transition: none !important;
+}
