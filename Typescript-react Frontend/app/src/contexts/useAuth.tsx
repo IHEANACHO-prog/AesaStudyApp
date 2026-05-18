@@ -49,12 +49,6 @@ export const useAuth = () => {
 // ─────────────────────────────────────────────────────────────────────────────
 // Profile normaliser
 // ─────────────────────────────────────────────────────────────────────────────
-//
-// /api/users/me/ returns a flat shape for all roles:
-//   { id, username, email, first_name, last_name, role, profile_picture,
-//     + student_id, department, level, matric_number  (students only)
-//     + instructor_id, department, staff_id           (instructors only)
-//   }
 
 function normaliseProfile(profile: any): {
   user:              User;
@@ -234,9 +228,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return Array.isArray(role) ? role.includes(user.role) : user.role === role;
   };
 
-  const isStudent    = user?.role === 'student'    ?? false;
-  const isInstructor = user?.role === 'instructor' ?? false;
-  const isAdmin      = user?.role === 'admin'      ?? false;
+  // FIX: removed redundant ?? false — === already returns a boolean
+  const isStudent    = user?.role === 'student';
+  const isInstructor = user?.role === 'instructor';
+  const isAdmin      = user?.role === 'admin';
 
   return (
     <AuthContext.Provider
@@ -263,4 +258,4 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       {children}
     </AuthContext.Provider>
   );
-};
+};  
