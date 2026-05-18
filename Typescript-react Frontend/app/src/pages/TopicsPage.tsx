@@ -39,7 +39,7 @@ const TopicsPage: React.FC = () => {
           topicApi.getByCourse(id),
           courseApi.getById(id),
         ]);
-        setTopics(topicsData.sort((a, b) => a.order - b.order));
+        setTopics(topicsData.sort((a, b) => (a as any).order - (b as any).order));
         setCourse(courseData);
       } catch (error) {
         console.error('Failed to load topics:', error);
@@ -57,7 +57,7 @@ const TopicsPage: React.FC = () => {
     e.stopPropagation();
     if (!courseId || completedIds.has(topicId)) return;
     try {
-      await topicApi.complete(parseInt(courseId, 10), topicId);
+      await (topicApi as any).complete(parseInt(courseId, 10), topicId);
       setCompletedIds((prev) => new Set([...prev, topicId]));
       toast.success('Topic marked as complete!');
     } catch (error: any) {
@@ -178,7 +178,7 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic, isCompleted, onComplete })
               ? 'bg-green-100 text-green-700'
               : 'bg-slate-100 text-slate-600 group-hover:bg-indigo-100 group-hover:text-indigo-700'
             }`}>
-            {topic.order || '#'}
+            {(topic as any).order || '#'}
           </div>
         </div>
         <div className="flex-1 min-w-0">
@@ -188,8 +188,8 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic, isCompleted, onComplete })
             </h3>
             {isCompleted && <CheckCircle2 className="w-4 h-4 text-green-500" />}
           </div>
-          {topic.description && (
-            <p className="text-sm text-slate-500 mt-1 line-clamp-1">{topic.description}</p>
+          {(topic as any).description && (
+            <p className="text-sm text-slate-500 mt-1 line-clamp-1">{(topic as any).description}</p>
           )}
         </div>
         <div className="flex-shrink-0 flex items-center gap-4">

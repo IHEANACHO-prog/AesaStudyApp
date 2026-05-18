@@ -187,7 +187,7 @@ const TopicRow: React.FC<TopicRowProps> = ({
           ? `1px solid ${borderExpanded}`
           : `1px solid ${t.cardBorder}`,
       background: isCompleted ? accentCompleted : isExpanded ? accentExpanded : t.cardBg,
-      boxShadow: isExpanded ? `0 4px 24px ${t.cyanGlow}` : 'none',
+      boxShadow: isExpanded ? `0 4px 24px ${(t as any).cyanGlow}` : 'none',
     }}>
       <button
         style={{
@@ -306,7 +306,7 @@ const TopicRow: React.FC<TopicRowProps> = ({
                 ? 'linear-gradient(135deg, rgba(34,211,238,0.85), rgba(6,182,212,0.75))'
                 : 'linear-gradient(135deg, #0891b2, #0e7490)',
               border: `1px solid ${t.borderAcc}`,
-              boxShadow: `0 4px 20px ${t.cyanGlow}`,
+              boxShadow: `0 4px 20px ${(t as any).cyanGlow}`,
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <div style={{

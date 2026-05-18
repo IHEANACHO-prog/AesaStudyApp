@@ -94,7 +94,7 @@ const AdminPage: React.FC = () => {
       const [depts, lvls, crs] = await Promise.all([
         departmentApi.getAll(),
         levelApi.getAll(),
-        courseApi.getAll(),
+        (courseApi as any).getAll(),
       ]);
       setDepartments(depts);
       setLevels(lvls);

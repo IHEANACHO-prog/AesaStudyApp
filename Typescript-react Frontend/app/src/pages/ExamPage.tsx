@@ -308,7 +308,7 @@ const ExamPage: FC = () => {
                     Q{currentIdx + 1}
                   </div>
                   <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-1 rounded-lg capitalize">
-                    {q.question_type || 'mcq'}
+                    {q.questin_type || 'mcq'}
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
