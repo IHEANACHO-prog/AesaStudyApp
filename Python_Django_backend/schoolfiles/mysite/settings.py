@@ -126,4 +126,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 # ── Default primary key ───────────────────────────────────────────────────────
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
