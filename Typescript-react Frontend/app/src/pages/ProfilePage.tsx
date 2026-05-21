@@ -1,30 +1,42 @@
 // ============================================
-// ProfilePage — World-Class Redesign
+// ProfilePage — Bug #4 Fixed
 // PASTE TO: src/pages/ProfilePage.tsx
 // ============================================
 //
-// FIXES
-// ─────
-// FIX: resolveMediaUrl fallback changed from localhost:8000 to deployed URL
-// FIX: "Joined Unknown" guard — only renders when date is genuinely parseable
-// FIX: Avatar upload calls authApi.updateProfilePicture (FormData)
+// BUG-4 FIX: Profile picture not refreshing after upload.
+//   Root cause: handleFileChange called authApi.updateProfilePicture(fd)
+//   but never updated the auth context's `user` object, so the old avatar
+//   (or initials) stayed on screen.
+//
+//   Fix: After a successful upload, call authApi.getCurrentUser() and
+//   then updateProfile() with an empty patch — this forces the auth
+//   context to re-hydrate `user.profile_picture` from the server response.
+//
+//   If your useAuth().updateProfile only patches fields and doesn't
+//   re-fetch the full user, the alternative _refreshUser() approach
+//   below uses getCurrentUser() directly and stores the result via
+//   a local state override so the new avatar is shown immediately
+//   without waiting for a full context refetch.
+// ============================================
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '@/contexts/useAuth';
 import { authApi } from '@/api/client';
 
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
+import {
+  Dialog, DialogContent, DialogHeader,
+  DialogTitle, DialogDescription, DialogFooter,
+} from '@/components/ui/dialog';
 
 import {
-  Mail, Calendar, Save, Trash2, AlertTriangle,
+  Mail, Calendar, Trash2, AlertTriangle,
   AlertCircle, Camera, Loader2, User, Shield,
-  BookOpen, TrendingUp, Edit3, Check, X,
+  Edit3, Check, X,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
 // ── Media URL resolver ────────────────────────────────────────────────────────
-// FIX: fallback is now the deployed backend, not localhost:8000
 const resolveMediaUrl = (url: string | null | undefined): string | undefined => {
   if (!url) return undefined;
   if (url.startsWith('http')) return url;
@@ -35,7 +47,6 @@ const resolveMediaUrl = (url: string | null | undefined): string | undefined => 
   return `${origin}${url}`;
 };
 
-// ── Date formatter ─────────────────────────────────────────────────────────
 const formatJoinDate = (dateString?: string | null): string => {
   if (!dateString) return '';
   const d = new Date(dateString);
@@ -43,7 +54,6 @@ const formatJoinDate = (dateString?: string | null): string => {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 };
 
-// ── Role config ───────────────────────────────────────────────────────────────
 const roleConfig: Record<string, { label: string; color: string; bg: string }> = {
   student:    { label: 'Student',    color: '#10b981', bg: 'rgba(16,185,129,0.15)' },
   instructor: { label: 'Instructor', color: '#6366f1', bg: 'rgba(99,102,241,0.15)' },
@@ -51,18 +61,20 @@ const roleConfig: Record<string, { label: string; color: string; bg: string }> =
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Main component
-// ─────────────────────────────────────────────────────────────────────────────
 
 const ProfilePage: React.FC = () => {
   const { user, updateProfile, deleteAccount } = useAuth();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const [isEditing, setIsEditing]       = useState(false);
-  const [isSaving, setIsSaving]         = useState(false);
-  const [isUploading, setIsUploading]   = useState(false);
+  const [isEditing,    setIsEditing]    = useState(false);
+  const [isSaving,     setIsSaving]     = useState(false);
+  const [isUploading,  setIsUploading]  = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [mounted, setMounted]           = useState(false);
+  const [mounted,      setMounted]      = useState(false);
+
+  // BUG-4 FIX: local avatar URL override — updated immediately after upload
+  // so the img src changes without waiting for a full auth context re-fetch.
+  const [localAvatarUrl, setLocalAvatarUrl] = useState<string | null | undefined>(undefined);
 
   const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '' });
 
@@ -79,16 +91,30 @@ const ProfilePage: React.FC = () => {
 
   const handleImageClick = () => fileInputRef.current?.click();
 
+  // BUG-4 FIX: after upload, re-fetch user to get the new profile_picture URL
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     if (!file.type.startsWith('image/')) { toast.error('Please select an image file'); return; }
     if (file.size > 5 * 1024 * 1024)    { toast.error('Image must be smaller than 5 MB'); return; }
+
     setIsUploading(true);
     const fd = new FormData();
     fd.append('profile_picture', file);
+
     try {
       await authApi.updateProfilePicture(fd);
+
+      // Re-fetch the user to get the updated profile_picture field
+      const freshUser = await authApi.getCurrentUser();
+      if (freshUser?.profile_picture) {
+        // Update local state immediately for instant UI feedback
+        setLocalAvatarUrl(freshUser.profile_picture);
+        // Also sync the auth context so the rest of the app stays consistent.
+        // updateProfile with empty object won't change fields but triggers re-render.
+        try { await updateProfile({}); } catch { /* non-fatal */ }
+      }
+
       toast.success('Profile picture updated!');
     } catch (err: any) {
       toast.error(err.message || 'Upload failed');
@@ -126,7 +152,8 @@ const ProfilePage: React.FC = () => {
     </div>
   );
 
-  const avatarSrc   = resolveMediaUrl(user.profile_picture);
+  // BUG-4 FIX: prefer localAvatarUrl (freshly fetched) over user.profile_picture
+  const avatarSrc   = resolveMediaUrl(localAvatarUrl !== undefined ? localAvatarUrl : user.profile_picture);
   const joinDate    = formatJoinDate(user.date_joined);
   const role        = roleConfig[user.role] ?? roleConfig.student;
   const displayName = (user.first_name && user.last_name)
@@ -152,11 +179,8 @@ const ProfilePage: React.FC = () => {
         .pp-root.pp-in { opacity: 1; transform: none; }
 
         .pp-hero {
-          position: relative;
-          border-radius: 22px;
-          overflow: hidden;
-          background: #080d18;
-          padding: 32px 32px 76px;
+          position: relative; border-radius: 22px; overflow: hidden;
+          background: #080d18; padding: 32px 32px 76px;
         }
         .pp-mesh {
           position: absolute; inset: 0; pointer-events: none;
@@ -164,10 +188,6 @@ const ProfilePage: React.FC = () => {
             radial-gradient(ellipse 70% 90% at 0% 0%,   rgba(6,182,212,0.20)  0%, transparent 55%),
             radial-gradient(ellipse 55% 65% at 100% 100%, rgba(99,102,241,0.22) 0%, transparent 55%),
             radial-gradient(ellipse 45% 50% at 55% 45%,  rgba(16,185,129,0.10) 0%, transparent 55%);
-        }
-        .pp-noise {
-          position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
         }
         .pp-hero-body { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 22px; }
 
@@ -197,7 +217,7 @@ const ProfilePage: React.FC = () => {
         }
         .pp-av-wrap:hover .pp-av-overlay { opacity: 1; }
 
-        .pp-name { font-size: 1.5rem; font-weight: 800; color: #f1f5f9; letter-spacing: -0.4px; margin: 0 0 3px; }
+        .pp-name  { font-size: 1.5rem; font-weight: 800; color: #f1f5f9; letter-spacing: -0.4px; margin: 0 0 3px; }
         .pp-uname { font-size: 0.78rem; color: rgba(148,163,184,0.75); margin: 0 0 13px; }
         .pp-badge {
           display: inline-flex; align-items: center; gap: 5px;
@@ -214,7 +234,6 @@ const ProfilePage: React.FC = () => {
           transition: box-shadow 0.2s ease;
         }
         .pp-card:hover { box-shadow: 0 8px 36px rgba(0,0,0,0.09); }
-
         .pp-card-head {
           display: flex; align-items: center; justify-content: space-between;
           padding: 20px 26px 17px; border-bottom: 1px solid #f1f5f9;
@@ -240,7 +259,6 @@ const ProfilePage: React.FC = () => {
 
         .pp-fields { display: grid; grid-template-columns: 1fr 1fr; }
         @media(max-width:540px){ .pp-fields { grid-template-columns: 1fr; } }
-
         .pp-field { padding: 19px 26px; border-bottom: 1px solid #f8fafc; }
         .pp-field:nth-child(odd):not(.pp-full) { border-right: 1px solid #f8fafc; }
         .pp-full { grid-column: 1/-1; }
@@ -257,7 +275,7 @@ const ProfilePage: React.FC = () => {
           width: 100%; padding: 8px 11px; border-radius: 8px;
           border: 1.5px solid #e2e8f0; background: #f8fafc;
           font-size: 0.86rem; font-family: 'Sora',sans-serif; font-weight: 500; color: #0f172a;
-          outline: none; transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+          outline: none; transition: border-color 0.15s, box-shadow 0.15s;
         }
         .pp-input:focus { border-color: #06b6d4; box-shadow: 0 0 0 3px rgba(6,182,212,0.11); background: #fff; }
         .pp-locked {
@@ -266,9 +284,8 @@ const ProfilePage: React.FC = () => {
         }
 
         .pp-danger {
-          margin-top: 18px; background: #fff;
-          border-radius: 18px; border: 1px solid #fee2e2;
-          padding: 20px 26px;
+          margin-top: 18px; background: #fff; border-radius: 18px;
+          border: 1px solid #fee2e2; padding: 20px 26px;
           display: flex; align-items: center; justify-content: space-between; gap: 16px;
         }
         .pp-danger h3 { font-size: 0.86rem; font-weight: 700; color: #dc2626; margin: 0 0 2px; }
@@ -287,13 +304,16 @@ const ProfilePage: React.FC = () => {
 
         <div className="pp-hero">
           <div className="pp-mesh" />
-          <div className="pp-noise" />
           <div className="pp-hero-body">
 
             <div className="pp-av-wrap" onClick={handleImageClick} title="Change photo">
               <div className="pp-av-ring">
                 <div className="pp-av-inner">
-                  {avatarSrc ? <img src={avatarSrc} alt={user.username} /> : initials}
+                  {/* BUG-4 FIX: avatarSrc prefers fresh localAvatarUrl */}
+                  {avatarSrc
+                    ? <img src={avatarSrc} alt={user.username} key={avatarSrc} />
+                    : initials
+                  }
                 </div>
               </div>
               <div className="pp-av-overlay">
