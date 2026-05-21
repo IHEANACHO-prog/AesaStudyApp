@@ -68,15 +68,11 @@ const passwordStrength = (p: string): { score: number; label: string; color: str
 
 const Background: React.FC = () => (
   <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
-    {/* Base: same deep navy as dashboard */}
     <div className="absolute inset-0" style={{ backgroundColor: '#0a0f1e' }} />
-    {/* Subtle cyan glow top-right */}
     <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full"
       style={{ background: 'radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 70%)' }} />
-    {/* Subtle blue glow bottom-left */}
     <div className="absolute -bottom-32 -left-16 w-[400px] h-[400px] rounded-full"
       style={{ background: 'radial-gradient(circle, rgba(30,64,175,0.10) 0%, transparent 70%)' }} />
-    {/* Subtle grid overlay matching dashboard */}
     <div className="absolute inset-0 opacity-[0.025]"
       style={{
         backgroundImage: `linear-gradient(rgba(0,188,212,0.6) 1px, transparent 1px),
@@ -86,19 +82,105 @@ const Background: React.FC = () => (
   </div>
 );
 
-// ── Shared design tokens matching dashboard ───────────────────────────────────
-// Card bg:      #0d1526 (same as dashboard sidebar)
-// Input bg:     #111827
-// Border:       rgba(255,255,255,0.07)
-// Cyan accent:  #00bcd4 / #06b6d4
-// Text primary: #e2e8f0
-
+// ── Shared design tokens ──────────────────────────────────────────────────────
 const CARD_BG     = '#0d1526';
 const INPUT_BG    = '#111827';
 const BORDER      = 'rgba(255,255,255,0.07)';
 const CYAN        = '#06b6d4';
 const CYAN_DIM    = 'rgba(6,182,212,0.12)';
 const CYAN_BORDER = 'rgba(6,182,212,0.35)';
+
+// ── FIX: Global style overrides for dark-mode shadcn + inputs ─────────────────
+// These override shadcn CSS variable defaults which cause:
+//   1. Input text to be invisible (inherits light --foreground color)
+//   2. Select dropdown to have a white/light background
+//   3. Select option text to be invisible
+const GLOBAL_DARK_OVERRIDES = `
+  /* ── Input text visibility fix ──────────────────────────────────────────── */
+  /* Ensure typed text is always visible in all input/textarea elements        */
+  input, textarea {
+    color: #06b6d4 !important;
+    caret-color: #06b6d4 !important;
+    -webkit-text-fill-color: #06b6d4 !important;
+  }
+  input::placeholder, textarea::placeholder {
+    color: #334155 !important;
+    -webkit-text-fill-color: #334155 !important;
+    opacity: 1 !important;
+  }
+  /* Autofill override — browsers inject a white bg + dark text on autofill */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #111827 inset !important;
+    -webkit-text-fill-color: #06b6d4 !important;
+    caret-color: #06b6d4 !important;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  /* ── Shadcn Select dark-mode overrides ──────────────────────────────────── */
+  /* SelectTrigger: the closed button showing selected value                   */
+  [data-radix-popper-content-wrapper] *,
+  [role="listbox"],
+  [role="option"] {
+    --popover: 13 21 38 !important;
+    --popover-foreground: 203 213 225 !important;
+  }
+
+  /* SelectContent: the dropdown panel */
+  [role="listbox"] {
+    background-color: #0d1526 !important;
+    border: 1px solid rgba(255,255,255,0.07) !important;
+    color: #cbd5e1 !important;
+  }
+
+  /* SelectItem: each individual option row */
+  [role="option"] {
+    color: #cbd5e1 !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+  }
+  [role="option"]:hover,
+  [role="option"]:focus,
+  [role="option"][data-highlighted] {
+    background-color: rgba(6,182,212,0.12) !important;
+    color: #06b6d4 !important;
+    outline: none !important;
+  }
+  [role="option"][data-state="checked"] {
+    color: #06b6d4 !important;
+    background-color: rgba(6,182,212,0.10) !important;
+  }
+
+  /* SelectTrigger displayed value text */
+  [data-radix-select-trigger] span,
+  button[role="combobox"] span {
+    color: #cbd5e1 !important;
+  }
+  /* Placeholder text inside SelectTrigger */
+  [data-radix-select-trigger] [data-placeholder],
+  button[role="combobox"] [data-placeholder] {
+    color: #475569 !important;
+  }
+
+  /* ── Focus ring reset (removes shadcn blue ring on dark bg) ─────────────── */
+  input:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
+  .field-group { animation: fadeIn 0.2s ease; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.2); border-radius: 99px; }
+
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+`;
 
 // ── Field label ───────────────────────────────────────────────────────────────
 
@@ -158,6 +240,9 @@ const StrengthBar: React.FC<{ password: string }> = ({ password }) => {
 };
 
 // ── Styled input with icon ────────────────────────────────────────────────────
+// FIX: Added explicit color + caret-color on the <input> element itself.
+// The global style handles -webkit-text-fill-color, but inline style here
+// acts as a second layer of protection for non-WebKit browsers.
 
 const FieldInput: React.FC<{
   icon:          React.ElementType;
@@ -206,10 +291,22 @@ const FieldInput: React.FC<{
         minLength={minLength}
         autoComplete={autoComplete}
         style={{
-          width: '100%', height: '44px', paddingLeft: '42px', paddingRight: rightSlot ? '48px' : '14px',
-          borderRadius: '10px', border: `1px solid ${borderColor}`, backgroundColor: bgColor,
-          color: '#e2e8f0', fontSize: '14px', fontWeight: 600, outline: 'none',
-          boxSizing: 'border-box', transition: 'border-color 0.2s, background-color 0.2s',
+          width: '100%',
+          height: '44px',
+          paddingLeft: '42px',
+          paddingRight: rightSlot ? '48px' : '14px',
+          borderRadius: '10px',
+          border: `1px solid ${borderColor}`,
+          backgroundColor: bgColor,
+          // ── FIX: explicit text + caret color (overrides shadcn/Tailwind reset) ──
+          color: '#06b6d4',
+          caretColor: '#06b6d4',
+          // ────────────────────────────────────────────────────────────────────────
+          fontSize: '14px',
+          fontWeight: 600,
+          outline: 'none',
+          boxSizing: 'border-box',
+          transition: 'border-color 0.2s, background-color 0.2s',
           opacity: disabled ? 0.4 : 1,
         }}
         onFocus={e => { if (status === 'none') e.currentTarget.style.borderColor = CYAN_BORDER; }}
@@ -223,6 +320,69 @@ const FieldInput: React.FC<{
     </div>
   );
 };
+
+// ── Name input (used for First/Last name fields without icon) ─────────────────
+// FIX: Extracted into its own component so the dark-mode color is always applied
+// explicitly — the inline `color` on a plain <input> was previously missing.
+
+const NameInput: React.FC<{
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  touched: boolean;
+  error: string | null;
+  hasValue: boolean;
+}> = ({ placeholder, value, onChange, touched, error, hasValue }) => {
+  const borderColor = touched && error
+    ? 'rgba(248,113,113,0.45)'
+    : touched && hasValue
+      ? 'rgba(52,211,153,0.45)'
+      : BORDER;
+  const bgColor = touched && error
+    ? 'rgba(248,113,113,0.06)'
+    : touched && hasValue
+      ? 'rgba(52,211,153,0.06)'
+      : INPUT_BG;
+
+  return (
+    <input
+      placeholder={placeholder}
+      required
+      value={value}
+      onChange={onChange}
+      style={{
+        height: '44px',
+        padding: '0 12px',
+        borderRadius: '10px',
+        border: `1px solid ${borderColor}`,
+        backgroundColor: bgColor,
+        // ── FIX: explicit text + caret color ──
+        color: '#06b6d4',
+        caretColor: '#06b6d4',
+        // ──────────────────────────────────────
+        fontSize: '13px',
+        fontWeight: 600,
+        outline: 'none',
+        boxSizing: 'border-box',
+        width: '100%',
+        transition: 'border-color 0.2s, background-color 0.2s',
+      }}
+    />
+  );
+};
+
+// ── Select trigger style — FIX: explicit color so selected value is visible ───
+const getSelectTriggerStyle = (): React.CSSProperties => ({
+  height: '44px',
+  borderRadius: '10px',
+  backgroundColor: INPUT_BG,
+  border: `1px solid ${BORDER}`,
+  // ── FIX: without this, shadcn uses --foreground which may be dark on dark bg ──
+  color: '#cbd5e1',
+  // ─────────────────────────────────────────────────────────────────────────────
+  fontSize: '13px',
+  fontWeight: 600,
+});
 
 // ── Main component ─────────────────────────────────────────────────────────────
 
@@ -355,42 +515,27 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const pwStrength     = passwordStrength(commonData.password);
-  const passwordsMatch  = confirmPassword !== '' && commonData.password === confirmPassword;
-  const confirmStatus   = confirmPassword === '' ? 'none' : passwordsMatch ? 'ok' : 'error';
+  const pwStrength    = passwordStrength(commonData.password);
+  const passwordsMatch = confirmPassword !== '' && commonData.password === confirmPassword;
+  const confirmStatus  = confirmPassword === '' ? 'none' : passwordsMatch ? 'ok' : 'error';
 
   const roleConfig = [
     { id: 'student'    as UserRole, label: 'Student',    icon: GraduationCap, desc: 'Enrolled learner' },
     { id: 'instructor' as UserRole, label: 'Instructor',  icon: Briefcase,     desc: 'Course instructor' },
   ];
 
-  // ── Shared select style matching dashboard ──────────────────────────────────
-  const selectTriggerStyle: React.CSSProperties = {
-    height: '44px', borderRadius: '10px', backgroundColor: INPUT_BG,
-    border: `1px solid ${BORDER}`, color: '#e2e8f0', fontSize: '13px', fontWeight: 600,
-  };
-
   return (
     <>
-      <Background />
+      {/* ── FIX: inject all dark-mode overrides as a single <style> block ── */}
+      <style>{GLOBAL_DARK_OVERRIDES}</style>
 
-      <style>{`
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
-        .field-group { animation: fadeIn 0.2s ease; }
-        input::placeholder { color: #334155 !important; }
-        input:focus { border-color: ${CYAN_BORDER} !important; }
-        /* Scrollbar matching dark theme */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.2); border-radius: 99px; }
-      `}</style>
+      <Background />
 
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 16px', position: 'relative', zIndex: 10 }}>
         <div style={{ width: '100%', maxWidth: '420px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
 
           {/* ── Brand header ── */}
           <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
-            {/* Logo — matches dashboard icon style */}
             <div style={{
               width: '72px', height: '72px', borderRadius: '18px',
               background: 'linear-gradient(135deg, #0891b2 0%, #0ea5e9 50%, #2563eb 100%)',
@@ -405,7 +550,6 @@ const AuthPage: React.FC = () => {
                 Adaptive Learning &amp; Self‑Assessment Platform
               </p>
             </div>
-            {/* Feature badges — matching dashboard pill style */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
               {['Smart Courses', 'Live Exams', 'Analytics'].map(f => (
                 <span key={f} style={{
@@ -419,7 +563,7 @@ const AuthPage: React.FC = () => {
             </div>
           </div>
 
-          {/* ── Auth card — mirrors dashboard card style ── */}
+          {/* ── Auth card ── */}
           <div style={{
             borderRadius: '20px', border: `1px solid ${BORDER}`,
             backgroundColor: CARD_BG, overflow: 'hidden',
@@ -443,7 +587,6 @@ const AuthPage: React.FC = () => {
                   }}
                 >
                   {tab.label}
-                  {/* Active indicator — cyan line matching dashboard active states */}
                   <div style={{
                     position: 'absolute', bottom: 0, left: '25%', right: '25%', height: '2px',
                     borderRadius: '99px',
@@ -561,35 +704,29 @@ const AuthPage: React.FC = () => {
 
                   <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
 
-                    {/* Name row */}
+                    {/* Name row — FIX: uses NameInput which has explicit color */}
                     <div className="field-group" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                         <FieldLabel required>First Name</FieldLabel>
-                        <input
-                          placeholder="First" required
+                        <NameInput
+                          placeholder="First"
                           value={commonData.first_name}
                           onChange={e => { touch('firstName'); setCommonData(p => ({ ...p, first_name: e.target.value })); }}
-                          style={{
-                            height: '44px', padding: '0 12px', borderRadius: '10px',
-                            border: `1px solid ${touched.firstName && regErrors.firstName ? 'rgba(248,113,113,0.45)' : touched.firstName && commonData.first_name ? 'rgba(52,211,153,0.45)' : BORDER}`,
-                            backgroundColor: touched.firstName && regErrors.firstName ? 'rgba(248,113,113,0.06)' : touched.firstName && commonData.first_name ? 'rgba(52,211,153,0.06)' : INPUT_BG,
-                            color: '#e2e8f0', fontSize: '13px', fontWeight: 600, outline: 'none', boxSizing: 'border-box', width: '100%',
-                          }}
+                          touched={!!touched.firstName}
+                          error={regErrors.firstName}
+                          hasValue={!!commonData.first_name}
                         />
                         <FieldError message={regErrors.firstName} touched={!!touched.firstName} />
                       </div>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                         <FieldLabel required>Last Name</FieldLabel>
-                        <input
-                          placeholder="Last" required
+                        <NameInput
+                          placeholder="Last"
                           value={commonData.last_name}
                           onChange={e => { touch('lastName'); setCommonData(p => ({ ...p, last_name: e.target.value })); }}
-                          style={{
-                            height: '44px', padding: '0 12px', borderRadius: '10px',
-                            border: `1px solid ${touched.lastName && regErrors.lastName ? 'rgba(248,113,113,0.45)' : touched.lastName && commonData.last_name ? 'rgba(52,211,153,0.45)' : BORDER}`,
-                            backgroundColor: touched.lastName && regErrors.lastName ? 'rgba(248,113,113,0.06)' : touched.lastName && commonData.last_name ? 'rgba(52,211,153,0.06)' : INPUT_BG,
-                            color: '#e2e8f0', fontSize: '13px', fontWeight: 600, outline: 'none', boxSizing: 'border-box', width: '100%',
-                          }}
+                          touched={!!touched.lastName}
+                          error={regErrors.lastName}
+                          hasValue={!!commonData.last_name}
                         />
                         <FieldError message={regErrors.lastName} touched={!!touched.lastName} />
                       </div>
@@ -677,37 +814,70 @@ const AuthPage: React.FC = () => {
                       </div>
                     ) : (
                       <div className="field-group" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                        {/* Department */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                           <p style={{ color: '#94a3b8', fontWeight: 700, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: '4px', margin: 0 }}>
                             Department <span style={{ color: CYAN, fontSize: '10px', fontWeight: 900 }}>*</span>
                           </p>
+                          {/* FIX: SelectTrigger now uses getSelectTriggerStyle() which sets color explicitly */}
                           <Select value={roleData.department} onValueChange={v => setRoleData(p => ({ ...p, department: v }))}>
-                            <SelectTrigger style={selectTriggerStyle}>
+                            <SelectTrigger style={getSelectTriggerStyle()}>
                               <SelectValue placeholder="Select…" />
                             </SelectTrigger>
-                            <SelectContent className="rounded-xl" style={{ backgroundColor: '#0d1526', border: `1px solid ${BORDER}` }}>
+                            {/* FIX: SelectContent bg + text color set via both style prop and data attributes
+                                The global GLOBAL_DARK_OVERRIDES also targets [role="listbox"] and [role="option"]
+                                for full coverage across different shadcn versions */}
+                            <SelectContent
+                              className="rounded-xl"
+                              style={{
+                                backgroundColor: '#0d1526',
+                                border: `1px solid ${BORDER}`,
+                                color: '#cbd5e1',
+                              }}
+                            >
                               {departments.length === 0
                                 ? <SelectItem value="__none" disabled style={{ color: '#475569' }}>No departments</SelectItem>
                                 : departments.map(d => (
-                                    <SelectItem key={d.id} value={String(d.id)} style={{ color: '#cbd5e1', fontWeight: 600 }}>{d.name}</SelectItem>
+                                    <SelectItem
+                                      key={d.id}
+                                      value={String(d.id)}
+                                      style={{ color: '#cbd5e1', fontWeight: 600 }}
+                                    >
+                                      {d.name}
+                                    </SelectItem>
                                   ))
                               }
                             </SelectContent>
                           </Select>
                         </div>
+
+                        {/* Level */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                           <p style={{ color: '#94a3b8', fontWeight: 700, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: '4px', margin: 0 }}>
                             Level <span style={{ color: CYAN, fontSize: '10px', fontWeight: 900 }}>*</span>
                           </p>
                           <Select value={roleData.level} onValueChange={v => setRoleData(p => ({ ...p, level: v }))}>
-                            <SelectTrigger style={selectTriggerStyle}>
+                            <SelectTrigger style={getSelectTriggerStyle()}>
                               <SelectValue placeholder="Select…" />
                             </SelectTrigger>
-                            <SelectContent className="rounded-xl" style={{ backgroundColor: '#0d1526', border: `1px solid ${BORDER}` }}>
+                            <SelectContent
+                              className="rounded-xl"
+                              style={{
+                                backgroundColor: '#0d1526',
+                                border: `1px solid ${BORDER}`,
+                                color: '#cbd5e1',
+                              }}
+                            >
                               {levels.length === 0
                                 ? <SelectItem value="__none" disabled style={{ color: '#475569' }}>No levels</SelectItem>
                                 : levels.map(l => (
-                                    <SelectItem key={l.id} value={String(l.id)} style={{ color: '#cbd5e1', fontWeight: 600 }}>{l.name}</SelectItem>
+                                    <SelectItem
+                                      key={l.id}
+                                      value={String(l.id)}
+                                      style={{ color: '#cbd5e1', fontWeight: 600 }}
+                                    >
+                                      {l.name}
+                                    </SelectItem>
                                   ))
                               }
                             </SelectContent>
@@ -759,10 +929,6 @@ const AuthPage: React.FC = () => {
 
         </div>
       </div>
-
-      <style>{`
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      `}</style>
     </>
   );
 };
