@@ -879,3 +879,8 @@ svg, img, video, canvas, input, textarea, select,
 .aesa-skeleton {
   transition: none !important;
 }
+/* index.css — add these lines */
+html, body, #root {
+  background-color: #0a0f1e;
+  min-height: 100%;
+}
