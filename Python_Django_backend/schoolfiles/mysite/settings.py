@@ -88,7 +88,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-# ── Database ──────────────────────────────────────────────────────────────────
+## ── Database ──────────────────────────────────────────────────────────────────
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -97,6 +97,10 @@ DATABASES = {
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
         'PORT': os.getenv('DB_PORT', '5432'),
+        'OPTIONS': {
+            'connect_timeout': 60,
+            'sslmode': 'require',
+        },
     }
 }
 

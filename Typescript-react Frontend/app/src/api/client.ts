@@ -2,18 +2,6 @@
 // AESA API Client — Fully Corrected Version
 // PASTE TO: src/api/client.ts
 // ============================================
-//
-// FIXES IN THIS VERSION
-// ──────────────────────
-// FIX 1: forumApi.getQuestion(courseId, postId) — was missing courseId param,
-//         causing /forum/course/5/questions/undefined/ 404 errors.
-//
-// FIX 2: forumApi.createAnswer sends { body } — matches backend field name.
-//         Was incorrectly typed as { answer: string }; backend returns `body`.
-//
-// FIX 3: forumApi.updateAnswer uses { body } for consistency with backend.
-//
-// All other APIs unchanged from previous corrected version.
 
 import type {
   LoginRequest, LoginResponse, Department, Level, Course, Topic,
@@ -24,8 +12,8 @@ import type {
 } from '@/types';
 
 // ── Environment ───────────────────────────────────────────────────────────────
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+// FIX: fallback now points to deployed backend, not localhost
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://aesastudyapp.onrender.com/api';
 
 // ── LocalStorage keys ─────────────────────────────────────────────────────────
 
@@ -343,8 +331,6 @@ export const topicApi = {
       method: 'POST',
     }),
 
-  // FIX: Load which topics the student has already completed so progress
-  // ring and Done badges survive page navigation (was resetting to 0 on every mount)
   getCompleted: (courseId: number) =>
     apiRequest<{ completed_topic_ids: number[] }>(`/course/${courseId}/topics/completed/`),
 };
@@ -512,25 +498,11 @@ export const attemptApi = {
       `/course/${courseId}/exam/${examId}/start_stop/results/`,
     ),
 
-  // FIX: PerformancePage calls attemptApi.getAttemptsByCourse(courseId) but
-  // this method was missing — causing attempt history to always be empty.
-  // We fetch all exams for the course, then their results.
   getAttemptsByCourse: (courseId: number) =>
     apiRequest<ExamResultRow[]>(`/course/${courseId}/attempts/`),
 };
 
 // ── Forum ─────────────────────────────────────────────────────────────────────
-//
-// URL STRUCTURE (matches Django urls.py):
-//   List/create posts:   /forum/course/<courseId>/questions/
-//   Get/update/delete:   /forum/course/<courseId>/questions/<postId>/
-//   List answers:        /forum/questions/<postId>/answers/
-//   Create answer:       /forum/questions/<postId>/answers/create/
-//   Get/update/delete:   /forum/questions/<postId>/answers/<answerId>/
-//
-// FIX 1: getQuestion now takes (courseId, postId) — was (postId) only,
-//         causing the URL to render as /questions/undefined/
-// FIX 2: createAnswer / updateAnswer use { body } field — backend returns `body`
 
 export const forumApi = {
   getQuestions: (courseId: number) =>
@@ -541,7 +513,6 @@ export const forumApi = {
       method: 'POST', body: JSON.stringify(data),
     }),
 
-  // FIX 1: courseId param added — was missing, caused /questions/undefined/ 404
   getQuestion: (courseId: number, postId: number) =>
     apiRequest<ForumPost>(`/forum/course/${courseId}/questions/${postId}/`),
 
@@ -560,7 +531,6 @@ export const forumApi = {
   getAnswers: (postId: number) =>
     apiRequest<ForumReply[]>(`/forum/questions/${postId}/answers/`),
 
-  // Backend serializer field is `answer` — do NOT rename to `body`
   createAnswer: (postId: number, data: { answer: string }) =>
     apiRequest<ForumReply>(`/forum/questions/${postId}/answers/create/`, {
       method: 'POST', body: JSON.stringify(data),

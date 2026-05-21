@@ -1,0 +1,1001 @@
+id,course,question_text,question_type,order
+1,EDA 105,"When evaluating Concepts and Scope, holistic development is often seen as a catalyst for:",mcq,1
+2,EDA 105,Identify the major factor influencing colonial era within the context of Historical Development.,mcq,2
+3,EDA 105,"When evaluating Philosophy and Goals, self-reliance is often seen as a catalyst for:",mcq,3
+4,EDA 105,"When evaluating Psychological Foundations, stages of artistic development is often seen as a catalyst for:",mcq,4
+5,EDA 105,Which of the following best describes the concept of community values in Sociological Perspectives?,mcq,5
+6,EDA 105,True or False: STEAM is considered a secondary element in the framework of Relationship with Other Disciplines.,true_false,6
+7,EDA 105,"When evaluating Professional Ethics, professionalism is often seen as a catalyst for:",mcq,7
+8,EDA 105,True or False: holistic development is considered a secondary element in the framework of Concepts and Scope.,true_false,8
+9,EDA 105,"When evaluating Historical Development, pre-colonial is often seen as a catalyst for:",mcq,9
+10,EDA 105,Which of the following best describes the concept of creative thinking in Philosophy and Goals?,mcq,10
+11,EDA 105,Identify the major factor influencing stages of artistic development within the context of Psychological Foundations.,mcq,11
+12,EDA 105,"In the Nigerian educational system, cultural transmission plays a vital role in Sociological Perspectives by:",mcq,12
+13,EDA 105,A key characteristic of language arts as discussed in EDA 105 is:,mcq,13
+14,EDA 105,"In the Nigerian educational system, integrity plays a vital role in Professional Ethics by:",mcq,14
+15,EDA 105,Which of the following best describes the concept of holistic development in Concepts and Scope?,mcq,15
+16,EDA 105,"When evaluating Historical Development, 1969 curriculum conference is often seen as a catalyst for:",mcq,16
+17,EDA 105,Which scholar is most associated with the study of cultural identity in Philosophy and Goals?,mcq,17
+18,EDA 105,A key characteristic of Piaget as discussed in EDA 105 is:,mcq,18
+19,EDA 105,Which scholar is most associated with the study of cultural preservation in Sociological Perspectives?,mcq,19
+20,EDA 105,A key characteristic of integration as discussed in EDA 105 is:,mcq,20
+21,EDA 105,"According to scholars in EDA 105, integrity is primarily concerned with:",mcq,21
+22,EDA 105,"According to scholars in EDA 105, holistic development is primarily concerned with:",mcq,22
+23,EDA 105,"In the Nigerian educational system, 1969 curriculum conference plays a vital role in Historical Development by:",mcq,23
+24,EDA 105,"When evaluating Philosophy and Goals, National Policy on Education is often seen as a catalyst for:",mcq,24
+25,EDA 105,Identify the major factor influencing stages of artistic development within the context of Psychological Foundations.,mcq,25
+26,EDA 105,True or False: socialization is considered a secondary element in the framework of Sociological Perspectives.,true_false,26
+27,EDA 105,"According to scholars in EDA 105, integration is primarily concerned with:",mcq,27
+28,EDA 105,"In the Nigerian educational system, professionalism plays a vital role in Professional Ethics by:",mcq,28
+29,EDA 105,Which of the following best describes the concept of visual arts in Concepts and Scope?,mcq,29
+30,EDA 105,Which of the following best describes the concept of colonial era in Historical Development?,mcq,30
+31,EDA 105,A key characteristic of creative thinking as discussed in EDA 105 is:,mcq,31
+32,EDA 105,Identify the major factor influencing cognitive growth within the context of Psychological Foundations.,mcq,32
+33,EDA 105,True or False: socialization is considered a secondary element in the framework of Sociological Perspectives.,true_false,33
+34,EDA 105,Identify the major factor influencing STEAM within the context of Relationship with Other Disciplines.,mcq,34
+35,EDA 105,A key characteristic of confidentiality as discussed in EDA 105 is:,mcq,35
+36,EDA 105,True or False: holistic development is considered a secondary element in the framework of Concepts and Scope.,true_false,36
+37,EDA 105,"According to scholars in EDA 105, 1969 curriculum conference is primarily concerned with:",mcq,37
+38,EDA 105,A key characteristic of creative thinking as discussed in EDA 105 is:,mcq,38
+39,EDA 105,Which of the following best describes the concept of Piaget in Psychological Foundations?,mcq,39
+40,EDA 105,Identify the major factor influencing community values within the context of Sociological Perspectives.,mcq,40
+41,EDA 105,Which scholar is most associated with the study of integration in Relationship with Other Disciplines?,mcq,41
+42,EDA 105,True or False: professionalism is considered a secondary element in the framework of Professional Ethics.,true_false,42
+43,EDA 105,A key characteristic of performing arts as discussed in EDA 105 is:,mcq,43
+44,EDA 105,Identify the major factor influencing 1969 curriculum conference within the context of Historical Development.,mcq,44
+45,EDA 105,A key characteristic of cultural identity as discussed in EDA 105 is:,mcq,45
+46,EDA 105,Which scholar is most associated with the study of Lowenfeld in Psychological Foundations?,mcq,46
+47,EDA 105,"In the Nigerian educational system, socialization plays a vital role in Sociological Perspectives by:",mcq,47
+48,EDA 105,"In the Nigerian educational system, interdisciplinary learning plays a vital role in Relationship with Other Disciplines by:",mcq,48
+49,EDA 105,"In the Nigerian educational system, teacher-student boundaries plays a vital role in Professional Ethics by:",mcq,49
+50,EDA 105,Identify the major factor influencing holistic development within the context of Concepts and Scope.,mcq,50
+51,EDA 105,Which scholar is most associated with the study of 1969 curriculum conference in Historical Development?,mcq,51
+52,EDA 105,"In the Nigerian educational system, cultural identity plays a vital role in Philosophy and Goals by:",mcq,52
+53,EDA 105,Which of the following best describes the concept of stages of artistic development in Psychological Foundations?,mcq,53
+54,EDA 105,Which scholar is most associated with the study of cultural transmission in Sociological Perspectives?,mcq,54
+55,EDA 105,A key characteristic of STEAM as discussed in EDA 105 is:,mcq,55
+56,EDA 105,Which scholar is most associated with the study of confidentiality in Professional Ethics?,mcq,56
+57,EDA 105,True or False: aesthetic is considered a secondary element in the framework of Concepts and Scope.,true_false,57
+58,EDA 105,True or False: Aina Onabolu is considered a secondary element in the framework of Historical Development.,true_false,58
+59,EDA 105,"In the Nigerian educational system, self-reliance plays a vital role in Philosophy and Goals by:",mcq,59
+60,EDA 105,"According to scholars in EDA 105, Piaget is primarily concerned with:",mcq,60
+61,EDA 105,A key characteristic of cultural preservation as discussed in EDA 105 is:,mcq,61
+62,EDA 105,"When evaluating Relationship with Other Disciplines, integration is often seen as a catalyst for:",mcq,62
+63,EDA 105,Identify the major factor influencing teacher-student boundaries within the context of Professional Ethics.,mcq,63
+64,EDA 105,"According to scholars in EDA 105, performing arts is primarily concerned with:",mcq,64
+65,EDA 105,Identify the major factor influencing 1969 curriculum conference within the context of Historical Development.,mcq,65
+66,EDA 105,Which scholar is most associated with the study of self-reliance in Philosophy and Goals?,mcq,66
+67,EDA 105,Identify the major factor influencing stages of artistic development within the context of Psychological Foundations.,mcq,67
+68,EDA 105,A key characteristic of cultural preservation as discussed in EDA 105 is:,mcq,68
+69,EDA 105,"According to scholars in EDA 105, interdisciplinary learning is primarily concerned with:",mcq,69
+70,EDA 105,Which of the following best describes the concept of teacher-student boundaries in Professional Ethics?,mcq,70
+71,EDA 105,Identify the major factor influencing visual arts within the context of Concepts and Scope.,mcq,71
+72,EDA 105,Which of the following best describes the concept of 1969 curriculum conference in Historical Development?,mcq,72
+73,EDA 105,Which of the following best describes the concept of National Policy on Education in Philosophy and Goals?,mcq,73
+74,EDA 105,"According to scholars in EDA 105, stages of artistic development is primarily concerned with:",mcq,74
+75,EDA 105,"When evaluating Sociological Perspectives, cultural transmission is often seen as a catalyst for:",mcq,75
+76,EDA 105,Which of the following best describes the concept of interdisciplinary learning in Relationship with Other Disciplines?,mcq,76
+77,EDA 105,Which of the following best describes the concept of teacher-student boundaries in Professional Ethics?,mcq,77
+78,EDA 105,"According to scholars in EDA 105, visual arts is primarily concerned with:",mcq,78
+79,EDA 105,True or False: colonial era is considered a secondary element in the framework of Historical Development.,true_false,79
+80,EDA 105,A key characteristic of self-reliance as discussed in EDA 105 is:,mcq,80
+81,EDA 105,Identify the major factor influencing cognitive growth within the context of Psychological Foundations.,mcq,81
+82,EDA 105,True or False: cultural transmission is considered a secondary element in the framework of Sociological Perspectives.,true_false,82
+83,EDA 105,A key characteristic of STEAM as discussed in EDA 105 is:,mcq,83
+84,EDA 105,A key characteristic of integrity as discussed in EDA 105 is:,mcq,84
+85,EDA 105,"According to scholars in EDA 105, holistic development is primarily concerned with:",mcq,85
+86,EDA 105,"When evaluating Historical Development, colonial era is often seen as a catalyst for:",mcq,86
+87,EDA 105,Which scholar is most associated with the study of National Policy on Education in Philosophy and Goals?,mcq,87
+88,EDA 105,"In the Nigerian educational system, stages of artistic development plays a vital role in Psychological Foundations by:",mcq,88
+89,EDA 105,True or False: cultural transmission is considered a secondary element in the framework of Sociological Perspectives.,true_false,89
+90,EDA 105,Identify the major factor influencing language arts within the context of Relationship with Other Disciplines.,mcq,90
+91,EDA 105,Which of the following best describes the concept of integrity in Professional Ethics?,mcq,91
+92,EDA 105,A key characteristic of visual arts as discussed in EDA 105 is:,mcq,92
+93,EDA 105,A key characteristic of pre-colonial as discussed in EDA 105 is:,mcq,93
+94,EDA 105,"When evaluating Philosophy and Goals, creative thinking is often seen as a catalyst for:",mcq,94
+95,EDA 105,"When evaluating Psychological Foundations, Lowenfeld is often seen as a catalyst for:",mcq,95
+96,EDA 105,"In the Nigerian educational system, cultural preservation plays a vital role in Sociological Perspectives by:",mcq,96
+97,EDA 105,"In the Nigerian educational system, integration plays a vital role in Relationship with Other Disciplines by:",mcq,97
+98,EDA 105,True or False: confidentiality is considered a secondary element in the framework of Professional Ethics.,true_false,98
+99,EDA 105,A key characteristic of performing arts as discussed in EDA 105 is:,mcq,99
+100,EDA 105,A key characteristic of colonial era as discussed in EDA 105 is:,mcq,100
+101,EDA 106,True or False: dynamic is considered a secondary element in the framework of Concept of Culture.,true_false,1
+102,EDA 106,"In the Nigerian educational system, language plays a vital role in Elements of Culture by:",mcq,2
+103,EDA 106,True or False: acculturation is considered a secondary element in the framework of Culture and Society.,true_false,3
+104,EDA 106,"In the Nigerian educational system, Benin bronzes plays a vital role in Nigerian Cultural Heritage by:",mcq,4
+105,EDA 106,"According to scholars in EDA 106, secular art is primarily concerned with:",mcq,5
+106,EDA 106,"According to scholars in EDA 106, hybridity is primarily concerned with:",mcq,6
+107,EDA 106,True or False: Ministry of Culture is considered a secondary element in the framework of Cultural Policy in Nigeria.,true_false,7
+108,EDA 106,"In the Nigerian educational system, dynamic plays a vital role in Concept of Culture by:",mcq,8
+109,EDA 106,Identify the major factor influencing norms within the context of Elements of Culture.,mcq,9
+110,EDA 106,"In the Nigerian educational system, social structure plays a vital role in Culture and Society by:",mcq,10
+111,EDA 106,"According to scholars in EDA 106, traditional festivals is primarily concerned with:",mcq,11
+112,EDA 106,True or False: symbolism is considered a secondary element in the framework of Art as a Cultural Expression.,true_false,12
+113,EDA 106,"According to scholars in EDA 106, digital culture is primarily concerned with:",mcq,13
+114,EDA 106,"According to scholars in EDA 106, promotion is primarily concerned with:",mcq,14
+115,EDA 106,Which of the following best describes the concept of material culture in Concept of Culture?,mcq,15
+116,EDA 106,Which scholar is most associated with the study of language in Elements of Culture?,mcq,16
+117,EDA 106,Which scholar is most associated with the study of enculturation in Culture and Society?,mcq,17
+118,EDA 106,Which scholar is most associated with the study of Igbo-Ukwu in Nigerian Cultural Heritage?,mcq,18
+119,EDA 106,Which of the following best describes the concept of symbolism in Art as a Cultural Expression?,mcq,19
+120,EDA 106,"In the Nigerian educational system, digital culture plays a vital role in Globalization and Culture by:",mcq,20
+121,EDA 106,"When evaluating Cultural Policy in Nigeria, promotion is often seen as a catalyst for:",mcq,21
+122,EDA 106,Which of the following best describes the concept of dynamic in Concept of Culture?,mcq,22
+123,EDA 106,Which scholar is most associated with the study of symbols in Elements of Culture?,mcq,23
+124,EDA 106,Which scholar is most associated with the study of enculturation in Culture and Society?,mcq,24
+125,EDA 106,"When evaluating Nigerian Cultural Heritage, Nok art is often seen as a catalyst for:",mcq,25
+126,EDA 106,"When evaluating Art as a Cultural Expression, secular art is often seen as a catalyst for:",mcq,26
+127,EDA 106,Identify the major factor influencing cultural imperialism within the context of Globalization and Culture.,mcq,27
+128,EDA 106,Which scholar is most associated with the study of preservation in Cultural Policy in Nigeria?,mcq,28
+129,EDA 106,True or False: shared values is considered a secondary element in the framework of Concept of Culture.,true_false,29
+130,EDA 106,True or False: symbols is considered a secondary element in the framework of Elements of Culture.,true_false,30
+131,EDA 106,Identify the major factor influencing social structure within the context of Culture and Society.,mcq,31
+132,EDA 106,"According to scholars in EDA 106, Nok art is primarily concerned with:",mcq,32
+133,EDA 106,"According to scholars in EDA 106, symbolism is primarily concerned with:",mcq,33
+134,EDA 106,"When evaluating Globalization and Culture, global village is often seen as a catalyst for:",mcq,34
+135,EDA 106,True or False: preservation is considered a secondary element in the framework of Cultural Policy in Nigeria.,true_false,35
+136,EDA 106,"When evaluating Concept of Culture, shared values is often seen as a catalyst for:",mcq,36
+137,EDA 106,"When evaluating Elements of Culture, norms is often seen as a catalyst for:",mcq,37
+138,EDA 106,"In the Nigerian educational system, cultural change plays a vital role in Culture and Society by:",mcq,38
+139,EDA 106,"In the Nigerian educational system, Igbo-Ukwu plays a vital role in Nigerian Cultural Heritage by:",mcq,39
+140,EDA 106,Which of the following best describes the concept of symbolism in Art as a Cultural Expression?,mcq,40
+141,EDA 106,"When evaluating Globalization and Culture, digital culture is often seen as a catalyst for:",mcq,41
+142,EDA 106,"When evaluating Cultural Policy in Nigeria, preservation is often seen as a catalyst for:",mcq,42
+143,EDA 106,Which of the following best describes the concept of material culture in Concept of Culture?,mcq,43
+144,EDA 106,Which scholar is most associated with the study of norms in Elements of Culture?,mcq,44
+145,EDA 106,Identify the major factor influencing social structure within the context of Culture and Society.,mcq,45
+146,EDA 106,True or False: Igbo-Ukwu is considered a secondary element in the framework of Nigerian Cultural Heritage.,true_false,46
+147,EDA 106,A key characteristic of ritual art as discussed in EDA 106 is:,mcq,47
+148,EDA 106,"When evaluating Globalization and Culture, cultural imperialism is often seen as a catalyst for:",mcq,48
+149,EDA 106,"According to scholars in EDA 106, NCAC is primarily concerned with:",mcq,49
+150,EDA 106,Which of the following best describes the concept of non-material culture in Concept of Culture?,mcq,50
+151,EDA 106,"According to scholars in EDA 106, language is primarily concerned with:",mcq,51
+152,EDA 106,"When evaluating Culture and Society, enculturation is often seen as a catalyst for:",mcq,52
+153,EDA 106,"According to scholars in EDA 106, Benin bronzes is primarily concerned with:",mcq,53
+154,EDA 106,Identify the major factor influencing symbolism within the context of Art as a Cultural Expression.,mcq,54
+155,EDA 106,"According to scholars in EDA 106, hybridity is primarily concerned with:",mcq,55
+156,EDA 106,True or False: promotion is considered a secondary element in the framework of Cultural Policy in Nigeria.,true_false,56
+157,EDA 106,A key characteristic of non-material culture as discussed in EDA 106 is:,mcq,57
+158,EDA 106,Which of the following best describes the concept of language in Elements of Culture?,mcq,58
+159,EDA 106,True or False: enculturation is considered a secondary element in the framework of Culture and Society.,true_false,59
+160,EDA 106,Which scholar is most associated with the study of Igbo-Ukwu in Nigerian Cultural Heritage?,mcq,60
+161,EDA 106,True or False: symbolism is considered a secondary element in the framework of Art as a Cultural Expression.,true_false,61
+162,EDA 106,Which scholar is most associated with the study of global village in Globalization and Culture?,mcq,62
+163,EDA 106,"In the Nigerian educational system, NCAC plays a vital role in Cultural Policy in Nigeria by:",mcq,63
+164,EDA 106,"According to scholars in EDA 106, non-material culture is primarily concerned with:",mcq,64
+165,EDA 106,"When evaluating Elements of Culture, norms is often seen as a catalyst for:",mcq,65
+166,EDA 106,Identify the major factor influencing acculturation within the context of Culture and Society.,mcq,66
+167,EDA 106,"According to scholars in EDA 106, traditional festivals is primarily concerned with:",mcq,67
+168,EDA 106,"In the Nigerian educational system, symbolism plays a vital role in Art as a Cultural Expression by:",mcq,68
+169,EDA 106,Which of the following best describes the concept of hybridity in Globalization and Culture?,mcq,69
+170,EDA 106,"In the Nigerian educational system, promotion plays a vital role in Cultural Policy in Nigeria by:",mcq,70
+171,EDA 106,A key characteristic of dynamic as discussed in EDA 106 is:,mcq,71
+172,EDA 106,Which scholar is most associated with the study of religion in Elements of Culture?,mcq,72
+173,EDA 106,Which scholar is most associated with the study of enculturation in Culture and Society?,mcq,73
+174,EDA 106,Which scholar is most associated with the study of Benin bronzes in Nigerian Cultural Heritage?,mcq,74
+175,EDA 106,"When evaluating Art as a Cultural Expression, aesthetic values is often seen as a catalyst for:",mcq,75
+176,EDA 106,"In the Nigerian educational system, cultural imperialism plays a vital role in Globalization and Culture by:",mcq,76
+177,EDA 106,True or False: preservation is considered a secondary element in the framework of Cultural Policy in Nigeria.,true_false,77
+178,EDA 106,A key characteristic of shared values as discussed in EDA 106 is:,mcq,78
+179,EDA 106,Identify the major factor influencing norms within the context of Elements of Culture.,mcq,79
+180,EDA 106,A key characteristic of cultural change as discussed in EDA 106 is:,mcq,80
+181,EDA 106,Which scholar is most associated with the study of Igbo-Ukwu in Nigerian Cultural Heritage?,mcq,81
+182,EDA 106,"When evaluating Art as a Cultural Expression, symbolism is often seen as a catalyst for:",mcq,82
+183,EDA 106,Which of the following best describes the concept of global village in Globalization and Culture?,mcq,83
+184,EDA 106,Which scholar is most associated with the study of Ministry of Culture in Cultural Policy in Nigeria?,mcq,84
+185,EDA 106,Identify the major factor influencing dynamic within the context of Concept of Culture.,mcq,85
+186,EDA 106,Identify the major factor influencing language within the context of Elements of Culture.,mcq,86
+187,EDA 106,Which scholar is most associated with the study of cultural change in Culture and Society?,mcq,87
+188,EDA 106,"In the Nigerian educational system, Igbo-Ukwu plays a vital role in Nigerian Cultural Heritage by:",mcq,88
+189,EDA 106,Which of the following best describes the concept of aesthetic values in Art as a Cultural Expression?,mcq,89
+190,EDA 106,Identify the major factor influencing cultural imperialism within the context of Globalization and Culture.,mcq,90
+191,EDA 106,Which scholar is most associated with the study of preservation in Cultural Policy in Nigeria?,mcq,91
+192,EDA 106,"When evaluating Concept of Culture, shared values is often seen as a catalyst for:",mcq,92
+193,EDA 106,"In the Nigerian educational system, language plays a vital role in Elements of Culture by:",mcq,93
+194,EDA 106,"When evaluating Culture and Society, social structure is often seen as a catalyst for:",mcq,94
+195,EDA 106,"According to scholars in EDA 106, traditional festivals is primarily concerned with:",mcq,95
+196,EDA 106,Identify the major factor influencing symbolism within the context of Art as a Cultural Expression.,mcq,96
+197,EDA 106,"When evaluating Globalization and Culture, global village is often seen as a catalyst for:",mcq,97
+198,EDA 106,Which of the following best describes the concept of preservation in Cultural Policy in Nigeria?,mcq,98
+199,EDA 106,"When evaluating Concept of Culture, shared values is often seen as a catalyst for:",mcq,99
+200,EDA 106,A key characteristic of symbols as discussed in EDA 106 is:,mcq,100
+201,EDA 222,What is the significant difference between demonstration method and other methods in Pedagogical Approaches?,mcq,1
+202,EDA 222,"According to standard practices in Visual Arts Teaching, studio pedagogy should be implemented by:",mcq,2
+203,EDA 222,"When applying improvisation within EDA 222, the instructor's primary goal is to:",mcq,3
+204,EDA 222,Identify the core component of instructional sequence as it relates to Lesson Planning.,mcq,4
+205,EDA 222,What is the significant difference between studio safety and other methods in Classroom Management?,mcq,5
+206,EDA 222,"When applying performance rubrics within EDA 222, the instructor's primary goal is to:",mcq,6
+207,EDA 222,What is the significant difference between skill isolation and other methods in Micro-teaching?,mcq,7
+208,EDA 222,What is the significant difference between project method and other methods in Pedagogical Approaches?,mcq,8
+209,EDA 222,A student utilizing criticism cycles in a EDA 222 setting is likely demonstrating:,mcq,9
+210,EDA 222,"In the context of Music and Dance Strategies, which technique best illustrates the use of improvisation?",mcq,10
+211,EDA 222,What is the significant difference between behavioral objectives and other methods in Lesson Planning?,mcq,11
+212,EDA 222,"In the context of Classroom Management, which technique best illustrates the use of collaborative spaces?",mcq,12
+213,EDA 222,Identify the core component of formative feedback as it relates to Assessment Techniques.,mcq,13
+214,EDA 222,"True or False: In EDA 222, feedback loops is primarily used for summative rather than formative purposes.",true_false,14
+215,EDA 222,"True or False: In EDA 222, project method is primarily used for summative rather than formative purposes.",true_false,15
+216,EDA 222,"In the context of Visual Arts Teaching, which technique best illustrates the use of color theory instruction?",mcq,16
+217,EDA 222,What is the significant difference between aural training and other methods in Music and Dance Strategies?,mcq,17
+218,EDA 222,"In the context of Lesson Planning, which technique best illustrates the use of entry behavior?",mcq,18
+219,EDA 222,What is the significant difference between studio safety and other methods in Classroom Management?,mcq,19
+220,EDA 222,"True or False: In EDA 222, formative feedback is primarily used for summative rather than formative purposes.",true_false,20
+221,EDA 222,What is the significant difference between skill isolation and other methods in Micro-teaching?,mcq,21
+222,EDA 222,What is the significant difference between project method and other methods in Pedagogical Approaches?,mcq,22
+223,EDA 222,"True or False: In EDA 222, criticism cycles is primarily used for summative rather than formative purposes.",true_false,23
+224,EDA 222,"True or False: In EDA 222, aural training is primarily used for summative rather than formative purposes.",true_false,24
+225,EDA 222,Identify the core component of behavioral objectives as it relates to Lesson Planning.,mcq,25
+226,EDA 222,What is the significant difference between studio safety and other methods in Classroom Management?,mcq,26
+227,EDA 222,What is the significant difference between peer evaluation and other methods in Assessment Techniques?,mcq,27
+228,EDA 222,"When applying feedback loops within EDA 222, the instructor's primary goal is to:",mcq,28
+229,EDA 222,"True or False: In EDA 222, inquiry-based learning is primarily used for summative rather than formative purposes.",true_false,29
+230,EDA 222,"True or False: In EDA 222, media exploration is primarily used for summative rather than formative purposes.",true_false,30
+231,EDA 222,Identify the core component of aural training as it relates to Music and Dance Strategies.,mcq,31
+232,EDA 222,What is the significant difference between set induction and other methods in Lesson Planning?,mcq,32
+233,EDA 222,A student utilizing studio safety in a EDA 222 setting is likely demonstrating:,mcq,33
+234,EDA 222,"True or False: In EDA 222, formative feedback is primarily used for summative rather than formative purposes.",true_false,34
+235,EDA 222,"In the context of Micro-teaching, which technique best illustrates the use of feedback loops?",mcq,35
+236,EDA 222,"True or False: In EDA 222, inquiry-based learning is primarily used for summative rather than formative purposes.",true_false,36
+237,EDA 222,What is the significant difference between criticism cycles and other methods in Visual Arts Teaching?,mcq,37
+238,EDA 222,A student utilizing improvisation in a EDA 222 setting is likely demonstrating:,mcq,38
+239,EDA 222,Identify the core component of behavioral objectives as it relates to Lesson Planning.,mcq,39
+240,EDA 222,"In the context of Classroom Management, which technique best illustrates the use of resource allocation?",mcq,40
+241,EDA 222,"When applying formative feedback within EDA 222, the instructor's primary goal is to:",mcq,41
+242,EDA 222,"When applying instructional modeling within EDA 222, the instructor's primary goal is to:",mcq,42
+243,EDA 222,"True or False: In EDA 222, demonstration method is primarily used for summative rather than formative purposes.",true_false,43
+244,EDA 222,"In the context of Visual Arts Teaching, which technique best illustrates the use of color theory instruction?",mcq,44
+245,EDA 222,Identify the core component of improvisation as it relates to Music and Dance Strategies.,mcq,45
+246,EDA 222,Identify the core component of behavioral objectives as it relates to Lesson Planning.,mcq,46
+247,EDA 222,What is the significant difference between resource allocation and other methods in Classroom Management?,mcq,47
+248,EDA 222,"True or False: In EDA 222, performance rubrics is primarily used for summative rather than formative purposes.",true_false,48
+249,EDA 222,"When applying skill isolation within EDA 222, the instructor's primary goal is to:",mcq,49
+250,EDA 222,"In the context of Pedagogical Approaches, which technique best illustrates the use of demonstration method?",mcq,50
+251,EDA 222,"In the context of Visual Arts Teaching, which technique best illustrates the use of color theory instruction?",mcq,51
+252,EDA 222,What is the significant difference between improvisation and other methods in Music and Dance Strategies?,mcq,52
+253,EDA 222,"True or False: In EDA 222, behavioral objectives is primarily used for summative rather than formative purposes.",true_false,53
+254,EDA 222,"When applying studio safety within EDA 222, the instructor's primary goal is to:",mcq,54
+255,EDA 222,"In the context of Assessment Techniques, which technique best illustrates the use of formative feedback?",mcq,55
+256,EDA 222,A student utilizing peer observation in a EDA 222 setting is likely demonstrating:,mcq,56
+257,EDA 222,A student utilizing project method in a EDA 222 setting is likely demonstrating:,mcq,57
+258,EDA 222,"According to standard practices in Visual Arts Teaching, media exploration should be implemented by:",mcq,58
+259,EDA 222,"True or False: In EDA 222, choreographic structures is primarily used for summative rather than formative purposes.",true_false,59
+260,EDA 222,"When applying set induction within EDA 222, the instructor's primary goal is to:",mcq,60
+261,EDA 222,"According to standard practices in Classroom Management, student engagement should be implemented by:",mcq,61
+262,EDA 222,What is the significant difference between portfolio assessment and other methods in Assessment Techniques?,mcq,62
+263,EDA 222,"In the context of Micro-teaching, which technique best illustrates the use of peer observation?",mcq,63
+264,EDA 222,What is the significant difference between demonstration method and other methods in Pedagogical Approaches?,mcq,64
+265,EDA 222,"True or False: In EDA 222, studio pedagogy is primarily used for summative rather than formative purposes.",true_false,65
+266,EDA 222,Identify the core component of aural training as it relates to Music and Dance Strategies.,mcq,66
+267,EDA 222,A student utilizing behavioral objectives in a EDA 222 setting is likely demonstrating:,mcq,67
+268,EDA 222,What is the significant difference between collaborative spaces and other methods in Classroom Management?,mcq,68
+269,EDA 222,What is the significant difference between portfolio assessment and other methods in Assessment Techniques?,mcq,69
+270,EDA 222,"According to standard practices in Micro-teaching, peer observation should be implemented by:",mcq,70
+271,EDA 222,What is the significant difference between project method and other methods in Pedagogical Approaches?,mcq,71
+272,EDA 222,"According to standard practices in Visual Arts Teaching, criticism cycles should be implemented by:",mcq,72
+273,EDA 222,"In the context of Music and Dance Strategies, which technique best illustrates the use of rhythmic notation?",mcq,73
+274,EDA 222,A student utilizing entry behavior in a EDA 222 setting is likely demonstrating:,mcq,74
+275,EDA 222,Identify the core component of resource allocation as it relates to Classroom Management.,mcq,75
+276,EDA 222,"According to standard practices in Assessment Techniques, performance rubrics should be implemented by:",mcq,76
+277,EDA 222,"When applying instructional modeling within EDA 222, the instructor's primary goal is to:",mcq,77
+278,EDA 222,"In the context of Pedagogical Approaches, which technique best illustrates the use of inquiry-based learning?",mcq,78
+279,EDA 222,"According to standard practices in Visual Arts Teaching, media exploration should be implemented by:",mcq,79
+280,EDA 222,"According to standard practices in Music and Dance Strategies, rhythmic notation should be implemented by:",mcq,80
+281,EDA 222,"In the context of Lesson Planning, which technique best illustrates the use of set induction?",mcq,81
+282,EDA 222,Identify the core component of collaborative spaces as it relates to Classroom Management.,mcq,82
+283,EDA 222,"True or False: In EDA 222, performance rubrics is primarily used for summative rather than formative purposes.",true_false,83
+284,EDA 222,"In the context of Micro-teaching, which technique best illustrates the use of feedback loops?",mcq,84
+285,EDA 222,"When applying project method within EDA 222, the instructor's primary goal is to:",mcq,85
+286,EDA 222,"When applying studio pedagogy within EDA 222, the instructor's primary goal is to:",mcq,86
+287,EDA 222,What is the significant difference between improvisation and other methods in Music and Dance Strategies?,mcq,87
+288,EDA 222,"In the context of Lesson Planning, which technique best illustrates the use of set induction?",mcq,88
+289,EDA 222,Identify the core component of collaborative spaces as it relates to Classroom Management.,mcq,89
+290,EDA 222,"True or False: In EDA 222, performance rubrics is primarily used for summative rather than formative purposes.",true_false,90
+291,EDA 222,What is the significant difference between instructional modeling and other methods in Micro-teaching?,mcq,91
+292,EDA 222,Identify the core component of project method as it relates to Pedagogical Approaches.,mcq,92
+293,EDA 222,"True or False: In EDA 222, color theory instruction is primarily used for summative rather than formative purposes.",true_false,93
+294,EDA 222,"True or False: In EDA 222, rhythmic notation is primarily used for summative rather than formative purposes.",true_false,94
+295,EDA 222,"In the context of Lesson Planning, which technique best illustrates the use of instructional sequence?",mcq,95
+296,EDA 222,"In the context of Classroom Management, which technique best illustrates the use of resource allocation?",mcq,96
+297,EDA 222,"True or False: In EDA 222, formative feedback is primarily used for summative rather than formative purposes.",true_false,97
+298,EDA 222,"According to standard practices in Micro-teaching, instructional modeling should be implemented by:",mcq,98
+299,EDA 222,What is the significant difference between project method and other methods in Pedagogical Approaches?,mcq,99
+300,EDA 222,"True or False: In EDA 222, media exploration is primarily used for summative rather than formative purposes.",true_false,100
+301,EDA 226,"In the context of Foundations of DiE, which technique best illustrates the use of educational drama?",mcq,1
+302,EDA 226,"When applying protagonist/antagonist within EDA 226, the instructor's primary goal is to:",mcq,2
+303,EDA 226,"True or False: In EDA 226, dialogue construction is primarily used for summative rather than formative purposes.",true_false,3
+304,EDA 226,"True or False: In EDA 226, blocking is primarily used for summative rather than formative purposes.",true_false,4
+305,EDA 226,"When applying scenography within EDA 226, the instructor's primary goal is to:",mcq,5
+306,EDA 226,A student utilizing mantle of the expert in a EDA 226 setting is likely demonstrating:,mcq,6
+307,EDA 226,"In the context of Theatre Management, which technique best illustrates the use of production scheduling?",mcq,7
+308,EDA 226,"According to standard practices in Foundations of DiE, educational drama should be implemented by:",mcq,8
+309,EDA 226,"True or False: In EDA 226, climactic structure is primarily used for summative rather than formative purposes.",true_false,9
+310,EDA 226,"According to standard practices in Playwriting, dialogue construction should be implemented by:",mcq,10
+311,EDA 226,"When applying ensemble building within EDA 226, the instructor's primary goal is to:",mcq,11
+312,EDA 226,A student utilizing scenography in a EDA 226 setting is likely demonstrating:,mcq,12
+313,EDA 226,"When applying teacher-in-role within EDA 226, the instructor's primary goal is to:",mcq,13
+314,EDA 226,Identify the core component of stage management as it relates to Theatre Management.,mcq,14
+315,EDA 226,What is the significant difference between theatre for development and other methods in Foundations of DiE?,mcq,15
+316,EDA 226,What is the significant difference between dramatic tension and other methods in Elements of Drama?,mcq,16
+317,EDA 226,"When applying dramatic action within EDA 226, the instructor's primary goal is to:",mcq,17
+318,EDA 226,"According to standard practices in Acting and Directing, blocking should be implemented by:",mcq,18
+319,EDA 226,"According to standard practices in Technical Theatre, scenography should be implemented by:",mcq,19
+320,EDA 226,"When applying teacher-in-role within EDA 226, the instructor's primary goal is to:",mcq,20
+321,EDA 226,"When applying stage management within EDA 226, the instructor's primary goal is to:",mcq,21
+322,EDA 226,Identify the core component of theatre for development as it relates to Foundations of DiE.,mcq,22
+323,EDA 226,"According to standard practices in Elements of Drama, dramatic tension should be implemented by:",mcq,23
+324,EDA 226,"According to standard practices in Playwriting, youth-centered themes should be implemented by:",mcq,24
+325,EDA 226,What is the significant difference between vocal projection and other methods in Acting and Directing?,mcq,25
+326,EDA 226,What is the significant difference between minimalist set design and other methods in Technical Theatre?,mcq,26
+327,EDA 226,"According to standard practices in Process Drama, mantle of the expert should be implemented by:",mcq,27
+328,EDA 226,"In the context of Theatre Management, which technique best illustrates the use of festival coordination?",mcq,28
+329,EDA 226,"In the context of Foundations of DiE, which technique best illustrates the use of theatre for development?",mcq,29
+330,EDA 226,"When applying characterization within EDA 226, the instructor's primary goal is to:",mcq,30
+331,EDA 226,Identify the core component of dialogue construction as it relates to Playwriting.,mcq,31
+332,EDA 226,Identify the core component of character analysis as it relates to Acting and Directing.,mcq,32
+333,EDA 226,What is the significant difference between lighting plots and other methods in Technical Theatre?,mcq,33
+334,EDA 226,A student utilizing hot seating in a EDA 226 setting is likely demonstrating:,mcq,34
+335,EDA 226,What is the significant difference between stage management and other methods in Theatre Management?,mcq,35
+336,EDA 226,"In the context of Foundations of DiE, which technique best illustrates the use of educational drama?",mcq,36
+337,EDA 226,"In the context of Elements of Drama, which technique best illustrates the use of characterization?",mcq,37
+338,EDA 226,What is the significant difference between youth-centered themes and other methods in Playwriting?,mcq,38
+339,EDA 226,"When applying blocking within EDA 226, the instructor's primary goal is to:",mcq,39
+340,EDA 226,Identify the core component of lighting plots as it relates to Technical Theatre.,mcq,40
+341,EDA 226,A student utilizing mantle of the expert in a EDA 226 setting is likely demonstrating:,mcq,41
+342,EDA 226,What is the significant difference between production scheduling and other methods in Theatre Management?,mcq,42
+343,EDA 226,"True or False: In EDA 226, educational drama is primarily used for summative rather than formative purposes.",true_false,43
+344,EDA 226,"According to standard practices in Elements of Drama, characterization should be implemented by:",mcq,44
+345,EDA 226,What is the significant difference between dialogue construction and other methods in Playwriting?,mcq,45
+346,EDA 226,What is the significant difference between ensemble building and other methods in Acting and Directing?,mcq,46
+347,EDA 226,"When applying minimalist set design within EDA 226, the instructor's primary goal is to:",mcq,47
+348,EDA 226,"According to standard practices in Process Drama, teacher-in-role should be implemented by:",mcq,48
+349,EDA 226,"When applying audience development within EDA 226, the instructor's primary goal is to:",mcq,49
+350,EDA 226,"In the context of Foundations of DiE, which technique best illustrates the use of Gavin Bolton?",mcq,50
+351,EDA 226,"When applying climactic structure within EDA 226, the instructor's primary goal is to:",mcq,51
+352,EDA 226,What is the significant difference between dramatic action and other methods in Playwriting?,mcq,52
+353,EDA 226,Identify the core component of character analysis as it relates to Acting and Directing.,mcq,53
+354,EDA 226,What is the significant difference between scenography and other methods in Technical Theatre?,mcq,54
+355,EDA 226,Identify the core component of mantle of the expert as it relates to Process Drama.,mcq,55
+356,EDA 226,Identify the core component of festival coordination as it relates to Theatre Management.,mcq,56
+357,EDA 226,"True or False: In EDA 226, theatre for development is primarily used for summative rather than formative purposes.",true_false,57
+358,EDA 226,What is the significant difference between climactic structure and other methods in Elements of Drama?,mcq,58
+359,EDA 226,"According to standard practices in Playwriting, dialogue construction should be implemented by:",mcq,59
+360,EDA 226,"In the context of Acting and Directing, which technique best illustrates the use of vocal projection?",mcq,60
+361,EDA 226,"True or False: In EDA 226, lighting plots is primarily used for summative rather than formative purposes.",true_false,61
+362,EDA 226,"According to standard practices in Process Drama, teacher-in-role should be implemented by:",mcq,62
+363,EDA 226,What is the significant difference between production scheduling and other methods in Theatre Management?,mcq,63
+364,EDA 226,Identify the core component of Gavin Bolton as it relates to Foundations of DiE.,mcq,64
+365,EDA 226,"True or False: In EDA 226, dramatic tension is primarily used for summative rather than formative purposes.",true_false,65
+366,EDA 226,"True or False: In EDA 226, scenario building is primarily used for summative rather than formative purposes.",true_false,66
+367,EDA 226,"In the context of Acting and Directing, which technique best illustrates the use of character analysis?",mcq,67
+368,EDA 226,What is the significant difference between scenography and other methods in Technical Theatre?,mcq,68
+369,EDA 226,"In the context of Process Drama, which technique best illustrates the use of hot seating?",mcq,69
+370,EDA 226,Identify the core component of festival coordination as it relates to Theatre Management.,mcq,70
+371,EDA 226,What is the significant difference between Gavin Bolton and other methods in Foundations of DiE?,mcq,71
+372,EDA 226,"According to standard practices in Elements of Drama, dramatic tension should be implemented by:",mcq,72
+373,EDA 226,A student utilizing dramatic action in a EDA 226 setting is likely demonstrating:,mcq,73
+374,EDA 226,"According to standard practices in Acting and Directing, character analysis should be implemented by:",mcq,74
+375,EDA 226,A student utilizing lighting plots in a EDA 226 setting is likely demonstrating:,mcq,75
+376,EDA 226,"When applying still image/tableau within EDA 226, the instructor's primary goal is to:",mcq,76
+377,EDA 226,"According to standard practices in Theatre Management, audience development should be implemented by:",mcq,77
+378,EDA 226,"In the context of Foundations of DiE, which technique best illustrates the use of theatre for development?",mcq,78
+379,EDA 226,A student utilizing protagonist/antagonist in a EDA 226 setting is likely demonstrating:,mcq,79
+380,EDA 226,What is the significant difference between youth-centered themes and other methods in Playwriting?,mcq,80
+381,EDA 226,"When applying ensemble building within EDA 226, the instructor's primary goal is to:",mcq,81
+382,EDA 226,"When applying lighting plots within EDA 226, the instructor's primary goal is to:",mcq,82
+383,EDA 226,What is the significant difference between teacher-in-role and other methods in Process Drama?,mcq,83
+384,EDA 226,What is the significant difference between audience development and other methods in Theatre Management?,mcq,84
+385,EDA 226,"True or False: In EDA 226, Gavin Bolton is primarily used for summative rather than formative purposes.",true_false,85
+386,EDA 226,"According to standard practices in Elements of Drama, protagonist/antagonist should be implemented by:",mcq,86
+387,EDA 226,"When applying dramatic action within EDA 226, the instructor's primary goal is to:",mcq,87
+388,EDA 226,"When applying vocal projection within EDA 226, the instructor's primary goal is to:",mcq,88
+389,EDA 226,What is the significant difference between minimalist set design and other methods in Technical Theatre?,mcq,89
+390,EDA 226,Identify the core component of mantle of the expert as it relates to Process Drama.,mcq,90
+391,EDA 226,Identify the core component of stage management as it relates to Theatre Management.,mcq,91
+392,EDA 226,"True or False: In EDA 226, Gavin Bolton is primarily used for summative rather than formative purposes.",true_false,92
+393,EDA 226,"According to standard practices in Elements of Drama, characterization should be implemented by:",mcq,93
+394,EDA 226,"True or False: In EDA 226, dialogue construction is primarily used for summative rather than formative purposes.",true_false,94
+395,EDA 226,A student utilizing character analysis in a EDA 226 setting is likely demonstrating:,mcq,95
+396,EDA 226,"According to standard practices in Technical Theatre, scenography should be implemented by:",mcq,96
+397,EDA 226,A student utilizing hot seating in a EDA 226 setting is likely demonstrating:,mcq,97
+398,EDA 226,"True or False: In EDA 226, production scheduling is primarily used for summative rather than formative purposes.",true_false,98
+399,EDA 226,"In the context of Foundations of DiE, which technique best illustrates the use of Dorothy Heathcote?",mcq,99
+400,EDA 226,"In the context of Elements of Drama, which technique best illustrates the use of dramatic tension?",mcq,100
+401,EDA 316,"In the context of Classification of Media, which technique best illustrates the use of projected media?",mcq,1
+402,EDA 316,A student utilizing scaling/proportion in a EDA 332 setting is likely demonstrating:,mcq,2
+403,EDA 316,"True or False: In EDA 332, multimedia integration is primarily used for summative rather than formative purposes.",true_false,3
+404,EDA 316,"When applying virtual galleries within EDA 332, the instructor's primary goal is to:",mcq,4
+405,EDA 316,"When applying storage conditions within EDA 332, the instructor's primary goal is to:",mcq,5
+406,EDA 316,"In the context of Improvisation, which technique best illustrates the use of eco-friendly art?",mcq,6
+407,EDA 316,"True or False: In EDA 332, accessibility is primarily used for summative rather than formative purposes.",true_false,7
+408,EDA 316,A student utilizing realia in a EDA 332 setting is likely demonstrating:,mcq,8
+409,EDA 316,What is the significant difference between scaling/proportion and other methods in Design of Visual Aids?,mcq,9
+410,EDA 316,"In the context of Audio-Visual Resources, which technique best illustrates the use of podcasting?",mcq,10
+411,EDA 316,Identify the core component of Learning Management Systems as it relates to CAI and E-learning.,mcq,11
+412,EDA 316,"According to standard practices in Selection and Maintenance, storage conditions should be implemented by:",mcq,12
+413,EDA 316,"According to standard practices in Improvisation, resource substitution should be implemented by:",mcq,13
+414,EDA 316,What is the significant difference between usability testing and other methods in Evaluation of Media?,mcq,14
+415,EDA 316,A student utilizing non-projected media in a EDA 332 setting is likely demonstrating:,mcq,15
+416,EDA 316,"According to standard practices in Design of Visual Aids, layout principles should be implemented by:",mcq,16
+417,EDA 316,What is the significant difference between multimedia integration and other methods in Audio-Visual Resources?,mcq,17
+418,EDA 316,A student utilizing interactivity in a EDA 332 setting is likely demonstrating:,mcq,18
+419,EDA 316,"True or False: In EDA 332, durability is primarily used for summative rather than formative purposes.",true_false,19
+420,EDA 316,Identify the core component of local materials as it relates to Improvisation.,mcq,20
+421,EDA 316,"True or False: In EDA 332, learning outcomes is primarily used for summative rather than formative purposes.",true_false,21
+422,EDA 316,What is the significant difference between non-projected media and other methods in Classification of Media?,mcq,22
+423,EDA 316,"In the context of Design of Visual Aids, which technique best illustrates the use of color psychology?",mcq,23
+424,EDA 316,"True or False: In EDA 332, educational broadcasting is primarily used for summative rather than formative purposes.",true_false,24
+425,EDA 316,"According to standard practices in CAI and E-learning, virtual galleries should be implemented by:",mcq,25
+426,EDA 316,"True or False: In EDA 332, storage conditions is primarily used for summative rather than formative purposes.",true_false,26
+427,EDA 316,Identify the core component of resource substitution as it relates to Improvisation.,mcq,27
+428,EDA 316,"In the context of Evaluation of Media, which technique best illustrates the use of accessibility?",mcq,28
+429,EDA 316,"According to standard practices in Classification of Media, audio-visual aids should be implemented by:",mcq,29
+430,EDA 316,"According to standard practices in Design of Visual Aids, layout principles should be implemented by:",mcq,30
+431,EDA 316,"True or False: In EDA 332, digital storytelling is primarily used for summative rather than formative purposes.",true_false,31
+432,EDA 316,Identify the core component of Learning Management Systems as it relates to CAI and E-learning.,mcq,32
+433,EDA 316,Identify the core component of curation as it relates to Selection and Maintenance.,mcq,33
+434,EDA 316,"When applying community sourcing within EDA 332, the instructor's primary goal is to:",mcq,34
+435,EDA 316,"According to standard practices in Evaluation of Media, learning outcomes should be implemented by:",mcq,35
+436,EDA 316,"In the context of Classification of Media, which technique best illustrates the use of projected media?",mcq,36
+437,EDA 316,What is the significant difference between typography and other methods in Design of Visual Aids?,mcq,37
+438,EDA 316,Identify the core component of podcasting as it relates to Audio-Visual Resources.,mcq,38
+439,EDA 316,"When applying gamification within EDA 332, the instructor's primary goal is to:",mcq,39
+440,EDA 316,What is the significant difference between storage conditions and other methods in Selection and Maintenance?,mcq,40
+441,EDA 316,Identify the core component of resource substitution as it relates to Improvisation.,mcq,41
+442,EDA 316,What is the significant difference between usability testing and other methods in Evaluation of Media?,mcq,42
+443,EDA 316,"According to standard practices in Classification of Media, non-projected media should be implemented by:",mcq,43
+444,EDA 316,"When applying color psychology within EDA 332, the instructor's primary goal is to:",mcq,44
+445,EDA 316,"In the context of Audio-Visual Resources, which technique best illustrates the use of educational broadcasting?",mcq,45
+446,EDA 316,What is the significant difference between gamification and other methods in CAI and E-learning?,mcq,46
+447,EDA 316,A student utilizing cost-effectiveness in a EDA 332 setting is likely demonstrating:,mcq,47
+448,EDA 316,"According to standard practices in Improvisation, eco-friendly art should be implemented by:",mcq,48
+449,EDA 316,"True or False: In EDA 332, learning outcomes is primarily used for summative rather than formative purposes.",true_false,49
+450,EDA 316,"When applying projected media within EDA 332, the instructor's primary goal is to:",mcq,50
+451,EDA 316,"According to standard practices in Design of Visual Aids, layout principles should be implemented by:",mcq,51
+452,EDA 316,"When applying digital storytelling within EDA 332, the instructor's primary goal is to:",mcq,52
+453,EDA 316,"True or False: In EDA 332, gamification is primarily used for summative rather than formative purposes.",true_false,53
+454,EDA 316,"In the context of Selection and Maintenance, which technique best illustrates the use of durability?",mcq,54
+455,EDA 316,A student utilizing resource substitution in a EDA 332 setting is likely demonstrating:,mcq,55
+456,EDA 316,"When applying learning outcomes within EDA 332, the instructor's primary goal is to:",mcq,56
+457,EDA 316,Identify the core component of audio-visual aids as it relates to Classification of Media.,mcq,57
+458,EDA 316,A student utilizing typography in a EDA 332 setting is likely demonstrating:,mcq,58
+459,EDA 316,A student utilizing educational broadcasting in a EDA 332 setting is likely demonstrating:,mcq,59
+460,EDA 316,"According to standard practices in CAI and E-learning, interactivity should be implemented by:",mcq,60
+461,EDA 316,"When applying curation within EDA 332, the instructor's primary goal is to:",mcq,61
+462,EDA 316,"According to standard practices in Improvisation, resource substitution should be implemented by:",mcq,62
+463,EDA 316,"In the context of Evaluation of Media, which technique best illustrates the use of learning outcomes?",mcq,63
+464,EDA 316,Identify the core component of realia as it relates to Classification of Media.,mcq,64
+465,EDA 316,"In the context of Design of Visual Aids, which technique best illustrates the use of typography?",mcq,65
+466,EDA 316,Identify the core component of educational broadcasting as it relates to Audio-Visual Resources.,mcq,66
+467,EDA 316,"According to standard practices in CAI and E-learning, gamification should be implemented by:",mcq,67
+468,EDA 316,A student utilizing storage conditions in a EDA 332 setting is likely demonstrating:,mcq,68
+469,EDA 316,"When applying community sourcing within EDA 332, the instructor's primary goal is to:",mcq,69
+470,EDA 316,"According to standard practices in Evaluation of Media, usability testing should be implemented by:",mcq,70
+471,EDA 316,What is the significant difference between non-projected media and other methods in Classification of Media?,mcq,71
+472,EDA 316,"According to standard practices in Design of Visual Aids, typography should be implemented by:",mcq,72
+473,EDA 316,Identify the core component of podcasting as it relates to Audio-Visual Resources.,mcq,73
+474,EDA 316,"When applying virtual galleries within EDA 332, the instructor's primary goal is to:",mcq,74
+475,EDA 316,"In the context of Selection and Maintenance, which technique best illustrates the use of cost-effectiveness?",mcq,75
+476,EDA 316,Identify the core component of community sourcing as it relates to Improvisation.,mcq,76
+477,EDA 316,What is the significant difference between learning outcomes and other methods in Evaluation of Media?,mcq,77
+478,EDA 316,"True or False: In EDA 332, projected media is primarily used for summative rather than formative purposes.",true_false,78
+479,EDA 316,"When applying scaling/proportion within EDA 332, the instructor's primary goal is to:",mcq,79
+480,EDA 316,Identify the core component of digital storytelling as it relates to Audio-Visual Resources.,mcq,80
+481,EDA 316,Identify the core component of virtual galleries as it relates to CAI and E-learning.,mcq,81
+482,EDA 316,"True or False: In EDA 332, durability is primarily used for summative rather than formative purposes.",true_false,82
+483,EDA 316,What is the significant difference between local materials and other methods in Improvisation?,mcq,83
+484,EDA 316,"According to standard practices in Evaluation of Media, learning outcomes should be implemented by:",mcq,84
+485,EDA 316,What is the significant difference between realia and other methods in Classification of Media?,mcq,85
+486,EDA 316,A student utilizing layout principles in a EDA 332 setting is likely demonstrating:,mcq,86
+487,EDA 316,What is the significant difference between multimedia integration and other methods in Audio-Visual Resources?,mcq,87
+488,EDA 316,"According to standard practices in CAI and E-learning, Learning Management Systems should be implemented by:",mcq,88
+489,EDA 316,Identify the core component of storage conditions as it relates to Selection and Maintenance.,mcq,89
+490,EDA 316,"According to standard practices in Improvisation, eco-friendly art should be implemented by:",mcq,90
+491,EDA 316,Identify the core component of learning outcomes as it relates to Evaluation of Media.,mcq,91
+492,EDA 316,Identify the core component of audio-visual aids as it relates to Classification of Media.,mcq,92
+493,EDA 316,Identify the core component of typography as it relates to Design of Visual Aids.,mcq,93
+494,EDA 316,"True or False: In EDA 332, multimedia integration is primarily used for summative rather than formative purposes.",true_false,94
+495,EDA 316,A student utilizing interactivity in a EDA 332 setting is likely demonstrating:,mcq,95
+496,EDA 316,What is the significant difference between durability and other methods in Selection and Maintenance?,mcq,96
+497,EDA 316,Identify the core component of community sourcing as it relates to Improvisation.,mcq,97
+498,EDA 316,"In the context of Evaluation of Media, which technique best illustrates the use of usability testing?",mcq,98
+499,EDA 316,Identify the core component of non-projected media as it relates to Classification of Media.,mcq,99
+500,EDA 316,"When applying color psychology within EDA 332, the instructor's primary goal is to:",mcq,100
+501,EDA 325,"In the context of Curriculum Foundations, which technique best illustrates the use of reconstructionism?",mcq,1
+502,EDA 325,"According to standard practices in Curriculum Models, Tyler's model should be implemented by:",mcq,2
+503,EDA 325,Identify the core component of NERDC guidelines as it relates to Nigerian CCA Curriculum.,mcq,3
+504,EDA 325,"True or False: In EDA 335, stakeholder engagement is primarily used for summative rather than formative purposes.",true_false,4
+505,EDA 325,A student utilizing formative loops in a EDA 335 setting is likely demonstrating:,mcq,5
+506,EDA 325,"According to standard practices in Curriculum Reform, vocationalization should be implemented by:",mcq,6
+507,EDA 325,What is the significant difference between classroom researcher and other methods in Teacher's Role?,mcq,7
+508,EDA 325,What is the significant difference between perennialism and other methods in Curriculum Foundations?,mcq,8
+509,EDA 325,"True or False: In EDA 335, Taba's inverted model is primarily used for summative rather than formative purposes.",true_false,9
+510,EDA 325,What is the significant difference between cultural subjects and other methods in Nigerian CCA Curriculum?,mcq,10
+511,EDA 325,A student utilizing resource mobilization in a EDA 335 setting is likely demonstrating:,mcq,11
+512,EDA 325,A student utilizing CIPP model in a EDA 335 setting is likely demonstrating:,mcq,12
+513,EDA 325,"True or False: In EDA 335, decolonization is primarily used for summative rather than formative purposes.",true_false,13
+514,EDA 325,What is the significant difference between curriculum adapter and other methods in Teacher's Role?,mcq,14
+515,EDA 325,What is the significant difference between reconstructionism and other methods in Curriculum Foundations?,mcq,15
+516,EDA 325,"In the context of Curriculum Models, which technique best illustrates the use of Wheeler's cycle?",mcq,16
+517,EDA 325,A student utilizing cultural subjects in a EDA 335 setting is likely demonstrating:,mcq,17
+518,EDA 325,A student utilizing teacher training in a EDA 335 setting is likely demonstrating:,mcq,18
+519,EDA 325,"When applying CIPP model within EDA 335, the instructor's primary goal is to:",mcq,19
+520,EDA 325,"In the context of Curriculum Reform, which technique best illustrates the use of digital literacy integration?",mcq,20
+521,EDA 325,"True or False: In EDA 335, innovator is primarily used for summative rather than formative purposes.",true_false,21
+522,EDA 325,What is the significant difference between progressivism and other methods in Curriculum Foundations?,mcq,22
+523,EDA 325,"According to standard practices in Curriculum Models, Wheeler's cycle should be implemented by:",mcq,23
+524,EDA 325,"True or False: In EDA 335, cultural subjects is primarily used for summative rather than formative purposes.",true_false,24
+525,EDA 325,"When applying resource mobilization within EDA 335, the instructor's primary goal is to:",mcq,25
+526,EDA 325,Identify the core component of summative assessment as it relates to Curriculum Evaluation.,mcq,26
+527,EDA 325,A student utilizing digital literacy integration in a EDA 335 setting is likely demonstrating:,mcq,27
+528,EDA 325,Identify the core component of classroom researcher as it relates to Teacher's Role.,mcq,28
+529,EDA 325,What is the significant difference between reconstructionism and other methods in Curriculum Foundations?,mcq,29
+530,EDA 325,"When applying Wheeler's cycle within EDA 335, the instructor's primary goal is to:",mcq,30
+531,EDA 325,Identify the core component of integrated arts as it relates to Nigerian CCA Curriculum.,mcq,31
+532,EDA 325,Identify the core component of stakeholder engagement as it relates to Implementation Strategies.,mcq,32
+533,EDA 325,"True or False: In EDA 335, Stakes' countenance model is primarily used for summative rather than formative purposes.",true_false,33
+534,EDA 325,"When applying vocationalization within EDA 335, the instructor's primary goal is to:",mcq,34
+535,EDA 325,Identify the core component of feedback provider as it relates to Teacher's Role.,mcq,35
+536,EDA 325,What is the significant difference between progressivism and other methods in Curriculum Foundations?,mcq,36
+537,EDA 325,What is the significant difference between Skilbeck's model and other methods in Curriculum Models?,mcq,37
+538,EDA 325,A student utilizing 9-year basic education in a EDA 335 setting is likely demonstrating:,mcq,38
+539,EDA 325,What is the significant difference between stakeholder engagement and other methods in Implementation Strategies?,mcq,39
+540,EDA 325,"True or False: In EDA 335, summative assessment is primarily used for summative rather than formative purposes.",true_false,40
+541,EDA 325,Identify the core component of digital literacy integration as it relates to Curriculum Reform.,mcq,41
+542,EDA 325,Identify the core component of classroom researcher as it relates to Teacher's Role.,mcq,42
+543,EDA 325,"When applying reconstructionism within EDA 335, the instructor's primary goal is to:",mcq,43
+544,EDA 325,"According to standard practices in Curriculum Models, Tyler's model should be implemented by:",mcq,44
+545,EDA 325,Identify the core component of cultural subjects as it relates to Nigerian CCA Curriculum.,mcq,45
+546,EDA 325,What is the significant difference between pilot testing and other methods in Implementation Strategies?,mcq,46
+547,EDA 325,What is the significant difference between formative loops and other methods in Curriculum Evaluation?,mcq,47
+548,EDA 325,"When applying vocationalization within EDA 335, the instructor's primary goal is to:",mcq,48
+549,EDA 325,"When applying classroom researcher within EDA 335, the instructor's primary goal is to:",mcq,49
+550,EDA 325,"According to standard practices in Curriculum Foundations, progressivism should be implemented by:",mcq,50
+551,EDA 325,Identify the core component of Taba's inverted model as it relates to Curriculum Models.,mcq,51
+552,EDA 325,"When applying 9-year basic education within EDA 335, the instructor's primary goal is to:",mcq,52
+553,EDA 325,Identify the core component of pilot testing as it relates to Implementation Strategies.,mcq,53
+554,EDA 325,"True or False: In EDA 335, Stakes' countenance model is primarily used for summative rather than formative purposes.",true_false,54
+555,EDA 325,"According to standard practices in Curriculum Reform, global trends should be implemented by:",mcq,55
+556,EDA 325,Identify the core component of curriculum adapter as it relates to Teacher's Role.,mcq,56
+557,EDA 325,Identify the core component of essentialism as it relates to Curriculum Foundations.,mcq,57
+558,EDA 325,What is the significant difference between Wheeler's cycle and other methods in Curriculum Models?,mcq,58
+559,EDA 325,"According to standard practices in Nigerian CCA Curriculum, 9-year basic education should be implemented by:",mcq,59
+560,EDA 325,"In the context of Implementation Strategies, which technique best illustrates the use of stakeholder engagement?",mcq,60
+561,EDA 325,"When applying CIPP model within EDA 335, the instructor's primary goal is to:",mcq,61
+562,EDA 325,"When applying digital literacy integration within EDA 335, the instructor's primary goal is to:",mcq,62
+563,EDA 325,"True or False: In EDA 335, classroom researcher is primarily used for summative rather than formative purposes.",true_false,63
+564,EDA 325,What is the significant difference between perennialism and other methods in Curriculum Foundations?,mcq,64
+565,EDA 325,"When applying Wheeler's cycle within EDA 335, the instructor's primary goal is to:",mcq,65
+566,EDA 325,A student utilizing integrated arts in a EDA 335 setting is likely demonstrating:,mcq,66
+567,EDA 325,"In the context of Implementation Strategies, which technique best illustrates the use of resource mobilization?",mcq,67
+568,EDA 325,Identify the core component of Stakes' countenance model as it relates to Curriculum Evaluation.,mcq,68
+569,EDA 325,Identify the core component of digital literacy integration as it relates to Curriculum Reform.,mcq,69
+570,EDA 325,"In the context of Teacher's Role, which technique best illustrates the use of innovator?",mcq,70
+571,EDA 325,Identify the core component of essentialism as it relates to Curriculum Foundations.,mcq,71
+572,EDA 325,"When applying Wheeler's cycle within EDA 335, the instructor's primary goal is to:",mcq,72
+573,EDA 325,"True or False: In EDA 335, 9-year basic education is primarily used for summative rather than formative purposes.",true_false,73
+574,EDA 325,"According to standard practices in Implementation Strategies, resource mobilization should be implemented by:",mcq,74
+575,EDA 325,A student utilizing formative loops in a EDA 335 setting is likely demonstrating:,mcq,75
+576,EDA 325,"According to standard practices in Curriculum Reform, global trends should be implemented by:",mcq,76
+577,EDA 325,"In the context of Teacher's Role, which technique best illustrates the use of innovator?",mcq,77
+578,EDA 325,What is the significant difference between reconstructionism and other methods in Curriculum Foundations?,mcq,78
+579,EDA 325,A student utilizing Taba's inverted model in a EDA 335 setting is likely demonstrating:,mcq,79
+580,EDA 325,"When applying NERDC guidelines within EDA 335, the instructor's primary goal is to:",mcq,80
+581,EDA 325,Identify the core component of resource mobilization as it relates to Implementation Strategies.,mcq,81
+582,EDA 325,A student utilizing summative assessment in a EDA 335 setting is likely demonstrating:,mcq,82
+583,EDA 325,"According to standard practices in Curriculum Reform, vocationalization should be implemented by:",mcq,83
+584,EDA 325,Identify the core component of innovator as it relates to Teacher's Role.,mcq,84
+585,EDA 325,"In the context of Curriculum Foundations, which technique best illustrates the use of perennialism?",mcq,85
+586,EDA 325,What is the significant difference between Taba's inverted model and other methods in Curriculum Models?,mcq,86
+587,EDA 325,"True or False: In EDA 335, NERDC guidelines is primarily used for summative rather than formative purposes.",true_false,87
+588,EDA 325,A student utilizing teacher training in a EDA 335 setting is likely demonstrating:,mcq,88
+589,EDA 325,"When applying CIPP model within EDA 335, the instructor's primary goal is to:",mcq,89
+590,EDA 325,A student utilizing decolonization in a EDA 335 setting is likely demonstrating:,mcq,90
+591,EDA 325,A student utilizing innovator in a EDA 335 setting is likely demonstrating:,mcq,91
+592,EDA 325,"True or False: In EDA 335, progressivism is primarily used for summative rather than formative purposes.",true_false,92
+593,EDA 325,"According to standard practices in Curriculum Models, Skilbeck's model should be implemented by:",mcq,93
+594,EDA 325,"In the context of Nigerian CCA Curriculum, which technique best illustrates the use of cultural subjects?",mcq,94
+595,EDA 325,"According to standard practices in Implementation Strategies, pilot testing should be implemented by:",mcq,95
+596,EDA 325,"In the context of Curriculum Evaluation, which technique best illustrates the use of Stakes' countenance model?",mcq,96
+597,EDA 325,What is the significant difference between decolonization and other methods in Curriculum Reform?,mcq,97
+598,EDA 325,"In the context of Teacher's Role, which technique best illustrates the use of classroom researcher?",mcq,98
+599,EDA 325,"True or False: In EDA 335, essentialism is primarily used for summative rather than formative purposes.",true_false,99
+600,EDA 325,"In the context of Curriculum Models, which technique best illustrates the use of Skilbeck's model?",mcq,100
+601,EDA 447,"In the context of Measurement Concepts, which technique best illustrates the use of ratio scale?",mcq,1
+602,EDA 447,"When applying checklists within EDA 441, the instructor's primary goal is to:",mcq,2
+603,EDA 447,"In the context of Validity/Reliability, which technique best illustrates the use of construct validity?",mcq,3
+604,EDA 447,What is the significant difference between mean/median/mode and other methods in Descriptive Statistics?,mcq,4
+605,EDA 447,"According to standard practices in Inferential Statistics, p-values should be implemented by:",mcq,5
+606,EDA 447,"In the context of Correlation/Regression, which technique best illustrates the use of coefficient of determination?",mcq,6
+607,EDA 447,"True or False: In EDA 441, frequency polygons is primarily used for summative rather than formative purposes.",true_false,7
+608,EDA 447,What is the significant difference between interval scale and other methods in Measurement Concepts?,mcq,8
+609,EDA 447,Identify the core component of rubrics as it relates to Testing Tools.,mcq,9
+610,EDA 447,A student utilizing construct validity in a EDA 441 setting is likely demonstrating:,mcq,10
+611,EDA 447,"According to standard practices in Descriptive Statistics, variance should be implemented by:",mcq,11
+612,EDA 447,"When applying null hypothesis within EDA 441, the instructor's primary goal is to:",mcq,12
+613,EDA 447,"According to standard practices in Correlation/Regression, coefficient of determination should be implemented by:",mcq,13
+614,EDA 447,"When applying frequency polygons within EDA 441, the instructor's primary goal is to:",mcq,14
+615,EDA 447,A student utilizing ordinal scale in a EDA 441 setting is likely demonstrating:,mcq,15
+616,EDA 447,A student utilizing checklists in a EDA 441 setting is likely demonstrating:,mcq,16
+617,EDA 447,A student utilizing Cronbach's alpha in a EDA 441 setting is likely demonstrating:,mcq,17
+618,EDA 447,Identify the core component of mean/median/mode as it relates to Descriptive Statistics.,mcq,18
+619,EDA 447,Identify the core component of t-test as it relates to Inferential Statistics.,mcq,19
+620,EDA 447,"According to standard practices in Correlation/Regression, linear regression should be implemented by:",mcq,20
+621,EDA 447,A student utilizing frequency polygons in a EDA 441 setting is likely demonstrating:,mcq,21
+622,EDA 447,"When applying ordinal scale within EDA 441, the instructor's primary goal is to:",mcq,22
+623,EDA 447,What is the significant difference between rubrics and other methods in Testing Tools?,mcq,23
+624,EDA 447,"In the context of Validity/Reliability, which technique best illustrates the use of Cronbach's alpha?",mcq,24
+625,EDA 447,"According to standard practices in Descriptive Statistics, kurtosis should be implemented by:",mcq,25
+626,EDA 447,Identify the core component of ANOVA as it relates to Inferential Statistics.,mcq,26
+627,EDA 447,"True or False: In EDA 441, scatter plot interpretation is primarily used for summative rather than formative purposes.",true_false,27
+628,EDA 447,"When applying histograms within EDA 441, the instructor's primary goal is to:",mcq,28
+629,EDA 447,"In the context of Measurement Concepts, which technique best illustrates the use of nominal scale?",mcq,29
+630,EDA 447,Identify the core component of checklists as it relates to Testing Tools.,mcq,30
+631,EDA 447,Identify the core component of content validity as it relates to Validity/Reliability.,mcq,31
+632,EDA 447,"True or False: In EDA 441, variance is primarily used for summative rather than formative purposes.",true_false,32
+633,EDA 447,"In the context of Inferential Statistics, which technique best illustrates the use of t-test?",mcq,33
+634,EDA 447,Identify the core component of scatter plot interpretation as it relates to Correlation/Regression.,mcq,34
+635,EDA 447,What is the significant difference between frequency polygons and other methods in Data Visualization?,mcq,35
+636,EDA 447,"True or False: In EDA 441, interval scale is primarily used for summative rather than formative purposes.",true_false,36
+637,EDA 447,"When applying standardized tests within EDA 441, the instructor's primary goal is to:",mcq,37
+638,EDA 447,What is the significant difference between test-retest reliability and other methods in Validity/Reliability?,mcq,38
+639,EDA 447,"According to standard practices in Descriptive Statistics, mean/median/mode should be implemented by:",mcq,39
+640,EDA 447,"In the context of Inferential Statistics, which technique best illustrates the use of t-test?",mcq,40
+641,EDA 447,A student utilizing scatter plot interpretation in a EDA 441 setting is likely demonstrating:,mcq,41
+642,EDA 447,"According to standard practices in Data Visualization, frequency polygons should be implemented by:",mcq,42
+643,EDA 447,"When applying interval scale within EDA 441, the instructor's primary goal is to:",mcq,43
+644,EDA 447,What is the significant difference between standardized tests and other methods in Testing Tools?,mcq,44
+645,EDA 447,A student utilizing Cronbach's alpha in a EDA 441 setting is likely demonstrating:,mcq,45
+646,EDA 447,A student utilizing standard deviation in a EDA 441 setting is likely demonstrating:,mcq,46
+647,EDA 447,Identify the core component of ANOVA as it relates to Inferential Statistics.,mcq,47
+648,EDA 447,"In the context of Correlation/Regression, which technique best illustrates the use of scatter plot interpretation?",mcq,48
+649,EDA 447,"When applying pie charts within EDA 441, the instructor's primary goal is to:",mcq,49
+650,EDA 447,What is the significant difference between ratio scale and other methods in Measurement Concepts?,mcq,50
+651,EDA 447,"When applying standardized tests within EDA 441, the instructor's primary goal is to:",mcq,51
+652,EDA 447,"True or False: In EDA 441, Cronbach's alpha is primarily used for summative rather than formative purposes.",true_false,52
+653,EDA 447,"In the context of Descriptive Statistics, which technique best illustrates the use of standard deviation?",mcq,53
+654,EDA 447,What is the significant difference between null hypothesis and other methods in Inferential Statistics?,mcq,54
+655,EDA 447,"According to standard practices in Correlation/Regression, linear regression should be implemented by:",mcq,55
+656,EDA 447,"According to standard practices in Data Visualization, frequency polygons should be implemented by:",mcq,56
+657,EDA 447,"When applying ordinal scale within EDA 441, the instructor's primary goal is to:",mcq,57
+658,EDA 447,"True or False: In EDA 441, standardized tests is primarily used for summative rather than formative purposes.",true_false,58
+659,EDA 447,Identify the core component of content validity as it relates to Validity/Reliability.,mcq,59
+660,EDA 447,What is the significant difference between variance and other methods in Descriptive Statistics?,mcq,60
+661,EDA 447,"According to standard practices in Inferential Statistics, t-test should be implemented by:",mcq,61
+662,EDA 447,What is the significant difference between Pearson's r and other methods in Correlation/Regression?,mcq,62
+663,EDA 447,"True or False: In EDA 441, pie charts is primarily used for summative rather than formative purposes.",true_false,63
+664,EDA 447,"When applying nominal scale within EDA 441, the instructor's primary goal is to:",mcq,64
+665,EDA 447,Identify the core component of diagnostic tools as it relates to Testing Tools.,mcq,65
+666,EDA 447,"According to standard practices in Validity/Reliability, content validity should be implemented by:",mcq,66
+667,EDA 447,Identify the core component of kurtosis as it relates to Descriptive Statistics.,mcq,67
+668,EDA 447,"When applying p-values within EDA 441, the instructor's primary goal is to:",mcq,68
+669,EDA 447,"True or False: In EDA 441, linear regression is primarily used for summative rather than formative purposes.",true_false,69
+670,EDA 447,Identify the core component of box plots as it relates to Data Visualization.,mcq,70
+671,EDA 447,"True or False: In EDA 441, ordinal scale is primarily used for summative rather than formative purposes.",true_false,71
+672,EDA 447,"When applying standardized tests within EDA 441, the instructor's primary goal is to:",mcq,72
+673,EDA 447,"True or False: In EDA 441, construct validity is primarily used for summative rather than formative purposes.",true_false,73
+674,EDA 447,"True or False: In EDA 441, variance is primarily used for summative rather than formative purposes.",true_false,74
+675,EDA 447,"In the context of Inferential Statistics, which technique best illustrates the use of p-values?",mcq,75
+676,EDA 447,Identify the core component of scatter plot interpretation as it relates to Correlation/Regression.,mcq,76
+677,EDA 447,A student utilizing frequency polygons in a EDA 441 setting is likely demonstrating:,mcq,77
+678,EDA 447,What is the significant difference between interval scale and other methods in Measurement Concepts?,mcq,78
+679,EDA 447,"According to standard practices in Testing Tools, checklists should be implemented by:",mcq,79
+680,EDA 447,"When applying construct validity within EDA 441, the instructor's primary goal is to:",mcq,80
+681,EDA 447,"In the context of Descriptive Statistics, which technique best illustrates the use of standard deviation?",mcq,81
+682,EDA 447,A student utilizing t-test in a EDA 441 setting is likely demonstrating:,mcq,82
+683,EDA 447,"According to standard practices in Correlation/Regression, coefficient of determination should be implemented by:",mcq,83
+684,EDA 447,"According to standard practices in Data Visualization, pie charts should be implemented by:",mcq,84
+685,EDA 447,A student utilizing nominal scale in a EDA 441 setting is likely demonstrating:,mcq,85
+686,EDA 447,Identify the core component of checklists as it relates to Testing Tools.,mcq,86
+687,EDA 447,"When applying Cronbach's alpha within EDA 441, the instructor's primary goal is to:",mcq,87
+688,EDA 447,"When applying variance within EDA 441, the instructor's primary goal is to:",mcq,88
+689,EDA 447,"True or False: In EDA 441, t-test is primarily used for summative rather than formative purposes.",true_false,89
+690,EDA 447,Identify the core component of Pearson's r as it relates to Correlation/Regression.,mcq,90
+691,EDA 447,A student utilizing histograms in a EDA 441 setting is likely demonstrating:,mcq,91
+692,EDA 447,"According to standard practices in Measurement Concepts, nominal scale should be implemented by:",mcq,92
+693,EDA 447,"In the context of Testing Tools, which technique best illustrates the use of rubrics?",mcq,93
+694,EDA 447,"In the context of Validity/Reliability, which technique best illustrates the use of Cronbach's alpha?",mcq,94
+695,EDA 447,"When applying mean/median/mode within EDA 441, the instructor's primary goal is to:",mcq,95
+696,EDA 447,"In the context of Inferential Statistics, which technique best illustrates the use of null hypothesis?",mcq,96
+697,EDA 447,What is the significant difference between scatter plot interpretation and other methods in Correlation/Regression?,mcq,97
+698,EDA 447,"When applying pie charts within EDA 441, the instructor's primary goal is to:",mcq,98
+699,EDA 447,A student utilizing ordinal scale in a EDA 441 setting is likely demonstrating:,mcq,99
+700,EDA 447,"When applying diagnostic tools within EDA 441, the instructor's primary goal is to:",mcq,100
+701,EDA 424,A student utilizing structural coherence in a EDA 444 setting is likely demonstrating:,mcq,1
+702,EDA 424,"In the context of Identifying Problems, which technique best illustrates the use of variable identification?",mcq,2
+703,EDA 424,"In the context of Literature Review, which technique best illustrates the use of thematic review?",mcq,3
+704,EDA 424,Identify the core component of case study as it relates to Research Methodology.,mcq,4
+705,EDA 424,"According to standard practices in Research Ethics, ethical approval should be implemented by:",mcq,5
+706,EDA 424,"True or False: In EDA 444, voice modulation is primarily used for summative rather than formative purposes.",true_false,6
+707,EDA 424,"When applying peer review within EDA 444, the instructor's primary goal is to:",mcq,7
+708,EDA 424,"In the context of Seminar Writing, which technique best illustrates the use of abstract writing?",mcq,8
+709,EDA 424,A student utilizing significance of the study in a EDA 444 setting is likely demonstrating:,mcq,9
+710,EDA 424,"According to standard practices in Literature Review, citation index should be implemented by:",mcq,10
+711,EDA 424,A student utilizing quasi-experimental in a EDA 444 setting is likely demonstrating:,mcq,11
+712,EDA 424,"True or False: In EDA 444, anonymity is primarily used for summative rather than formative purposes.",true_false,12
+713,EDA 424,"When applying argument defense within EDA 444, the instructor's primary goal is to:",mcq,13
+714,EDA 424,Identify the core component of methodological critique as it relates to Critiquing Research.,mcq,14
+715,EDA 424,"When applying thesis statement within EDA 444, the instructor's primary goal is to:",mcq,15
+716,EDA 424,What is the significant difference between significance of the study and other methods in Identifying Problems?,mcq,16
+717,EDA 424,"According to standard practices in Literature Review, conceptual framework should be implemented by:",mcq,17
+718,EDA 424,"According to standard practices in Research Methodology, ethnography should be implemented by:",mcq,18
+719,EDA 424,What is the significant difference between anonymity and other methods in Research Ethics?,mcq,19
+720,EDA 424,Identify the core component of voice modulation as it relates to Public Speaking.,mcq,20
+721,EDA 424,"In the context of Critiquing Research, which technique best illustrates the use of peer review?",mcq,21
+722,EDA 424,What is the significant difference between abstract writing and other methods in Seminar Writing?,mcq,22
+723,EDA 424,A student utilizing significance of the study in a EDA 444 setting is likely demonstrating:,mcq,23
+724,EDA 424,"In the context of Literature Review, which technique best illustrates the use of conceptual framework?",mcq,24
+725,EDA 424,What is the significant difference between ethnography and other methods in Research Methodology?,mcq,25
+726,EDA 424,"According to standard practices in Research Ethics, anonymity should be implemented by:",mcq,26
+727,EDA 424,"In the context of Public Speaking, which technique best illustrates the use of non-verbal cues?",mcq,27
+728,EDA 424,"True or False: In EDA 444, publication standards is primarily used for summative rather than formative purposes.",true_false,28
+729,EDA 424,"True or False: In EDA 444, academic tone is primarily used for summative rather than formative purposes.",true_false,29
+730,EDA 424,"When applying feasibility within EDA 444, the instructor's primary goal is to:",mcq,30
+731,EDA 424,What is the significant difference between empirical review and other methods in Literature Review?,mcq,31
+732,EDA 424,"In the context of Research Methodology, which technique best illustrates the use of ethnography?",mcq,32
+733,EDA 424,"In the context of Research Ethics, which technique best illustrates the use of ethical approval?",mcq,33
+734,EDA 424,"According to standard practices in Public Speaking, voice modulation should be implemented by:",mcq,34
+735,EDA 424,"In the context of Critiquing Research, which technique best illustrates the use of peer review?",mcq,35
+736,EDA 424,"True or False: In EDA 444, academic tone is primarily used for summative rather than formative purposes.",true_false,36
+737,EDA 424,A student utilizing feasibility in a EDA 444 setting is likely demonstrating:,mcq,37
+738,EDA 424,"True or False: In EDA 444, conceptual framework is primarily used for summative rather than formative purposes.",true_false,38
+739,EDA 424,"When applying sampling techniques within EDA 444, the instructor's primary goal is to:",mcq,39
+740,EDA 424,"In the context of Research Ethics, which technique best illustrates the use of informed consent?",mcq,40
+741,EDA 424,"True or False: In EDA 444, voice modulation is primarily used for summative rather than formative purposes.",true_false,41
+742,EDA 424,"True or False: In EDA 444, constructive feedback is primarily used for summative rather than formative purposes.",true_false,42
+743,EDA 424,What is the significant difference between academic tone and other methods in Seminar Writing?,mcq,43
+744,EDA 424,"In the context of Identifying Problems, which technique best illustrates the use of significance of the study?",mcq,44
+745,EDA 424,"True or False: In EDA 444, empirical review is primarily used for summative rather than formative purposes.",true_false,45
+746,EDA 424,Identify the core component of ethnography as it relates to Research Methodology.,mcq,46
+747,EDA 424,"According to standard practices in Research Ethics, anonymity should be implemented by:",mcq,47
+748,EDA 424,"In the context of Public Speaking, which technique best illustrates the use of non-verbal cues?",mcq,48
+749,EDA 424,"According to standard practices in Critiquing Research, constructive feedback should be implemented by:",mcq,49
+750,EDA 424,"In the context of Seminar Writing, which technique best illustrates the use of thesis statement?",mcq,50
+751,EDA 424,"In the context of Identifying Problems, which technique best illustrates the use of gap analysis?",mcq,51
+752,EDA 424,Identify the core component of citation index as it relates to Literature Review.,mcq,52
+753,EDA 424,"When applying case study within EDA 444, the instructor's primary goal is to:",mcq,53
+754,EDA 424,Identify the core component of informed consent as it relates to Research Ethics.,mcq,54
+755,EDA 424,"In the context of Public Speaking, which technique best illustrates the use of voice modulation?",mcq,55
+756,EDA 424,"In the context of Critiquing Research, which technique best illustrates the use of publication standards?",mcq,56
+757,EDA 424,What is the significant difference between structural coherence and other methods in Seminar Writing?,mcq,57
+758,EDA 424,Identify the core component of variable identification as it relates to Identifying Problems.,mcq,58
+759,EDA 424,A student utilizing citation index in a EDA 444 setting is likely demonstrating:,mcq,59
+760,EDA 424,"True or False: In EDA 444, sampling techniques is primarily used for summative rather than formative purposes.",true_false,60
+761,EDA 424,"In the context of Research Ethics, which technique best illustrates the use of informed consent?",mcq,61
+762,EDA 424,A student utilizing voice modulation in a EDA 444 setting is likely demonstrating:,mcq,62
+763,EDA 424,"In the context of Critiquing Research, which technique best illustrates the use of peer review?",mcq,63
+764,EDA 424,"According to standard practices in Seminar Writing, abstract writing should be implemented by:",mcq,64
+765,EDA 424,"True or False: In EDA 444, significance of the study is primarily used for summative rather than formative purposes.",true_false,65
+766,EDA 424,"According to standard practices in Literature Review, conceptual framework should be implemented by:",mcq,66
+767,EDA 424,A student utilizing ethnography in a EDA 444 setting is likely demonstrating:,mcq,67
+768,EDA 424,"True or False: In EDA 444, plagiarism check is primarily used for summative rather than formative purposes.",true_false,68
+769,EDA 424,"When applying voice modulation within EDA 444, the instructor's primary goal is to:",mcq,69
+770,EDA 424,"When applying methodological critique within EDA 444, the instructor's primary goal is to:",mcq,70
+771,EDA 424,Identify the core component of structural coherence as it relates to Seminar Writing.,mcq,71
+772,EDA 424,What is the significant difference between significance of the study and other methods in Identifying Problems?,mcq,72
+773,EDA 424,A student utilizing thematic review in a EDA 444 setting is likely demonstrating:,mcq,73
+774,EDA 424,A student utilizing case study in a EDA 444 setting is likely demonstrating:,mcq,74
+775,EDA 424,"In the context of Research Ethics, which technique best illustrates the use of anonymity?",mcq,75
+776,EDA 424,"According to standard practices in Public Speaking, non-verbal cues should be implemented by:",mcq,76
+777,EDA 424,A student utilizing peer review in a EDA 444 setting is likely demonstrating:,mcq,77
+778,EDA 424,"When applying academic tone within EDA 444, the instructor's primary goal is to:",mcq,78
+779,EDA 424,Identify the core component of significance of the study as it relates to Identifying Problems.,mcq,79
+780,EDA 424,"In the context of Literature Review, which technique best illustrates the use of citation index?",mcq,80
+781,EDA 424,"According to standard practices in Research Methodology, quasi-experimental should be implemented by:",mcq,81
+782,EDA 424,Identify the core component of ethical approval as it relates to Research Ethics.,mcq,82
+783,EDA 424,A student utilizing voice modulation in a EDA 444 setting is likely demonstrating:,mcq,83
+784,EDA 424,"According to standard practices in Critiquing Research, methodological critique should be implemented by:",mcq,84
+785,EDA 424,Identify the core component of thesis statement as it relates to Seminar Writing.,mcq,85
+786,EDA 424,"True or False: In EDA 444, significance of the study is primarily used for summative rather than formative purposes.",true_false,86
+787,EDA 424,Identify the core component of thematic review as it relates to Literature Review.,mcq,87
+788,EDA 424,A student utilizing ethnography in a EDA 444 setting is likely demonstrating:,mcq,88
+789,EDA 424,"In the context of Research Ethics, which technique best illustrates the use of ethical approval?",mcq,89
+790,EDA 424,A student utilizing argument defense in a EDA 444 setting is likely demonstrating:,mcq,90
+791,EDA 424,A student utilizing methodological critique in a EDA 444 setting is likely demonstrating:,mcq,91
+792,EDA 424,"True or False: In EDA 444, abstract writing is primarily used for summative rather than formative purposes.",true_false,92
+793,EDA 424,What is the significant difference between feasibility and other methods in Identifying Problems?,mcq,93
+794,EDA 424,"According to standard practices in Literature Review, conceptual framework should be implemented by:",mcq,94
+795,EDA 424,"True or False: In EDA 444, quasi-experimental is primarily used for summative rather than formative purposes.",true_false,95
+796,EDA 424,"In the context of Research Ethics, which technique best illustrates the use of informed consent?",mcq,96
+797,EDA 424,What is the significant difference between argument defense and other methods in Public Speaking?,mcq,97
+798,EDA 424,Identify the core component of publication standards as it relates to Critiquing Research.,mcq,98
+799,EDA 424,"When applying academic tone within EDA 444, the instructor's primary goal is to:",mcq,99
+800,EDA 424,"In the context of Identifying Problems, which technique best illustrates the use of significance of the study?",mcq,100
+801,EDA 425,"According to standard practices in Ethics of Teaching, dress code should be implemented by:",mcq,1
+802,EDA 425,"True or False: In EDA 450, reinforcement is primarily used for summative rather than formative purposes.",true_false,2
+803,EDA 425,"True or False: In EDA 450, inventory control is primarily used for summative rather than formative purposes.",true_false,3
+804,EDA 425,"True or False: In EDA 450, community relations is primarily used for summative rather than formative purposes.",true_false,4
+805,EDA 425,A student utilizing self-correction in a EDA 450 setting is likely demonstrating:,mcq,5
+806,EDA 425,"When applying diagnostic feedback within EDA 450, the instructor's primary goal is to:",mcq,6
+807,EDA 425,A student utilizing defense of methods in a EDA 450 setting is likely demonstrating:,mcq,7
+808,EDA 425,What is the significant difference between pastoral care and other methods in Ethics of Teaching?,mcq,8
+809,EDA 425,"According to standard practices in Lesson Delivery, voice control should be implemented by:",mcq,9
+810,EDA 425,"True or False: In EDA 450, material conservation is primarily used for summative rather than formative purposes.",true_false,10
+811,EDA 425,What is the significant difference between collegiality and other methods in Teacher Relationships?,mcq,11
+812,EDA 425,A student utilizing self-correction in a EDA 450 setting is likely demonstrating:,mcq,12
+813,EDA 425,"True or False: In EDA 450, marking schemes is primarily used for summative rather than formative purposes.",true_false,13
+814,EDA 425,"True or False: In EDA 450, experience synthesis is primarily used for summative rather than formative purposes.",true_false,14
+815,EDA 425,"According to standard practices in Ethics of Teaching, punctuality should be implemented by:",mcq,15
+816,EDA 425,A student utilizing reinforcement in a EDA 450 setting is likely demonstrating:,mcq,16
+817,EDA 425,"When applying workstation organization within EDA 450, the instructor's primary goal is to:",mcq,17
+818,EDA 425,"According to standard practices in Teacher Relationships, parent-teacher interaction should be implemented by:",mcq,18
+819,EDA 425,"True or False: In EDA 450, critical incident analysis is primarily used for summative rather than formative purposes.",true_false,19
+820,EDA 425,A student utilizing report card comments in a EDA 450 setting is likely demonstrating:,mcq,20
+821,EDA 425,"True or False: In EDA 450, portfolio presentation is primarily used for summative rather than formative purposes.",true_false,21
+822,EDA 425,A student utilizing dress code in a EDA 450 setting is likely demonstrating:,mcq,22
+823,EDA 425,What is the significant difference between voice control and other methods in Lesson Delivery?,mcq,23
+824,EDA 425,"According to standard practices in Studio Management, inventory control should be implemented by:",mcq,24
+825,EDA 425,What is the significant difference between parent-teacher interaction and other methods in Teacher Relationships?,mcq,25
+826,EDA 425,What is the significant difference between self-correction and other methods in Reflective Journaling?,mcq,26
+827,EDA 425,"True or False: In EDA 450, report card comments is primarily used for summative rather than formative purposes.",true_false,27
+828,EDA 425,A student utilizing portfolio presentation in a EDA 450 setting is likely demonstrating:,mcq,28
+829,EDA 425,A student utilizing pastoral care in a EDA 450 setting is likely demonstrating:,mcq,29
+830,EDA 425,Identify the core component of questioning techniques as it relates to Lesson Delivery.,mcq,30
+831,EDA 425,A student utilizing workstation organization in a EDA 450 setting is likely demonstrating:,mcq,31
+832,EDA 425,Identify the core component of parent-teacher interaction as it relates to Teacher Relationships.,mcq,32
+833,EDA 425,"When applying critical incident analysis within EDA 450, the instructor's primary goal is to:",mcq,33
+834,EDA 425,"In the context of Assessment in Field, which technique best illustrates the use of report card comments?",mcq,34
+835,EDA 425,A student utilizing portfolio presentation in a EDA 450 setting is likely demonstrating:,mcq,35
+836,EDA 425,What is the significant difference between pastoral care and other methods in Ethics of Teaching?,mcq,36
+837,EDA 425,"According to standard practices in Lesson Delivery, pacing should be implemented by:",mcq,37
+838,EDA 425,A student utilizing inventory control in a EDA 450 setting is likely demonstrating:,mcq,38
+839,EDA 425,"In the context of Teacher Relationships, which technique best illustrates the use of collegiality?",mcq,39
+840,EDA 425,What is the significant difference between growth mindset and other methods in Reflective Journaling?,mcq,40
+841,EDA 425,"True or False: In EDA 450, record keeping is primarily used for summative rather than formative purposes.",true_false,41
+842,EDA 425,What is the significant difference between pedagogical growth and other methods in Post-TP Defense?,mcq,42
+843,EDA 425,A student utilizing pastoral care in a EDA 450 setting is likely demonstrating:,mcq,43
+844,EDA 425,"When applying pacing within EDA 450, the instructor's primary goal is to:",mcq,44
+845,EDA 425,"True or False: In EDA 450, inventory control is primarily used for summative rather than formative purposes.",true_false,45
+846,EDA 425,What is the significant difference between collegiality and other methods in Teacher Relationships?,mcq,46
+847,EDA 425,A student utilizing self-correction in a EDA 450 setting is likely demonstrating:,mcq,47
+848,EDA 425,What is the significant difference between marking schemes and other methods in Assessment in Field?,mcq,48
+849,EDA 425,A student utilizing experience synthesis in a EDA 450 setting is likely demonstrating:,mcq,49
+850,EDA 425,A student utilizing pastoral care in a EDA 450 setting is likely demonstrating:,mcq,50
+851,EDA 425,Identify the core component of reinforcement as it relates to Lesson Delivery.,mcq,51
+852,EDA 425,A student utilizing safety protocols in a EDA 450 setting is likely demonstrating:,mcq,52
+853,EDA 425,"In the context of Teacher Relationships, which technique best illustrates the use of mentorship?",mcq,53
+854,EDA 425,A student utilizing critical incident analysis in a EDA 450 setting is likely demonstrating:,mcq,54
+855,EDA 425,A student utilizing diagnostic feedback in a EDA 450 setting is likely demonstrating:,mcq,55
+856,EDA 425,"According to standard practices in Post-TP Defense, pedagogical growth should be implemented by:",mcq,56
+857,EDA 425,What is the significant difference between pastoral care and other methods in Ethics of Teaching?,mcq,57
+858,EDA 425,What is the significant difference between questioning techniques and other methods in Lesson Delivery?,mcq,58
+859,EDA 425,"In the context of Studio Management, which technique best illustrates the use of safety protocols?",mcq,59
+860,EDA 425,What is the significant difference between collegiality and other methods in Teacher Relationships?,mcq,60
+861,EDA 425,"True or False: In EDA 450, action planning is primarily used for summative rather than formative purposes.",true_false,61
+862,EDA 425,A student utilizing marking schemes in a EDA 450 setting is likely demonstrating:,mcq,62
+863,EDA 425,"True or False: In EDA 450, pedagogical growth is primarily used for summative rather than formative purposes.",true_false,63
+864,EDA 425,"When applying punctuality within EDA 450, the instructor's primary goal is to:",mcq,64
+865,EDA 425,"True or False: In EDA 450, pacing is primarily used for summative rather than formative purposes.",true_false,65
+866,EDA 425,"True or False: In EDA 450, workstation organization is primarily used for summative rather than formative purposes.",true_false,66
+867,EDA 425,Identify the core component of collegiality as it relates to Teacher Relationships.,mcq,67
+868,EDA 425,"In the context of Reflective Journaling, which technique best illustrates the use of action planning?",mcq,68
+869,EDA 425,"According to standard practices in Assessment in Field, diagnostic feedback should be implemented by:",mcq,69
+870,EDA 425,"In the context of Post-TP Defense, which technique best illustrates the use of defense of methods?",mcq,70
+871,EDA 425,What is the significant difference between punctuality and other methods in Ethics of Teaching?,mcq,71
+872,EDA 425,What is the significant difference between reinforcement and other methods in Lesson Delivery?,mcq,72
+873,EDA 425,"When applying workstation organization within EDA 450, the instructor's primary goal is to:",mcq,73
+874,EDA 425,"True or False: In EDA 450, collegiality is primarily used for summative rather than formative purposes.",true_false,74
+875,EDA 425,"When applying growth mindset within EDA 450, the instructor's primary goal is to:",mcq,75
+876,EDA 425,"In the context of Assessment in Field, which technique best illustrates the use of report card comments?",mcq,76
+877,EDA 425,A student utilizing portfolio presentation in a EDA 450 setting is likely demonstrating:,mcq,77
+878,EDA 425,"True or False: In EDA 450, punctuality is primarily used for summative rather than formative purposes.",true_false,78
+879,EDA 425,What is the significant difference between pacing and other methods in Lesson Delivery?,mcq,79
+880,EDA 425,"According to standard practices in Studio Management, safety protocols should be implemented by:",mcq,80
+881,EDA 425,"True or False: In EDA 450, collegiality is primarily used for summative rather than formative purposes.",true_false,81
+882,EDA 425,"True or False: In EDA 450, growth mindset is primarily used for summative rather than formative purposes.",true_false,82
+883,EDA 425,"According to standard practices in Assessment in Field, diagnostic feedback should be implemented by:",mcq,83
+884,EDA 425,A student utilizing portfolio presentation in a EDA 450 setting is likely demonstrating:,mcq,84
+885,EDA 425,What is the significant difference between dress code and other methods in Ethics of Teaching?,mcq,85
+886,EDA 425,"In the context of Lesson Delivery, which technique best illustrates the use of voice control?",mcq,86
+887,EDA 425,A student utilizing workstation organization in a EDA 450 setting is likely demonstrating:,mcq,87
+888,EDA 425,"In the context of Teacher Relationships, which technique best illustrates the use of parent-teacher interaction?",mcq,88
+889,EDA 425,"In the context of Reflective Journaling, which technique best illustrates the use of self-correction?",mcq,89
+890,EDA 425,"In the context of Assessment in Field, which technique best illustrates the use of record keeping?",mcq,90
+891,EDA 425,"According to standard practices in Post-TP Defense, experience synthesis should be implemented by:",mcq,91
+892,EDA 425,Identify the core component of dress code as it relates to Ethics of Teaching.,mcq,92
+893,EDA 425,What is the significant difference between pacing and other methods in Lesson Delivery?,mcq,93
+894,EDA 425,A student utilizing inventory control in a EDA 450 setting is likely demonstrating:,mcq,94
+895,EDA 425,"True or False: In EDA 450, collegiality is primarily used for summative rather than formative purposes.",true_false,95
+896,EDA 425,Identify the core component of critical incident analysis as it relates to Reflective Journaling.,mcq,96
+897,EDA 425,What is the significant difference between marking schemes and other methods in Assessment in Field?,mcq,97
+898,EDA 425,What is the significant difference between portfolio presentation and other methods in Post-TP Defense?,mcq,98
+899,EDA 425,Identify the core component of dress code as it relates to Ethics of Teaching.,mcq,99
+900,EDA 425,"When applying voice control within EDA 450, the instructor's primary goal is to:",mcq,100
+901,EDA 490,Identify the core component of refinement of scope as it relates to Final Proposal.,mcq,1
+902,EDA 490,A student utilizing interview schedule in a EDA 490 setting is likely demonstrating:,mcq,2
+903,EDA 490,"In the context of Fieldwork Logistics, which technique best illustrates the use of confidentiality?",mcq,3
+904,EDA 490,"In the context of Project Data Analysis, which technique best illustrates the use of coding themes?",mcq,4
+905,EDA 490,A student utilizing theoretical alignment in a EDA 490 setting is likely demonstrating:,mcq,5
+906,EDA 490,"In the context of APA Formatting, which technique best illustrates the use of in-text citation?",mcq,6
+907,EDA 490,"In the context of Final Defense, which technique best illustrates the use of rebuttal strategies?",mcq,7
+908,EDA 490,A student utilizing budgeting in a EDA 490 setting is likely demonstrating:,mcq,8
+909,EDA 490,Identify the core component of observation checklist as it relates to Data Instruments.,mcq,9
+910,EDA 490,"When applying access to sites within EDA 490, the instructor's primary goal is to:",mcq,10
+911,EDA 490,Identify the core component of coding themes as it relates to Project Data Analysis.,mcq,11
+912,EDA 490,"When applying limitations within EDA 490, the instructor's primary goal is to:",mcq,12
+913,EDA 490,"In the context of APA Formatting, which technique best illustrates the use of level headings?",mcq,13
+914,EDA 490,What is the significant difference between rebuttal strategies and other methods in Final Defense?,mcq,14
+915,EDA 490,"In the context of Final Proposal, which technique best illustrates the use of justification?",mcq,15
+916,EDA 490,A student utilizing questionnaire design in a EDA 490 setting is likely demonstrating:,mcq,16
+917,EDA 490,A student utilizing data storage in a EDA 490 setting is likely demonstrating:,mcq,17
+918,EDA 490,"In the context of Project Data Analysis, which technique best illustrates the use of result interpretation?",mcq,18
+919,EDA 490,"True or False: In EDA 490, limitations is primarily used for summative rather than formative purposes.",true_false,19
+920,EDA 490,A student utilizing running head in a EDA 490 setting is likely demonstrating:,mcq,20
+921,EDA 490,"According to standard practices in Final Defense, visual presentation should be implemented by:",mcq,21
+922,EDA 490,A student utilizing refinement of scope in a EDA 490 setting is likely demonstrating:,mcq,22
+923,EDA 490,What is the significant difference between interview schedule and other methods in Data Instruments?,mcq,23
+924,EDA 490,"In the context of Fieldwork Logistics, which technique best illustrates the use of participant recruitment?",mcq,24
+925,EDA 490,"True or False: In EDA 490, result interpretation is primarily used for summative rather than formative purposes.",true_false,25
+926,EDA 490,A student utilizing recommendations in a EDA 490 setting is likely demonstrating:,mcq,26
+927,EDA 490,"True or False: In EDA 490, level headings is primarily used for summative rather than formative purposes.",true_false,27
+928,EDA 490,Identify the core component of rebuttal strategies as it relates to Final Defense.,mcq,28
+929,EDA 490,"According to standard practices in Final Proposal, timeframe should be implemented by:",mcq,29
+930,EDA 490,A student utilizing questionnaire design in a EDA 490 setting is likely demonstrating:,mcq,30
+931,EDA 490,Identify the core component of access to sites as it relates to Fieldwork Logistics.,mcq,31
+932,EDA 490,What is the significant difference between coding themes and other methods in Project Data Analysis?,mcq,32
+933,EDA 490,"According to standard practices in Findings/Discussion, implications should be implemented by:",mcq,33
+934,EDA 490,"In the context of APA Formatting, which technique best illustrates the use of in-text citation?",mcq,34
+935,EDA 490,"True or False: In EDA 490, handling cross-examination is primarily used for summative rather than formative purposes.",true_false,35
+936,EDA 490,"In the context of Final Proposal, which technique best illustrates the use of refinement of scope?",mcq,36
+937,EDA 490,A student utilizing pilot testing in a EDA 490 setting is likely demonstrating:,mcq,37
+938,EDA 490,Identify the core component of confidentiality as it relates to Fieldwork Logistics.,mcq,38
+939,EDA 490,What is the significant difference between triangulation and other methods in Project Data Analysis?,mcq,39
+940,EDA 490,"True or False: In EDA 490, implications is primarily used for summative rather than formative purposes.",true_false,40
+941,EDA 490,"In the context of APA Formatting, which technique best illustrates the use of in-text citation?",mcq,41
+942,EDA 490,"According to standard practices in Final Defense, visual presentation should be implemented by:",mcq,42
+943,EDA 490,"When applying refinement of scope within EDA 490, the instructor's primary goal is to:",mcq,43
+944,EDA 490,"When applying questionnaire design within EDA 490, the instructor's primary goal is to:",mcq,44
+945,EDA 490,Identify the core component of participant recruitment as it relates to Fieldwork Logistics.,mcq,45
+946,EDA 490,Identify the core component of result interpretation as it relates to Project Data Analysis.,mcq,46
+947,EDA 490,"When applying theoretical alignment within EDA 490, the instructor's primary goal is to:",mcq,47
+948,EDA 490,A student utilizing reference list in a EDA 490 setting is likely demonstrating:,mcq,48
+949,EDA 490,"According to standard practices in Final Defense, visual presentation should be implemented by:",mcq,49
+950,EDA 490,A student utilizing timeframe in a EDA 490 setting is likely demonstrating:,mcq,50
+951,EDA 490,"When applying pilot testing within EDA 490, the instructor's primary goal is to:",mcq,51
+952,EDA 490,Identify the core component of confidentiality as it relates to Fieldwork Logistics.,mcq,52
+953,EDA 490,Identify the core component of triangulation as it relates to Project Data Analysis.,mcq,53
+954,EDA 490,"When applying recommendations within EDA 490, the instructor's primary goal is to:",mcq,54
+955,EDA 490,What is the significant difference between reference list and other methods in APA Formatting?,mcq,55
+956,EDA 490,"When applying handling cross-examination within EDA 490, the instructor's primary goal is to:",mcq,56
+957,EDA 490,A student utilizing refinement of scope in a EDA 490 setting is likely demonstrating:,mcq,57
+958,EDA 490,"True or False: In EDA 490, pilot testing is primarily used for summative rather than formative purposes.",true_false,58
+959,EDA 490,"In the context of Fieldwork Logistics, which technique best illustrates the use of confidentiality?",mcq,59
+960,EDA 490,"In the context of Project Data Analysis, which technique best illustrates the use of result interpretation?",mcq,60
+961,EDA 490,Identify the core component of limitations as it relates to Findings/Discussion.,mcq,61
+962,EDA 490,"When applying level headings within EDA 490, the instructor's primary goal is to:",mcq,62
+963,EDA 490,A student utilizing contribution to knowledge in a EDA 490 setting is likely demonstrating:,mcq,63
+964,EDA 490,"True or False: In EDA 490, budgeting is primarily used for summative rather than formative purposes.",true_false,64
+965,EDA 490,"According to standard practices in Data Instruments, questionnaire design should be implemented by:",mcq,65
+966,EDA 490,"According to standard practices in Fieldwork Logistics, participant recruitment should be implemented by:",mcq,66
+967,EDA 490,"When applying result interpretation within EDA 490, the instructor's primary goal is to:",mcq,67
+968,EDA 490,"When applying theoretical alignment within EDA 490, the instructor's primary goal is to:",mcq,68
+969,EDA 490,Identify the core component of reference list as it relates to APA Formatting.,mcq,69
+970,EDA 490,"True or False: In EDA 490, contribution to knowledge is primarily used for summative rather than formative purposes.",true_false,70
+971,EDA 490,"True or False: In EDA 490, refinement of scope is primarily used for summative rather than formative purposes.",true_false,71
+972,EDA 490,Identify the core component of observation checklist as it relates to Data Instruments.,mcq,72
+973,EDA 490,Identify the core component of participant recruitment as it relates to Fieldwork Logistics.,mcq,73
+974,EDA 490,"True or False: In EDA 490, coding themes is primarily used for summative rather than formative purposes.",true_false,74
+975,EDA 490,What is the significant difference between recommendations and other methods in Findings/Discussion?,mcq,75
+976,EDA 490,"According to standard practices in APA Formatting, in-text citation should be implemented by:",mcq,76
+977,EDA 490,"According to standard practices in Final Defense, handling cross-examination should be implemented by:",mcq,77
+978,EDA 490,"In the context of Final Proposal, which technique best illustrates the use of budgeting?",mcq,78
+979,EDA 490,Identify the core component of interview schedule as it relates to Data Instruments.,mcq,79
+980,EDA 490,"According to standard practices in Fieldwork Logistics, confidentiality should be implemented by:",mcq,80
+981,EDA 490,"True or False: In EDA 490, coding themes is primarily used for summative rather than formative purposes.",true_false,81
+982,EDA 490,What is the significant difference between recommendations and other methods in Findings/Discussion?,mcq,82
+983,EDA 490,"True or False: In EDA 490, in-text citation is primarily used for summative rather than formative purposes.",true_false,83
+984,EDA 490,"According to standard practices in Final Defense, contribution to knowledge should be implemented by:",mcq,84
+985,EDA 490,"According to standard practices in Final Proposal, justification should be implemented by:",mcq,85
+986,EDA 490,"True or False: In EDA 490, observation checklist is primarily used for summative rather than formative purposes.",true_false,86
+987,EDA 490,A student utilizing access to sites in a EDA 490 setting is likely demonstrating:,mcq,87
+988,EDA 490,Identify the core component of software application (SPSS/NVivo) as it relates to Project Data Analysis.,mcq,88
+989,EDA 490,"According to standard practices in Findings/Discussion, implications should be implemented by:",mcq,89
+990,EDA 490,A student utilizing reference list in a EDA 490 setting is likely demonstrating:,mcq,90
+991,EDA 490,What is the significant difference between rebuttal strategies and other methods in Final Defense?,mcq,91
+992,EDA 490,"True or False: In EDA 490, justification is primarily used for summative rather than formative purposes.",true_false,92
+993,EDA 490,"When applying observation checklist within EDA 490, the instructor's primary goal is to:",mcq,93
+994,EDA 490,Identify the core component of access to sites as it relates to Fieldwork Logistics.,mcq,94
+995,EDA 490,A student utilizing triangulation in a EDA 490 setting is likely demonstrating:,mcq,95
+996,EDA 490,What is the significant difference between implications and other methods in Findings/Discussion?,mcq,96
+997,EDA 490,"True or False: In EDA 490, running head is primarily used for summative rather than formative purposes.",true_false,97
+998,EDA 490,What is the significant difference between visual presentation and other methods in Final Defense?,mcq,98
+999,EDA 490,"True or False: In EDA 490, justification is primarily used for summative rather than formative purposes.",true_false,99
+1000,EDA 490,What is the significant difference between interview schedule and other methods in Data Instruments?,mcq,100

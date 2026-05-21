@@ -1,0 +1,71 @@
+id,name,course,description,order
+1,Introduction to Arts Education: Concepts and Scope,EDA 105,Overview of arts education its meaning history and relevance in Nigerian schools,1
+2,Philosophy and Objectives of Arts Education,EDA 105,Philosophical foundations and national objectives guiding arts education in Nigeria,2
+3,The Arts as a Medium of Expression and Communication,EDA 105,How visual performing and literary arts function as human communication tools,3
+4,Arts Education in the Nigerian Curriculum,EDA 105,Review of arts education placement in primary secondary and tertiary curricula,4
+5,Creative Development in Children through Arts,EDA 105,Stages of artistic development and how arts foster creativity in learners,5
+6,Interdisciplinary Nature of Arts Education,EDA 105,Connections between arts music drama and other subject areas,6
+7,Career Opportunities and Professional Ethics in Arts Education,EDA 105,Pathways and ethical responsibilities for arts educators in Nigeria,7
+8,Culture: Definition Dimensions and Characteristics,EDA 106,Meaning components and distinguishing features of culture in African societies,1
+9,Arts and Culture: Points of Intersection,EDA 106,How artistic production reflects transmits and transforms cultural values,2
+10,Nigerian Cultural Heritage and Arts Traditions,EDA 106,Survey of indigenous arts crafts music and performance traditions across Nigeria,3
+11,Colonialism and Its Impact on Nigerian Arts and Culture,EDA 106,How colonial rule disrupted and reshaped Nigerian arts and cultural expression,4
+12,Cultural Identity and Representation in the Arts,EDA 106,The role of arts in affirming preserving and projecting cultural identity,5
+13,Globalization and Contemporary Nigerian Arts,EDA 106,Influence of global culture on modern Nigerian artistic production and consumption,6
+14,Cultural Policy and Institutions in Nigeria,EDA 106,National cultural policy NCAC and the institutional framework supporting arts and culture,7
+15,Communicative Language Teaching (CLT) in Nigerian Classrooms,EDA 222,Principles of CLT and how to adapt communicative methods to Nigerian secondary school contexts,1
+16,Task-Based Language Teaching (TBLT) and Activity Design,EDA 222,Designing meaningful language tasks and sequencing them for effective learning outcomes,2
+17,Lesson Planning and Instructional Objectives in English Teaching,EDA 222,Writing behavioural objectives and structuring lesson plans for English language classes,3
+18,Use of Instructional Materials and Improvisation Techniques,EDA 222,Selecting adapting and improvising teaching aids for resource-limited Nigerian classrooms,4
+19,Teaching Grammar in Context vs Isolation,EDA 222,Comparing deductive and inductive grammar teaching and contextualised grammar instruction,5
+20,Classroom Interaction Patterns and Questioning Techniques,EDA 222,IRF patterns wait time and higher-order questioning strategies for English lessons,6
+21,Assessment Strategies in English Language Teaching,EDA 222,Formative and summative assessment types including WAEC-aligned evaluation approaches,7
+22,Listening Skills: Processes Barriers and Teaching Strategies,EDA 226,Stages of the listening process common classroom barriers and pedagogical remedies,1
+23,Speaking Skills: Pronunciation Fluency and Classroom Practice,EDA 226,Teaching spoken English with focus on Nigerian phonology fluency development and oral drills,2
+24,Reading Skills: Skimming Scanning and Intensive Reading,EDA 226,Strategies for reading comprehension and how to teach different reading purposes,3
+25,Writing Skills: Composition Coherence and Cohesion,EDA 226,Teaching paragraph writing essay structure coherence devices and cohesive ties,4
+26,Integrated Language Skills Approach,EDA 226,Combining listening speaking reading and writing in unified and authentic language tasks,5
+27,Teaching Vocabulary and Semantic Development,EDA 226,Methods for vocabulary instruction including context clues word maps and collocations,6
+28,Study Skills and Note-Taking Techniques,EDA 226,Teaching learners how to take effective notes summarise texts and prepare for examinations,7
+29,Microteaching: Concept Phases and Skill Acquisition,EDA 325,Definition rationale and the plan teach re-plan cycle in microteaching for pre-service teachers,1
+30,Lesson Plan Development and Delivery,EDA 325,Step-by-step construction of detailed lesson plans and live delivery techniques,2
+31,Classroom Management Techniques for Student Teachers,EDA 325,Strategies for maintaining order engagement and a positive learning environment,3
+32,Observation Techniques and Reflective Practice,EDA 325,Using structured observation instruments and reflective journals to improve teaching,4
+33,Use of Teaching Aids and Instructional Media,EDA 325,Selecting and integrating charts realia audio-visual materials and digital tools in lessons,5
+34,Teacher-Student Interaction and Communication Skills,EDA 325,Verbal and non-verbal communication proxemics and building rapport in classrooms,6
+35,Evaluation and Feedback in Teaching Practice,EDA 325,Supervisor and peer feedback methods self-evaluation and professional growth planning,7
+36,Advanced Lesson Delivery and Classroom Control,EDA 316,Techniques for confident expert delivery and managing disruptive behaviour in large classes,1
+37,Differentiated Instruction in Language Classrooms,EDA 316,Adapting content process and product to meet diverse learner needs and abilities,2
+38,Teaching Large Classes in Nigerian Secondary Schools,EDA 316,Practical strategies for maintaining quality instruction with 50+ students per class,3
+39,Error Analysis and Correction Techniques,EDA 316,Identifying categorising and responding to learner errors without impeding fluency,4
+40,Use of ICT Tools in Language Teaching (e-learning and CBT),EDA 316,Integrating Moodle CBT platforms and digital resources into language instruction,5
+41,Continuous Assessment and Record Keeping,EDA 316,Designing CA instruments maintaining accurate records and interpreting scores for reporting,6
+42,Professional Ethics and Teacher Identity Development,EDA 316,NTI/TRCN standards ethics of the teaching profession and building a professional identity,7
+43,Concept and Theories of Moral Development,EDA 447,Overview of Piaget Kohlberg and Gilligan theories of moral development with classroom applications,1
+44,Values Education in Nigerian Society,EDA 447,Core national values and how schools transmit them through curriculum and school culture,2
+45,Role of School and Family in Moral Formation,EDA 447,Partnership between home and school in shaping character and ethical behaviour in children,3
+46,Teaching Honesty Integrity and Responsibility,EDA 447,Instructional strategies for inculcating key virtues in primary and secondary school learners,4
+47,Moral Dilemmas and Decision-Making Skills,EDA 447,Using case studies and dilemma discussions to develop ethical reasoning in students,5
+48,Religion Culture and Moral Instruction,EDA 447,How religious and cultural values intersect with formal moral education in Nigerian schools,6
+49,Discipline Character Building and Civic Responsibility,EDA 447,Approaches to school discipline civic education and building responsible future citizens,7
+50,Behaviorist Theory (B. F. Skinner) and Language Learning,EDA 424,Stimulus-response conditioning reinforcement schedules and their role in language habit formation,1
+51,Nativist Theory (Noam Chomsky) and Universal Grammar,EDA 424,Language acquisition device critical period hypothesis and implications for language teaching,2
+52,Cognitive Theory in Language Acquisition,EDA 424,Information processing schema theory and problem-solving approaches to language learning,3
+53,Constructivist Theory (Jean Piaget),EDA 424,Stages of cognitive development assimilation accommodation and active learning in language classes,4
+54,Socio-cultural Theory (Lev Vygotsky),EDA 424,Zone of proximal development scaffolding and collaborative learning in language acquisition,5
+55,Krashen's Monitor Model,EDA 424,The five hypotheses of Krashen and their practical implications for EFL/ESL classroom instruction,6
+56,Humanistic Approaches in Language Teaching,EDA 424,Community Language Learning Silent Way Suggestopedia and the affective filter in learning,7
+57,Research Design and Methodology in Education,EDA 490,Types of educational research experimental survey and qualitative designs and their applications,1
+58,Writing Chapter One: Introduction to Research,EDA 490,Formulating research problems background purpose research questions and significance of study,2
+59,Literature Review and Theoretical Framework,EDA 490,How to search synthesise and critically review related literature and select a guiding theory,3
+60,Data Collection Methods: Questionnaire Interview and Observation,EDA 490,Designing valid and reliable instruments for primary data collection in education research,4
+61,Data Analysis Techniques: Qualitative and Quantitative,EDA 490,Descriptive statistics SPSS basics thematic analysis and content analysis for education data,5
+62,Report Writing and Referencing Styles (APA and MLA),EDA 490,Structuring final research reports and correctly applying APA 7th edition referencing,6
+63,Presentation and Defense of Research Project,EDA 490,Preparing and delivering a confident oral defense of an undergraduate research project,7
+64,Ethics and Professionalism in Teaching,EDA 425,Professional conduct dress code and ethical boundaries in school settings,1
+65,Lesson Delivery and Classroom Control,EDA 425,Techniques for engaging students and maintaining discipline during practice,2
+66,Instructional Media and Resource Management,EDA 425,Selection and use of teaching aids in a real classroom environment,3
+67,Student Assessment and Record Keeping,EDA 425,Managing attendance registers mark sheets and progress reports,4
+68,Reflective Journaling and Peer Observation,EDA 425,Analyzing teaching experiences and learning from mentor observations,5
+69,Community and Staff Relationships,EDA 425,Interacting with host teachers school management and parents,6
+70,Post-TP Evaluation and Portfolio Defense,EDA 425,Summarizing field experiences and defending pedagogical choices,7

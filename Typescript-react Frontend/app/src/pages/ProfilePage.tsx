@@ -1,18 +1,13 @@
 // ============================================
 // ProfilePage — World-Class Redesign
+// PASTE TO: src/pages/ProfilePage.tsx
 // ============================================
 //
 // FIXES
 // ─────
-// FIX: "Joined Unknown" — date_joined guard improved; only renders the
-//      join line when the date is genuinely parseable. Never shows "Unknown".
-// FIX: Avatar upload calls authApi.updateProfilePicture (FormData), not updateProfile
-// FIX: resolveMediaUrl prepends Django origin to relative /media/ paths
-//
-// DESIGN
-// ──────
-// Aesthetic: editorial luxury — dark hero banner with mesh gradient,
-// glass-morphism avatar ring, staggered card reveal, Sora typeface.
+// FIX: resolveMediaUrl fallback changed from localhost:8000 to deployed URL
+// FIX: "Joined Unknown" guard — only renders when date is genuinely parseable
+// FIX: Avatar upload calls authApi.updateProfilePicture (FormData)
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '@/contexts/useAuth';
@@ -29,18 +24,18 @@ import {
 import { toast } from 'sonner';
 
 // ── Media URL resolver ────────────────────────────────────────────────────────
+// FIX: fallback is now the deployed backend, not localhost:8000
 const resolveMediaUrl = (url: string | null | undefined): string | undefined => {
   if (!url) return undefined;
   if (url.startsWith('http')) return url;
   const base =
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_API_BASE_URL) ||
-    'http://localhost:8000/api';
+    'https://aesastudyapp.onrender.com/api';
   const origin = base.replace(/\/api\/?$/, '');
   return `${origin}${url}`;
 };
 
 // ── Date formatter ─────────────────────────────────────────────────────────
-// FIX: returns empty string when date_joined is missing/invalid — no "Unknown"
 const formatJoinDate = (dateString?: string | null): string => {
   if (!dateString) return '';
   const d = new Date(dateString);
@@ -156,7 +151,6 @@ const ProfilePage: React.FC = () => {
         }
         .pp-root.pp-in { opacity: 1; transform: none; }
 
-        /* ── Hero ── */
         .pp-hero {
           position: relative;
           border-radius: 22px;
@@ -177,7 +171,6 @@ const ProfilePage: React.FC = () => {
         }
         .pp-hero-body { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 22px; }
 
-        /* ── Avatar ── */
         .pp-av-wrap { position: relative; flex-shrink: 0; cursor: pointer; }
         .pp-av-ring {
           width: 92px; height: 92px; border-radius: 50%; padding: 3px;
@@ -204,7 +197,6 @@ const ProfilePage: React.FC = () => {
         }
         .pp-av-wrap:hover .pp-av-overlay { opacity: 1; }
 
-        /* ── Hero text ── */
         .pp-name { font-size: 1.5rem; font-weight: 800; color: #f1f5f9; letter-spacing: -0.4px; margin: 0 0 3px; }
         .pp-uname { font-size: 0.78rem; color: rgba(148,163,184,0.75); margin: 0 0 13px; }
         .pp-badge {
@@ -215,7 +207,6 @@ const ProfilePage: React.FC = () => {
         }
         .pp-join { display: flex; align-items: center; gap: 5px; font-size: 0.73rem; color: rgba(148,163,184,0.65); margin-top: 10px; }
 
-        /* ── Card ── */
         .pp-card {
           background: #fff; border-radius: 20px; border: 1px solid #e2e8f0;
           box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-top: -42px;
@@ -234,7 +225,6 @@ const ProfilePage: React.FC = () => {
         }
         .pp-head-btns { display: flex; gap: 8px; }
 
-        /* ── Buttons ── */
         .pp-btn {
           display: inline-flex; align-items: center; gap: 6px;
           padding: 8px 16px; border-radius: 10px; border: none; cursor: pointer;
@@ -248,7 +238,6 @@ const ProfilePage: React.FC = () => {
         .pp-btn-ghost { background: #f1f5f9; color: #64748b; }
         .pp-btn-ghost:hover { background: #e2e8f0; }
 
-        /* ── Fields grid ── */
         .pp-fields { display: grid; grid-template-columns: 1fr 1fr; }
         @media(max-width:540px){ .pp-fields { grid-template-columns: 1fr; } }
 
@@ -276,7 +265,6 @@ const ProfilePage: React.FC = () => {
           padding: 2px 8px; border-radius: 99px; font-weight: 600; margin-left: 8px;
         }
 
-        /* ── Danger ── */
         .pp-danger {
           margin-top: 18px; background: #fff;
           border-radius: 18px; border: 1px solid #fee2e2;
@@ -297,13 +285,11 @@ const ProfilePage: React.FC = () => {
 
       <div className={`pp-root ${mounted ? 'pp-in' : ''}`}>
 
-        {/* ── Hero banner ── */}
         <div className="pp-hero">
           <div className="pp-mesh" />
           <div className="pp-noise" />
           <div className="pp-hero-body">
 
-            {/* Avatar */}
             <div className="pp-av-wrap" onClick={handleImageClick} title="Change photo">
               <div className="pp-av-ring">
                 <div className="pp-av-inner">
@@ -318,17 +304,12 @@ const ProfilePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Text */}
             <div style={{ flex: 1, minWidth: 0 }}>
               <h1 className="pp-name">{displayName}</h1>
               <p className="pp-uname">@{user.username}</p>
-              <span
-                className="pp-badge"
-                style={{ color: role.color, background: role.bg, borderColor: `${role.color}40` }}
-              >
+              <span className="pp-badge" style={{ color: role.color, background: role.bg, borderColor: `${role.color}40` }}>
                 {role.label}
               </span>
-              {/* FIX: only render when genuinely has a date */}
               {joinDate && (
                 <div className="pp-join">
                   <Calendar size={11} />
@@ -339,7 +320,6 @@ const ProfilePage: React.FC = () => {
           </div>
         </div>
 
-        {/* ── Info card ── */}
         <div className="pp-card">
           <div className="pp-card-head">
             <span className="pp-section-tag">Personal Information</span>
@@ -365,7 +345,6 @@ const ProfilePage: React.FC = () => {
           </div>
 
           <div className="pp-fields">
-            {/* First Name */}
             <div className="pp-field">
               <div className="pp-flabel"><User size={11} /><span>First Name</span></div>
               {isEditing
@@ -374,7 +353,6 @@ const ProfilePage: React.FC = () => {
               }
             </div>
 
-            {/* Last Name */}
             <div className="pp-field">
               <div className="pp-flabel"><User size={11} /><span>Last Name</span></div>
               {isEditing
@@ -383,7 +361,6 @@ const ProfilePage: React.FC = () => {
               }
             </div>
 
-            {/* Email */}
             <div className="pp-field pp-full">
               <div className="pp-flabel"><Mail size={11} /><span>Email Address</span></div>
               {isEditing
@@ -392,7 +369,6 @@ const ProfilePage: React.FC = () => {
               }
             </div>
 
-            {/* Username */}
             <div className="pp-field pp-full">
               <div className="pp-flabel"><Shield size={11} /><span>Username</span></div>
               <p className="pp-fval" style={{ color: '#64748b', fontWeight: 500 }}>
@@ -403,7 +379,6 @@ const ProfilePage: React.FC = () => {
           </div>
         </div>
 
-        {/* ── Danger zone ── */}
         <div className="pp-danger">
           <div>
             <h3>Delete Account</h3>
@@ -415,10 +390,8 @@ const ProfilePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hidden file input */}
       <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
 
-      {/* Delete dialog */}
       <Dialog open={isDeleteOpen} onOpenChange={setIsDeleteOpen}>
         <DialogContent>
           <DialogHeader>
