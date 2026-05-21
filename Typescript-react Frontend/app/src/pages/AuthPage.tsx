@@ -545,7 +545,7 @@ const AuthPage: React.FC = () => {
               <GraduationCap style={{ width: '36px', height: '36px', color: '#fff' }} />
             </div>
             <div>
-              <h1 style={{ fontSize: '42px', fontWeight: 900, color: '#0a0f1e', letterSpacing: '-0.04em', lineHeight: 1, margin: 0 }}>AESA</h1>
+              <h1 style={{ fontSize: '42px', fontWeight: 900, color: '#f1f5f9', letterSpacing: '-0.04em', lineHeight: 1, margin: 0 }}>AESA</h1>
               <p style={{ color: '#64748b', fontSize: '13px', fontWeight: 500, marginTop: '6px', letterSpacing: '0.03em' }}>
                 Adaptive Learning &amp; Self‑Assessment Platform
               </p>
