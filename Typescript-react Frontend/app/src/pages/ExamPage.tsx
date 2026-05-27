@@ -1,38 +1,18 @@
 // ============================================
-// ExamPage — All 9 Bugs Fixed
+// ExamPage — All Previous Fixes + New Fixes
 // PASTE TO: src/pages/ExamPage.tsx
-// ============================================
 //
-// FIXES APPLIED:
-//   [BUG-1]  Correct/Incorrect counts: resultRows.filter(r=>r.is_correct).length
-//            was correct but scoreVal defaulted to lastScore (from submit response
-//            which only returns {score}) instead of correctCount. Fixed: derive
-//            correctCount and incorrectCount purely from resultRows when available.
-//
-//   [BUG-2]  Answer Review missing on FAILED: was already inside resultRows.length>0
-//            guard — no phase check blocking it. Root cause was BUG-1 making counts
-//            show "—" which looked broken. Now shows for both PASSED and FAILED.
-//
-//   [BUG-3]  Timer display: useEffect dep on `handleSubmit` caused re-registration
-//            every render because handleSubmit wasn't stable. Fixed: timer only
-//            depends on [phase, timeRemaining<=0], handleSubmit called via ref.
-//
-//   [BUG-6]  Exam config: Ready screen now shows actual exam data. The "30Q/30M/15min"
-//            requirement is enforced on the ExamManage page (see ExamManagePage fix).
-//            ExamPage just displays whatever the backend returns.
-//
-//   [BUG-7]  Skipped/unanswered tracked separately: skippedCount = total questions
-//            minus answered questions minus correct/incorrect. Shown as its own stat.
-//
-//   [BUG-8]  Start Assessment disabled when 0 questions: Begin Assessment button
-//            is disabled + shows warning when questions.length === 0.
-//
-//   [UI]     All "Exam" labels → "Assessment" in UI copy only.
-//            No model names, API calls, or prop names changed.
+// NEW FIXES ON TOP OF PREVIOUS 9:
+//   [FIX-A]  Question map visible on mobile: sits below question card on mobile,
+//            sidebar on desktop (lg+). Toggle button in top bar on mobile.
+//   [FIX-B]  Options capped: MCQ → slice(0,4), T/F → slice(0,2).
+//   [FIX-C]  Result saved to localStorage keyed by courseId+examId so Dashboard
+//            can navigate to ?review=true and show read-only Answer Review.
+//   [FIX-D]  ?review=true param: loads from localStorage, shows read-only results.
 // ============================================
 
 import { useEffect, useState, useRef, type FC, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { examApi, attemptApi, questionApi } from '@/api/client';
 import type { Exam, Question } from '@/types';
 
@@ -44,6 +24,7 @@ import {
   Clock, Play, CheckCircle2, XCircle, AlertCircle,
   ChevronLeft, ChevronRight, Award, BookOpen,
   Send, ShieldAlert, Star, Flag, MinusCircle,
+  Map, ChevronDown, ChevronUp,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -57,11 +38,24 @@ type ResultRow = {
   is_correct:      boolean;
 };
 
+const STORAGE_KEY = (courseId: string, examId: string) =>
+  `aesa_exam_result_${courseId}_${examId}`;
+
+// FIX-B: cap options by question type
+const getOptions = (q: Question) => {
+  if (!q.options) return [];
+  const type = (q as any).questin_type ?? (q as any).question_type ?? 'mcq';
+  if (type === 'true_false' || type === 'tf') return q.options.slice(0, 2);
+  return q.options.slice(0, 4);
+};
+
 // ─────────────────────────────────────────────────────────────────────────────
 
 const ExamPage: FC = () => {
   const { courseId, examId } = useParams<{ courseId: string; examId: string }>();
-  const navigate = useNavigate();
+  const navigate             = useNavigate();
+  const [searchParams]       = useSearchParams();
+  const isReviewMode         = searchParams.get('review') === 'true';
 
   const [phase,         setPhase]         = useState<ExamPhase>('ready');
   const [exam,          setExam]          = useState<Exam | null>(null);
@@ -75,19 +69,38 @@ const ExamPage: FC = () => {
   const [isSubmitting,  setIsSubmitting]  = useState(false);
   const [flagged,       setFlagged]       = useState<Set<number>>(new Set());
   const [startError,    setStartError]    = useState<string | null>(null);
+  const [mapOpen,       setMapOpen]       = useState(false); // mobile toggle
 
-  // Stable refs — prevent stale closures in timer
   const answersRef      = useRef(answers);
   const isSubmittingRef = useRef(isSubmitting);
   const submitRef       = useRef<() => Promise<void>>();
   answersRef.current      = answers;
   isSubmittingRef.current = isSubmitting;
 
-  // ── Load exam + questions ─────────────────────────────────────────────────
+  // ── Load exam + questions (or review from localStorage) ──────────────────
   useEffect(() => {
     if (!courseId || !examId) return;
     const cId = parseInt(courseId, 10);
     const eId = parseInt(examId,   10);
+
+    // FIX-D: review mode — load from localStorage
+    if (isReviewMode) {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY(courseId, examId));
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          setLastScore(parsed.lastScore ?? null);
+          setResultRows(parsed.resultRows ?? []);
+          setExam(parsed.exam ?? null);
+          setQuestions(parsed.questions ?? []);
+          setPhase('results');
+        }
+      } catch {
+        toast.error('Could not load review data');
+      }
+      setIsLoading(false);
+      return;
+    }
 
     (async () => {
       setIsLoading(true);
@@ -106,7 +119,7 @@ const ExamPage: FC = () => {
         setIsLoading(false);
       }
     })();
-  }, [courseId, examId, navigate]);
+  }, [courseId, examId, navigate, isReviewMode]);
 
   // ── Submit ─────────────────────────────────────────────────────────────────
   const handleSubmit = useCallback(async () => {
@@ -126,19 +139,27 @@ const ExamPage: FC = () => {
         parseInt(examId,   10),
         payload,
       );
-      // BUG-1 FIX: store the raw score from backend for display
       setLastScore(res.score ?? null);
 
-      // Fetch detailed result rows
+      let rows: ResultRow[] = [];
       try {
         const data = await attemptApi.getResults(
           parseInt(courseId, 10),
           parseInt(examId,   10),
         );
-        setResultRows(Array.isArray(data) ? data : []);
+        rows = Array.isArray(data) ? data : [];
       } catch {
-        setResultRows([]);
+        rows = [];
       }
+      setResultRows(rows);
+
+      // FIX-C: persist to localStorage
+      localStorage.setItem(STORAGE_KEY(courseId, examId), JSON.stringify({
+        lastScore:  res.score ?? null,
+        resultRows: rows,
+        exam,
+        questions,
+      }));
 
       setPhase('results');
       toast.success('Assessment submitted!');
@@ -147,12 +168,11 @@ const ExamPage: FC = () => {
     } finally {
       setIsSubmitting(false);
     }
-  }, [courseId, examId]);
+  }, [courseId, examId, exam, questions]);
 
-  // Keep submitRef current so timer can call it without stale closure
   submitRef.current = handleSubmit;
 
-  // ── Start assessment ──────────────────────────────────────────────────────
+  // ── Start ─────────────────────────────────────────────────────────────────
   const handleStart = async () => {
     if (!courseId || !examId) return;
     setStartError(null);
@@ -167,23 +187,17 @@ const ExamPage: FC = () => {
     }
   };
 
-  // ── Timer — BUG-3 FIX: uses submitRef, deps only on [phase] ──────────────
+  // ── Timer ─────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (phase !== 'taking') return;
-
     const t = setInterval(() => {
       setTimeRemaining(s => {
-        if (s <= 1) {
-          clearInterval(t);
-          void submitRef.current?.();
-          return 0;
-        }
+        if (s <= 1) { clearInterval(t); void submitRef.current?.(); return 0; }
         return s - 1;
       });
     }, 1000);
-
     return () => clearInterval(t);
-  }, [phase]); // intentionally only [phase] — no handleSubmit dep
+  }, [phase]);
 
   // ── Helpers ───────────────────────────────────────────────────────────────
   const fmt = (s: number) =>
@@ -191,22 +205,15 @@ const ExamPage: FC = () => {
 
   const toggleFlag = (idx: number) =>
     setFlagged(prev => {
-      const n = new Set(prev);
-      n.has(idx) ? n.delete(idx) : n.add(idx);
-      return n;
+      const n = new Set(prev); n.has(idx) ? n.delete(idx) : n.add(idx); return n;
     });
 
-  const answeredCount = Object.keys(answers).length;
-  const isUrgent      = timeRemaining < 300 && phase === 'taking';
-
-  // ── BUG-7: skipped = questions that exist in resultRows but weren't answered
-  //    Backend only stores Answer rows for submitted answers, so
-  //    skipped = totalQuestions - resultRows.length  (rows with no answer aren't in results)
-  const totalQuestions  = questions.length;
-  const answeredInRows  = resultRows.length;                            // rows backend returned
-  const correctCount    = resultRows.filter(r => r.is_correct).length;
-  const incorrectCount  = resultRows.filter(r => !r.is_correct).length;
-  const skippedCount    = totalQuestions - answeredInRows;              // unanswered/skipped
+  const answeredCount  = Object.keys(answers).length;
+  const isUrgent       = timeRemaining < 300 && phase === 'taking';
+  const totalQuestions = questions.length;
+  const correctCount   = resultRows.filter(r => r.is_correct).length;
+  const incorrectCount = resultRows.filter(r => !r.is_correct).length;
+  const skippedCount   = Math.max(0, totalQuestions - resultRows.length);
 
   // ── Loading ───────────────────────────────────────────────────────────────
   if (isLoading) {
@@ -219,45 +226,88 @@ const ExamPage: FC = () => {
     );
   }
 
-  if (!exam) return null;
+  if (!exam && !isReviewMode) return null;
+
+  // ── Question Map (shared component) ──────────────────────────────────────
+  const QuestionMap = () => (
+    <div className="flex flex-col gap-3 h-full">
+      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Question Map</p>
+      <ScrollArea className="flex-1" style={{ maxHeight: 320 }}>
+        <div className="grid grid-cols-4 gap-1.5 pr-1">
+          {questions.map((qq, i) => (
+            <button
+              key={i}
+              onClick={() => { setCurrentIdx(i); setMapOpen(false); }}
+              className={[
+                'h-9 w-full rounded-lg text-xs font-black transition-all border',
+                i === currentIdx
+                  ? 'bg-cyan-500 border-cyan-500 text-white ring-2 ring-offset-1 ring-cyan-200'
+                  : answers[qq.id]
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                    : flagged.has(i)
+                      ? 'bg-amber-50 border-amber-200 text-amber-700'
+                      : 'bg-slate-50 border-slate-200 text-slate-400 hover:bg-slate-100',
+              ].join(' ')}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      </ScrollArea>
+      <div className="pt-3 border-t border-slate-100 space-y-2">
+        {[
+          { color: 'bg-cyan-500',    label: 'Current'    },
+          { color: 'bg-emerald-100', label: 'Answered'   },
+          { color: 'bg-amber-100',   label: 'Flagged'    },
+          { color: 'bg-slate-100',   label: 'Unanswered' },
+        ].map(({ color, label }) => (
+          <div key={label} className="flex items-center gap-2 text-xs text-slate-500">
+            <div className={`w-4 h-4 rounded ${color} border border-slate-200 flex-shrink-0`} />
+            {label}
+          </div>
+        ))}
+      </div>
+      <button
+        onClick={() => void handleSubmit()}
+        disabled={isSubmitting}
+        className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white font-bold text-xs transition-all disabled:opacity-60"
+        style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}
+      >
+        <Send className="w-3.5 h-3.5" />
+        {isSubmitting ? 'Submitting…' : 'Submit Now'}
+      </button>
+    </div>
+  );
 
   // ══════════════════════════════════════════════════════════════════════════
   // PHASE: Ready
   // ══════════════════════════════════════════════════════════════════════════
   if (phase === 'ready') {
-    // BUG-8: disable start when no questions
     const hasNoQuestions = questions.length === 0;
 
     return (
       <div className="max-w-2xl mx-auto px-4 py-10 space-y-5">
-
-        {/* Hero */}
         <div
           className="relative overflow-hidden rounded-3xl p-8 text-white text-center border border-white/[0.07]"
           style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f2740 100%)' }}
         >
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 60% 80% at 70% -10%, rgba(14,165,233,0.12), transparent)' }}
-          />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 80% at 70% -10%, rgba(14,165,233,0.12), transparent)' }} />
           <div className="relative z-10">
             <div className="w-16 h-16 rounded-2xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center mx-auto mb-5">
               <BookOpen className="w-8 h-8 text-cyan-400" />
             </div>
-            <h1 className="text-2xl font-black tracking-tight mb-2">{exam.title}</h1>
+            <h1 className="text-2xl font-black tracking-tight mb-2">{exam?.title}</h1>
             <span className="inline-block px-3 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-xs font-black uppercase tracking-widest">
-              {/* BUG-UI: rename exam_type labels */}
-              {exam.exam_type === 'exam' ? 'Assessment' : exam.exam_type === 'test' ? 'Test' : 'Practice'}
+              {exam?.exam_type === 'exam' ? 'Assessment' : exam?.exam_type === 'test' ? 'Test' : 'Practice'}
             </span>
           </div>
         </div>
 
-        {/* Stats grid */}
         <div className="grid grid-cols-3 gap-3">
           {[
-            { icon: Clock,        label: 'Duration',    value: `${exam.duration_mins}m`   },
-            { icon: AlertCircle,  label: 'Questions',   value: questions.length            },
-            { icon: Award,        label: 'Total Marks', value: exam.total_marks ?? '—'     },
+            { icon: Clock,       label: 'Duration',    value: `${exam?.duration_mins}m`  },
+            { icon: AlertCircle, label: 'Questions',   value: questions.length            },
+            { icon: Award,       label: 'Total Marks', value: exam?.total_marks ?? '—'    },
           ].map(({ icon: Icon, label, value }) => (
             <div key={label} className="rounded-2xl border border-slate-200 shadow-sm bg-white p-4 text-center">
               <Icon className="w-5 h-5 mx-auto mb-2 text-slate-400" />
@@ -267,35 +317,24 @@ const ExamPage: FC = () => {
           ))}
         </div>
 
-        {/* BUG-8: No questions warning */}
         {hasNoQuestions && (
           <div className="flex items-start gap-3 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm">
             <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
-            <p>
-              <span className="font-bold">No questions available. </span>
-              This assessment has no questions yet. Please contact your instructor.
-            </p>
+            <p><span className="font-bold">No questions available. </span>This assessment has no questions yet. Please contact your instructor.</p>
           </div>
         )}
 
-        {/* Academic integrity warning */}
         {!hasNoQuestions && (
           <div className="flex items-start gap-3 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-sm">
             <ShieldAlert className="w-5 h-5 flex-shrink-0 mt-0.5 text-amber-500" />
-            <p>
-              <span className="font-bold">Academic Integrity: </span>
-              Navigating away during the assessment will automatically finalise your submission.
-            </p>
+            <p><span className="font-bold">Academic Integrity: </span>Navigating away during the assessment will automatically finalise your submission.</p>
           </div>
         )}
 
         {startError && (
-          <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold">
-            ⚠️ {startError}
-          </div>
+          <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold">⚠️ {startError}</div>
         )}
 
-        {/* BUG-8: Disabled when 0 questions */}
         <button
           onClick={handleStart}
           disabled={hasNoQuestions}
@@ -313,17 +352,16 @@ const ExamPage: FC = () => {
   // PHASE: Taking
   // ══════════════════════════════════════════════════════════════════════════
   if (phase === 'taking') {
-    const q = questions[currentIdx];
+    const q       = questions[currentIdx];
+    const options = getOptions(q); // FIX-B
 
     return (
-      <div
-        className="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-4"
-        style={{ height: 'calc(100vh - 72px)' }}
-      >
+      <div className="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-4 pb-16">
+
         {/* Top bar */}
-        <div className="flex items-center justify-between bg-white rounded-2xl border border-slate-200 shadow-sm px-5 py-3 flex-shrink-0">
+        <div className="flex items-center justify-between bg-white rounded-2xl border border-slate-200 shadow-sm px-5 py-3">
           <div>
-            <p className="font-bold text-slate-900 text-sm">{exam.title}</p>
+            <p className="font-bold text-slate-900 text-sm">{exam?.title}</p>
             <p className="text-xs text-slate-400">
               Q <span className="font-bold text-slate-700">{currentIdx + 1}</span>/{questions.length}
               {' · '}
@@ -331,51 +369,52 @@ const ExamPage: FC = () => {
               {flagged.size > 0 && <span className="text-amber-500 font-bold"> · {flagged.size} flagged</span>}
             </p>
           </div>
-          {/* BUG-3 FIX: timeRemaining is always a number, fmt() is pure */}
-          <div className={[
-            'flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-black text-sm transition-all',
-            isUrgent
-              ? 'bg-red-50 text-red-600 border border-red-200 animate-pulse'
-              : 'bg-slate-100 text-slate-700',
-          ].join(' ')}>
-            <Clock className="w-4 h-4" />{fmt(timeRemaining)}
+          <div className="flex items-center gap-2">
+            {/* Mobile map toggle */}
+            <button
+              onClick={() => setMapOpen(o => !o)}
+              className="lg:hidden flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all"
+            >
+              <Map className="w-3.5 h-3.5" />
+              {mapOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+            </button>
+            <div className={[
+              'flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-black text-sm transition-all',
+              isUrgent ? 'bg-red-50 text-red-600 border border-red-200 animate-pulse' : 'bg-slate-100 text-slate-700',
+            ].join(' ')}>
+              <Clock className="w-4 h-4" />{fmt(timeRemaining)}
+            </div>
           </div>
         </div>
 
         {/* Progress */}
-        <Progress
-          value={Math.round((answeredCount / Math.max(questions.length, 1)) * 100)}
-          className="h-1.5 flex-shrink-0"
-        />
+        <Progress value={Math.round((answeredCount / Math.max(questions.length, 1)) * 100)} className="h-1.5" />
 
-        {/* Main */}
-        <div className="flex gap-4 flex-1 overflow-hidden min-h-0">
+        {/* Main layout */}
+        <div className="flex gap-4 items-start">
 
           {/* Question + options */}
-          <div className="flex-1 flex flex-col gap-3 overflow-y-auto min-w-0">
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex-shrink-0">
-
+          <div className="flex-1 min-w-0 space-y-3">
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-cyan-100 flex items-center justify-center text-xs font-black text-cyan-700">
                     Q{currentIdx + 1}
                   </div>
                   <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-1 rounded-lg capitalize">
-                    {q.questin_type || 'mcq'}
+                    {(q as any).questin_type || 'mcq'}
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-bold text-slate-400">
                     <Star className="w-3.5 h-3.5 inline mr-1 text-amber-400" />
-                    {q.mark ?? 1} pt{(q.mark ?? 1) !== 1 ? 's' : ''}
+                    {(q as any).mark ?? 1} pt{((q as any).mark ?? 1) !== 1 ? 's' : ''}
                   </span>
                   <button
                     onClick={() => toggleFlag(currentIdx)}
                     className={[
                       'flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border transition-all',
-                      flagged.has(currentIdx)
-                        ? 'bg-amber-100 text-amber-700 border-amber-200'
-                        : 'bg-slate-100 text-slate-500 border-slate-200 hover:bg-amber-50 hover:text-amber-600',
+                      flagged.has(currentIdx) ? 'bg-amber-100 text-amber-700 border-amber-200' : 'bg-slate-100 text-slate-500 border-slate-200 hover:bg-amber-50 hover:text-amber-600',
                     ].join(' ')}
                   >
                     <Flag className="w-3 h-3" />
@@ -384,14 +423,12 @@ const ExamPage: FC = () => {
                 </div>
               </div>
 
-              <p className="text-slate-900 font-semibold text-[15px] leading-relaxed mb-6">
-                {q.question_text}
-              </p>
+              <p className="text-slate-900 font-semibold text-[15px] leading-relaxed mb-6">{q.question_text}</p>
 
               <div className="space-y-3">
-                {q.options?.map((opt, optIdx) => {
+                {options.map((opt, optIdx) => {
                   const isSelected = answers[q.id] === opt.id;
-                  const letter     = ['A', 'B', 'C', 'D'][optIdx] ?? String(optIdx + 1);
+                  const letter     = ['A','B','C','D'][optIdx] ?? String(optIdx + 1);
                   return (
                     <button
                       key={opt.id}
@@ -409,15 +446,15 @@ const ExamPage: FC = () => {
                       ].join(' ')}>
                         {isSelected ? <CheckCircle2 className="w-4 h-4" /> : letter}
                       </div>
-                      <span className="font-medium">{(opt as any).option_value}</span>
+                      <span className="font-medium">{(opt as any).option_value ?? (opt as any).option_text}</span>
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Nav bar */}
-            <div className="flex items-center justify-between bg-white rounded-2xl border border-slate-200 shadow-sm px-5 py-3 flex-shrink-0">
+            {/* Nav */}
+            <div className="flex items-center justify-between bg-white rounded-2xl border border-slate-200 shadow-sm px-5 py-3">
               <button
                 onClick={() => setCurrentIdx(i => i - 1)}
                 disabled={currentIdx === 0}
@@ -425,7 +462,6 @@ const ExamPage: FC = () => {
               >
                 <ChevronLeft className="w-4 h-4" /> Previous
               </button>
-
               {currentIdx < questions.length - 1 ? (
                 <button
                   onClick={() => setCurrentIdx(i => i + 1)}
@@ -445,56 +481,18 @@ const ExamPage: FC = () => {
                 </button>
               )}
             </div>
+
+            {/* Mobile map panel */}
+            {mapOpen && (
+              <div className="lg:hidden bg-white rounded-2xl border border-slate-200 shadow-sm p-4">
+                <QuestionMap />
+              </div>
+            )}
           </div>
 
-          {/* Question map sidebar */}
-          <div className="hidden lg:flex flex-col w-64 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex-shrink-0 overflow-y-auto gap-3">
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Question Map</p>
-
-            <div className="grid grid-cols-4 gap-1.5">
-              {questions.map((qq, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentIdx(i)}
-                  className={[
-                    'h-9 w-full rounded-lg text-xs font-black transition-all border',
-                    i === currentIdx
-                      ? 'bg-cyan-500 border-cyan-500 text-white ring-2 ring-offset-1 ring-cyan-200'
-                      : answers[qq.id]
-                        ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
-                        : flagged.has(i)
-                          ? 'bg-amber-50 border-amber-200 text-amber-700'
-                          : 'bg-slate-50 border-slate-200 text-slate-400 hover:bg-slate-100',
-                  ].join(' ')}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
-
-            <div className="mt-1 pt-3 border-t border-slate-100 space-y-2">
-              {[
-                { color: 'bg-cyan-500',    label: 'Current'    },
-                { color: 'bg-emerald-100', label: 'Answered'   },
-                { color: 'bg-amber-100',   label: 'Flagged'    },
-                { color: 'bg-slate-100',   label: 'Unanswered' },
-              ].map(({ color, label }) => (
-                <div key={label} className="flex items-center gap-2 text-xs text-slate-500">
-                  <div className={`w-4 h-4 rounded ${color} border border-slate-200 flex-shrink-0`} />
-                  {label}
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => void handleSubmit()}
-              disabled={isSubmitting}
-              className="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white font-bold text-xs transition-all disabled:opacity-60"
-              style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}
-            >
-              <Send className="w-3.5 h-3.5" />
-              {isSubmitting ? 'Submitting…' : 'Submit Now'}
-            </button>
+          {/* Desktop sidebar */}
+          <div className="hidden lg:flex flex-col w-64 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex-shrink-0 sticky top-4" style={{ minHeight: 400 }}>
+            <QuestionMap />
           </div>
         </div>
       </div>
@@ -502,12 +500,10 @@ const ExamPage: FC = () => {
   }
 
   // ══════════════════════════════════════════════════════════════════════════
-  // PHASE: Results — BUG-1, BUG-2, BUG-7 fixed here
+  // PHASE: Results
   // ══════════════════════════════════════════════════════════════════════════
   if (phase === 'results') {
-    const total    = exam.total_marks ?? totalQuestions;
-    // BUG-1 FIX: scoreVal = lastScore (from backend) when available,
-    //            else fall back to correctCount derived from resultRows
+    const total    = exam?.total_marks ?? totalQuestions;
     const scoreVal = lastScore !== null ? lastScore : correctCount;
     const pct      = total > 0 ? Math.round((scoreVal / total) * 100) : 0;
     const passed   = pct >= 50;
@@ -522,13 +518,11 @@ const ExamPage: FC = () => {
             className="flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors group"
           >
             <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-            Back to Course
+            {isReviewMode ? 'Back to Dashboard' : 'Back to Course'}
           </button>
           <span className={[
             'px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest border',
-            passed
-              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-              : 'bg-red-50 text-red-700 border-red-200',
+            passed ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-red-50 text-red-700 border-red-200',
           ].join(' ')}>
             {passed ? 'Passed' : 'Failed'}
           </span>
@@ -537,17 +531,12 @@ const ExamPage: FC = () => {
         {/* Score hero */}
         <div className={[
           'relative overflow-hidden rounded-3xl p-8 text-white shadow-2xl text-center',
-          passed
-            ? 'bg-gradient-to-br from-emerald-500 to-teal-600'
-            : 'bg-gradient-to-br from-rose-500 to-red-700',
+          passed ? 'bg-gradient-to-br from-emerald-500 to-teal-600' : 'bg-gradient-to-br from-rose-500 to-red-700',
         ].join(' ')}>
           <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
           <div className="relative z-10">
             <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-5 ring-4 ring-white/10">
-              {passed
-                ? <CheckCircle2 className="w-10 h-10" />
-                : <XCircle      className="w-10 h-10" />
-              }
+              {passed ? <CheckCircle2 className="w-10 h-10" /> : <XCircle className="w-10 h-10" />}
             </div>
             <p className="text-6xl font-black mb-1 tabular-nums">
               {scoreVal}<span className="text-3xl text-white/50">/{total}</span>
@@ -555,31 +544,12 @@ const ExamPage: FC = () => {
             <p className="text-white/70 font-semibold uppercase tracking-widest text-xs mt-1">
               Final Score — {pct}%
             </p>
-
-            {/* BUG-1 + BUG-7 FIX: all three stats derived from resultRows, never "—" */}
             <div className="flex items-center justify-center gap-6 mt-6 pt-6 border-t border-white/15 flex-wrap">
               {[
-                {
-                  label: 'Grade',
-                  value: grade,
-                  icon:  <Award className="w-4 h-4" />,
-                },
-                {
-                  label: 'Correct',
-                  value: resultRows.length > 0 ? String(correctCount) : '0',
-                  icon:  <CheckCircle2 className="w-4 h-4 text-emerald-200" />,
-                },
-                {
-                  label: 'Incorrect',
-                  value: resultRows.length > 0 ? String(incorrectCount) : '0',
-                  icon:  <XCircle className="w-4 h-4 text-red-200" />,
-                },
-                // BUG-7: skipped shown as its own stat
-                {
-                  label: 'Skipped',
-                  value: String(skippedCount >= 0 ? skippedCount : 0),
-                  icon:  <MinusCircle className="w-4 h-4 text-white/60" />,
-                },
+                { label: 'Grade',     value: grade,                                                   icon: <Award className="w-4 h-4" /> },
+                { label: 'Correct',   value: resultRows.length > 0 ? String(correctCount)   : '0',   icon: <CheckCircle2 className="w-4 h-4 text-emerald-200" /> },
+                { label: 'Incorrect', value: resultRows.length > 0 ? String(incorrectCount) : '0',   icon: <XCircle className="w-4 h-4 text-red-200" /> },
+                { label: 'Skipped',   value: String(skippedCount),                                    icon: <MinusCircle className="w-4 h-4 text-white/60" /> },
               ].map(({ label, value, icon }) => (
                 <div key={label} className="text-center min-w-[60px]">
                   <div className="flex items-center justify-center gap-1 mb-1 opacity-70">{icon}</div>
@@ -591,8 +561,7 @@ const ExamPage: FC = () => {
           </div>
         </div>
 
-        {/* BUG-2 FIX: Answer Review shows for BOTH passed and failed.
-            Condition is only resultRows.length > 0 — no passed/failed gate. */}
+        {/* Answer Review */}
         {resultRows.length > 0 && (
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
             <div className="px-6 py-4 border-b border-slate-100">
@@ -610,9 +579,7 @@ const ExamPage: FC = () => {
                     key={i}
                     className={[
                       'p-4 rounded-xl border-l-4',
-                      row.is_correct
-                        ? 'border-emerald-400 bg-emerald-50/40'
-                        : 'border-rose-400 bg-rose-50/40',
+                      row.is_correct ? 'border-emerald-400 bg-emerald-50/40' : 'border-rose-400 bg-rose-50/40',
                     ].join(' ')}
                   >
                     <div className="flex items-start gap-2 mb-3">
@@ -645,29 +612,41 @@ const ExamPage: FC = () => {
           </div>
         )}
 
-        {/* Retry button */}
-        <div className="flex gap-3">
-          <button
-            onClick={() => {
-              setPhase('ready');
-              setAnswers({});
-              setResultRows([]);
-              setLastScore(null);
-              setCurrentIdx(0);
-              setFlagged(new Set());
-            }}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-all"
-          >
-            Retry Assessment
-          </button>
+        {/* Actions */}
+        {!isReviewMode && (
+          <div className="flex gap-3">
+            <button
+              onClick={() => {
+                setPhase('ready');
+                setAnswers({});
+                setResultRows([]);
+                setLastScore(null);
+                setCurrentIdx(0);
+                setFlagged(new Set());
+              }}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-all"
+            >
+              Retry Assessment
+            </button>
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm transition-all"
+              style={{ background: 'linear-gradient(135deg, #0ea5e9, #0284c7)' }}
+            >
+              Back to Course
+            </button>
+          </div>
+        )}
+
+        {isReviewMode && (
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm transition-all"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-white font-bold text-sm"
             style={{ background: 'linear-gradient(135deg, #0ea5e9, #0284c7)' }}
           >
-            Back to Course
+            <ChevronLeft className="w-4 h-4" /> Back to Dashboard
           </button>
-        </div>
+        )}
       </div>
     );
   }

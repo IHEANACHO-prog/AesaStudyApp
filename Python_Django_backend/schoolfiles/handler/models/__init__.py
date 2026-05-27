@@ -1,4 +1,5 @@
 from .users import User, Student, Instructor
+from .users.instructor_course import InstructorCourse
 from .school_details import Department, Level, Course, Topic, Enrollment
 from .forum import QuestionForum, AnswerForum
 from .assessments import Option, Answer, Progress, Performance, Exam, Question, Attempt

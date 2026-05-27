@@ -1,15 +1,21 @@
-# handler/urls/course_urls.py
-
 from django.urls import path
 from ..views import school_details as school_views
+from handler.views.school_details.assignment_views import (
+    assign_course,
+    unassign_course,
+    my_assignments,
+    enrolled_students,
+)
 
 urlpatterns = [
-    # ── NEW: simple course-by-id lookup ──────────────────────────────────────
-    # Frontend: courseApi.getById(id) → GET /api/courses/<id>/
-    # Used by CourseDetailPage and TopicsPage — no level/dept needed
-    path('courses/<int:course_id>/', school_views.get_course_by_id),
+    # Assignment routes — must come BEFORE <int:course_id> routes
+    path('courses/my-assignments/',                    my_assignments,    name='my-assignments'),
+    path('courses/<int:course_id>/assign/',            assign_course,     name='assign-course'),
+    path('courses/<int:course_id>/unassign/',          unassign_course,   name='unassign-course'),
+    path('courses/<int:course_id>/enrolled-students/', enrolled_students, name='enrolled-students'),
 
-    # ── Existing routes — do not change these ────────────────────────────────
+    # Existing routes
+    path('courses/<int:course_id>/', school_views.get_course_by_id),
     path('level/<int:level_id>/department/<int:department_id>/course/', school_views.get_courses),
     path('level/<int:level_id>/department/<int:department_id>/course/create/', school_views.create_course),
     path('level/<int:level_id>/department/<int:department_id>/course/<int:course_id>/', school_views.get_course),

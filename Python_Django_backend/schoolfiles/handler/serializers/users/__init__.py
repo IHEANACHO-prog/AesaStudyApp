@@ -2,3 +2,4 @@ from .student_serializer import StudentSerializer
 from .instructor_serializer import InstructorSerializer
 from .user_serializer import UserSerializer
 from .mytoken_serializer import MyTokenObtainPairView
+from .instructor_course_serializer import InstructorCourseSerializer, EnrolledStudentSerializer

@@ -49,3 +49,10 @@ from .selfassessment_views import (
     get_sa_questions,
     submit_self_assessment,
 )
+from .assignment_views import (
+    assign_course,
+    unassign_course,
+    my_assignments,
+    enrolled_students,
+    instructor_dashboard,
+)

@@ -1,22 +1,23 @@
 // ============================================
-// ProfilePage — Bug #4 Fixed
+// ProfilePage — Avatar Upload Fixed (Instant Preview)
 // PASTE TO: src/pages/ProfilePage.tsx
-// ============================================
 //
-// BUG-4 FIX: Profile picture not refreshing after upload.
-//   Root cause: handleFileChange called authApi.updateProfilePicture(fd)
-//   but never updated the auth context's `user` object, so the old avatar
-//   (or initials) stayed on screen.
+// FIX: Profile picture now shows IMMEDIATELY after selecting a file.
 //
-//   Fix: After a successful upload, call authApi.getCurrentUser() and
-//   then updateProfile() with an empty patch — this forces the auth
-//   context to re-hydrate `user.profile_picture` from the server response.
+//   Root cause of original bug:
+//     localAvatarUrl was set from authApi.getCurrentUser() response,
+//     but that network call is slow AND the returned URL may be a
+//     relative path that resolveMediaUrl resolves incorrectly, so
+//     the <img> src ends up 404ing silently → falls back to initials.
 //
-//   If your useAuth().updateProfile only patches fields and doesn't
-//   re-fetch the full user, the alternative _refreshUser() approach
-//   below uses getCurrentUser() directly and stores the result via
-//   a local state override so the new avatar is shown immediately
-//   without waiting for a full context refetch.
+//   Fix applied (two-stage):
+//     STAGE 1 — Instant: URL.createObjectURL(file) gives a local blob
+//               URL the moment the user picks a file. Zero network wait.
+//               Avatar updates before the upload even starts.
+//     STAGE 2 — Durable: After upload succeeds, re-fetch the user and
+//               replace the blob URL with the real server URL so that
+//               if the page refreshes, the avatar still loads correctly.
+//     CLEANUP:  URL.revokeObjectURL() called after stage 2 to free memory.
 // ============================================
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -39,6 +40,8 @@ import { toast } from 'sonner';
 // ── Media URL resolver ────────────────────────────────────────────────────────
 const resolveMediaUrl = (url: string | null | undefined): string | undefined => {
   if (!url) return undefined;
+  // Blob URLs (createObjectURL) must be passed through as-is
+  if (url.startsWith('blob:')) return url;
   if (url.startsWith('http')) return url;
   const base =
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_API_BASE_URL) ||
@@ -72,9 +75,14 @@ const ProfilePage: React.FC = () => {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [mounted,      setMounted]      = useState(false);
 
-  // BUG-4 FIX: local avatar URL override — updated immediately after upload
-  // so the img src changes without waiting for a full auth context re-fetch.
-  const [localAvatarUrl, setLocalAvatarUrl] = useState<string | null | undefined>(undefined);
+  // Holds the display avatar URL:
+  //   undefined  → not yet overridden, use user.profile_picture
+  //   blob:...   → instant local preview (stage 1)
+  //   https://…  → real server URL after upload completes (stage 2)
+  const [localAvatarUrl, setLocalAvatarUrl] = useState<string | undefined>(undefined);
+
+  // Track the current blob URL so we can revoke it when replaced
+  const blobUrlRef = useRef<string | null>(null);
 
   const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '' });
 
@@ -89,15 +97,32 @@ const ProfilePage: React.FC = () => {
     }
   }, [user]);
 
+  // Cleanup blob URL on unmount
+  useEffect(() => {
+    return () => {
+      if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current);
+    };
+  }, []);
+
   const handleImageClick = () => fileInputRef.current?.click();
 
-  // BUG-4 FIX: after upload, re-fetch user to get the new profile_picture URL
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     if (!file.type.startsWith('image/')) { toast.error('Please select an image file'); return; }
     if (file.size > 5 * 1024 * 1024)    { toast.error('Image must be smaller than 5 MB'); return; }
 
+    // ── STAGE 1: Instant local preview ──────────────────────────────────────
+    // Revoke any previous blob URL to free memory
+    if (blobUrlRef.current) {
+      URL.revokeObjectURL(blobUrlRef.current);
+      blobUrlRef.current = null;
+    }
+    const blobUrl = URL.createObjectURL(file);
+    blobUrlRef.current = blobUrl;
+    setLocalAvatarUrl(blobUrl); // Avatar updates immediately — no network wait
+
+    // ── Upload ───────────────────────────────────────────────────────────────
     setIsUploading(true);
     const fd = new FormData();
     fd.append('profile_picture', file);
@@ -105,18 +130,31 @@ const ProfilePage: React.FC = () => {
     try {
       await authApi.updateProfilePicture(fd);
 
-      // Re-fetch the user to get the updated profile_picture field
-      const freshUser = await authApi.getCurrentUser();
-      if (freshUser?.profile_picture) {
-        // Update local state immediately for instant UI feedback
-        setLocalAvatarUrl(freshUser.profile_picture);
-        // Also sync the auth context so the rest of the app stays consistent.
-        // updateProfile with empty object won't change fields but triggers re-render.
+      // ── STAGE 2: Replace blob URL with real server URL ───────────────────
+      // This ensures the avatar survives a page refresh
+      try {
+        const freshUser = await authApi.getCurrentUser();
+        if (freshUser?.profile_picture) {
+          const serverUrl = resolveMediaUrl(freshUser.profile_picture);
+          if (serverUrl) {
+            // Revoke the blob now that we have the real URL
+            URL.revokeObjectURL(blobUrl);
+            blobUrlRef.current = null;
+            setLocalAvatarUrl(serverUrl);
+          }
+        }
+        // Sync auth context quietly
         try { await updateProfile({}); } catch { /* non-fatal */ }
+      } catch {
+        // Stage 2 failed — blob URL still showing, which is fine for this session
       }
 
       toast.success('Profile picture updated!');
     } catch (err: any) {
+      // Upload failed — revert to original avatar
+      URL.revokeObjectURL(blobUrl);
+      blobUrlRef.current = null;
+      setLocalAvatarUrl(undefined);
       toast.error(err.message || 'Upload failed');
     } finally {
       setIsUploading(false);
@@ -138,7 +176,11 @@ const ProfilePage: React.FC = () => {
   };
 
   const handleCancel = () => {
-    if (user) setFormData({ first_name: user.first_name || '', last_name: user.last_name || '', email: user.email || '' });
+    if (user) setFormData({
+      first_name: user.first_name || '',
+      last_name:  user.last_name  || '',
+      email:      user.email      || '',
+    });
     setIsEditing(false);
   };
 
@@ -152,8 +194,11 @@ const ProfilePage: React.FC = () => {
     </div>
   );
 
-  // BUG-4 FIX: prefer localAvatarUrl (freshly fetched) over user.profile_picture
-  const avatarSrc   = resolveMediaUrl(localAvatarUrl !== undefined ? localAvatarUrl : user.profile_picture);
+  // Prefer localAvatarUrl (blob or server) over user.profile_picture
+  const avatarSrc   = localAvatarUrl
+    ? resolveMediaUrl(localAvatarUrl)           // blob: passes through as-is
+    : resolveMediaUrl(user.profile_picture);    // original from auth context
+
   const joinDate    = formatJoinDate(user.date_joined);
   const role        = roleConfig[user.role] ?? roleConfig.student;
   const displayName = (user.first_name && user.last_name)
@@ -208,7 +253,11 @@ const ProfilePage: React.FC = () => {
           display: flex; align-items: center; justify-content: center;
           font-size: 1.5rem; font-weight: 800; color: #06b6d4; letter-spacing: -1px;
         }
-        .pp-av-inner img { width: 100%; height: 100%; object-fit: cover; }
+        .pp-av-inner img {
+          width: 100%; height: 100%; object-fit: cover;
+          /* Force browser to repaint even if src changes to same filename */
+          display: block;
+        }
         .pp-av-overlay {
           position: absolute; inset: 3px; border-radius: 50%;
           background: rgba(0,0,0,0.55);
@@ -216,6 +265,8 @@ const ProfilePage: React.FC = () => {
           opacity: 0; transition: opacity 0.2s ease;
         }
         .pp-av-wrap:hover .pp-av-overlay { opacity: 1; }
+        /* Keep overlay visible while uploading */
+        .pp-av-wrap.pp-uploading .pp-av-overlay { opacity: 1; }
 
         .pp-name  { font-size: 1.5rem; font-weight: 800; color: #f1f5f9; letter-spacing: -0.4px; margin: 0 0 3px; }
         .pp-uname { font-size: 0.78rem; color: rgba(148,163,184,0.75); margin: 0 0 13px; }
@@ -306,14 +357,20 @@ const ProfilePage: React.FC = () => {
           <div className="pp-mesh" />
           <div className="pp-hero-body">
 
-            <div className="pp-av-wrap" onClick={handleImageClick} title="Change photo">
+            <div
+              className={`pp-av-wrap${isUploading ? ' pp-uploading' : ''}`}
+              onClick={handleImageClick}
+              title="Change photo"
+            >
               <div className="pp-av-ring">
                 <div className="pp-av-inner">
-                  {/* BUG-4 FIX: avatarSrc prefers fresh localAvatarUrl */}
-                  {avatarSrc
-                    ? <img src={avatarSrc} alt={user.username} key={avatarSrc} />
-                    : initials
-                  }
+                  {avatarSrc ? (
+                    // key=avatarSrc forces React to remount <img> when src changes,
+                    // preventing browser from showing stale cached image
+                    <img src={avatarSrc} alt={user.username} key={avatarSrc} />
+                  ) : (
+                    initials
+                  )}
                 </div>
               </div>
               <div className="pp-av-overlay">
@@ -327,7 +384,10 @@ const ProfilePage: React.FC = () => {
             <div style={{ flex: 1, minWidth: 0 }}>
               <h1 className="pp-name">{displayName}</h1>
               <p className="pp-uname">@{user.username}</p>
-              <span className="pp-badge" style={{ color: role.color, background: role.bg, borderColor: `${role.color}40` }}>
+              <span
+                className="pp-badge"
+                style={{ color: role.color, background: role.bg, borderColor: `${role.color}40` }}
+              >
                 {role.label}
               </span>
               {joinDate && (
@@ -410,7 +470,13 @@ const ProfilePage: React.FC = () => {
         </div>
       </div>
 
-      <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileChange}
+        accept="image/*"
+        className="hidden"
+      />
 
       <Dialog open={isDeleteOpen} onOpenChange={setIsDeleteOpen}>
         <DialogContent>
@@ -418,7 +484,9 @@ const ProfilePage: React.FC = () => {
             <DialogTitle className="text-red-600 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5" /> Delete Account
             </DialogTitle>
-            <DialogDescription>This action is permanent and cannot be undone.</DialogDescription>
+            <DialogDescription>
+              This action is permanent and cannot be undone.
+            </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsDeleteOpen(false)}>Cancel</Button>
