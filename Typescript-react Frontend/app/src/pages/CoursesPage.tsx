@@ -105,7 +105,7 @@ const AssignBadge: React.FC<AssignBadgeProps> = ({ isAssigned, loading, onToggle
   const label = loading
     ? '…'
     : hov
-      ? (isAssigned ? 'Unassign' : 'Assign me')
+      ? (isAssigned ? 'Unassigned' : 'Assigned')
       : (isAssigned ? 'Assigned' : 'Unassigned');
 
   const Icon = isAssigned ? UserCheck : UserX;

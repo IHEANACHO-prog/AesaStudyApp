@@ -5,16 +5,20 @@ from handler.views.school_details.assignment_views import (
     unassign_course,
     my_assignments,
     enrolled_students,
+    instructor_dashboard,          # ← ADD THIS IMPORT
 )
 
 urlpatterns = [
-    # Assignment routes — must come BEFORE <int:course_id> routes
-    path('courses/my-assignments/',                    my_assignments,    name='my-assignments'),
-    path('courses/<int:course_id>/assign/',            assign_course,     name='assign-course'),
-    path('courses/<int:course_id>/unassign/',          unassign_course,   name='unassign-course'),
-    path('courses/<int:course_id>/enrolled-students/', enrolled_students, name='enrolled-students'),
+    # ── Instructor assignment routes (must come BEFORE <int:course_id> routes) ──
+    path('courses/my-assignments/',                    my_assignments,       name='my-assignments'),
+    path('courses/<int:course_id>/assign/',            assign_course,        name='assign-course'),
+    path('courses/<int:course_id>/unassign/',          unassign_course,      name='unassign-course'),
+    path('courses/<int:course_id>/enrolled-students/', enrolled_students,    name='enrolled-students'),
 
-    # Existing routes
+    # ── Instructor dashboard ──────────────────────────────────────────────────
+    path('instructor/dashboard/',                      instructor_dashboard, name='instructor-dashboard'),  # ← ADD THIS LINE
+
+    # ── Existing course routes ────────────────────────────────────────────────
     path('courses/<int:course_id>/', school_views.get_course_by_id),
     path('level/<int:level_id>/department/<int:department_id>/course/', school_views.get_courses),
     path('level/<int:level_id>/department/<int:department_id>/course/create/', school_views.create_course),
