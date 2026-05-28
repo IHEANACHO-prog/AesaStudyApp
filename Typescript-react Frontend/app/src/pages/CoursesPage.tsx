@@ -105,7 +105,7 @@ const AssignBadge: React.FC<AssignBadgeProps> = ({ isAssigned, loading, onToggle
   const label = loading
     ? '…'
     : hov
-      ? (isAssigned ? 'Unassigned' : 'Assigned')
+      ? (isAssigned ? 'Unassign' : 'Assign me')
       : (isAssigned ? 'Assigned' : 'Unassigned');
 
   const Icon = isAssigned ? UserCheck : UserX;
@@ -418,11 +418,14 @@ const CoursesPage: React.FC = () => {
   const [assignedIds,      setAssignedIds]      = useState<Set<number>>(new Set());
   const [createOpen,       setCreateOpen]       = useState(false);
 
+  // ✅ FIX: use full Render URL for all three fetch calls
+  const API = import.meta.env.VITE_API_BASE_URL;
+
   // Load assignment IDs once on mount (instructor only)
   const fetchAssignments = useCallback(async () => {
     if (!instructorProfile) return;
     try {
-      const data = await fetch('/api/courses/my-assignments/', {
+      const data = await fetch(`${API}/courses/my-assignments/`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('aesa_access')}` },
       }).then(r => r.json());
       setAssignedIds(new Set((data as any[]).map((a: any) => a.course_id)));
@@ -476,7 +479,7 @@ const CoursesPage: React.FC = () => {
 
   const handleAssign = async (courseId: number) => {
     try {
-      const res = await fetch(`/api/courses/${courseId}/assign/`, {
+      const res = await fetch(`${API}/courses/${courseId}/assign/`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${localStorage.getItem('aesa_access')}` },
       });
@@ -491,7 +494,7 @@ const CoursesPage: React.FC = () => {
 
   const handleUnassign = async (courseId: number) => {
     try {
-      const res = await fetch(`/api/courses/${courseId}/unassign/`, {
+      const res = await fetch(`${API}/courses/${courseId}/unassign/`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${localStorage.getItem('aesa_access')}` },
       });
