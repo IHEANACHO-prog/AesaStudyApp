@@ -238,7 +238,8 @@ const EnrolledStudentsModal: React.FC<{
   useEffect(() => {
     if (!open || !courseId) return;
     setLoading(true);
-    fetch(`/api/courses/${courseId}/enrolled-students/`, {
+    // ✅ FIX: use full Render URL, not relative /api/
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/courses/${courseId}/enrolled-students/`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('aesa_access')}` },
     })
       .then(r => r.json())
@@ -427,8 +428,8 @@ const StudentDashboard: React.FC<{ data: DashboardData; loading: boolean }> = ({
           <p style={{ fontSize: '0.875rem', color: t.textSec, marginTop: 4 }}>Your academic overview</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
-          <StatCard icon={<BookOpen    size={18} color="#06b6d4" />} label="Enrolled Courses"  value={data.enrolled}                   accentColor="#06b6d4" loading={loading} />
-          <StatCard icon={<CheckSquare size={18} color="#10b981" />} label="Assessments Done"  value={data.exams_done}                 accentColor="#10b981" loading={loading} />
+          <StatCard icon={<BookOpen    size={18} color="#06b6d4" />} label="Enrolled Courses"  value={data.enrolled}                    accentColor="#06b6d4" loading={loading} />
+          <StatCard icon={<CheckSquare size={18} color="#10b981" />} label="Assessments Done"  value={data.exams_done}                  accentColor="#10b981" loading={loading} />
           <StatCard icon={<TrendingUp  size={18} color="#6366f1" />} label="Average Score"     value={`${Math.round(data.avg_score)}%`} accentColor="#6366f1" loading={loading} />
           <StatCard icon={<BarChart3   size={18} color="#f59e0b" />} label="Progress"          value={`${Math.round(data.progress)}%`}  accentColor="#f59e0b" loading={loading} />
         </div>
@@ -505,15 +506,16 @@ const InstructorDashboard: React.FC<{ data: DashboardData; loading: boolean }> =
   const { panel, panelHead } = usePanel();
 
   // [INST-5] Instructor-specific data
-  const [instData,   setInstData]   = useState<InstructorDashData | null>(null);
+  const [instData,    setInstData]    = useState<InstructorDashData | null>(null);
   const [instLoading, setInstLoading] = useState(true);
 
   // [INST-3] Modal state
-  const [modalOpen,     setModalOpen]     = useState(false);
+  const [modalOpen,      setModalOpen]      = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<CourseRow | null>(null);
 
   useEffect(() => {
-    fetch('/api/instructor/dashboard/', {
+    // ✅ FIX: use full Render URL, not relative /api/
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/instructor/dashboard/`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('aesa_access')}` },
     })
       .then(r => r.json())
@@ -542,10 +544,10 @@ const InstructorDashboard: React.FC<{ data: DashboardData; loading: boolean }> =
 
         {/* [INST-1] Stats */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
-          <StatCard icon={<Users        size={18} color="#06b6d4" />} label="Enrolled Students"   value={totalStudents}                   accentColor="#06b6d4" loading={instLoading} />
-          <StatCard icon={<GraduationCap size={18} color="#10b981" />} label="My Courses"          value={totalCourses}                    accentColor="#10b981" loading={instLoading} />
-          <StatCard icon={<FileText     size={18} color="#6366f1" />} label="Assessments Created" value={data.exams_done}                 accentColor="#6366f1" loading={loading}     />
-          <StatCard icon={<CheckSquare  size={18} color="#f59e0b" />} label="Total Submissions"   value={data.total_submissions ?? 0}     accentColor="#f59e0b" loading={loading}     />
+          <StatCard icon={<Users         size={18} color="#06b6d4" />} label="Enrolled Students"   value={totalStudents}               accentColor="#06b6d4" loading={instLoading} />
+          <StatCard icon={<GraduationCap size={18} color="#10b981" />} label="My Courses"           value={totalCourses}                accentColor="#10b981" loading={instLoading} />
+          <StatCard icon={<FileText      size={18} color="#6366f1" />} label="Assessments Created"  value={data.exams_done}             accentColor="#6366f1" loading={loading}     />
+          <StatCard icon={<CheckSquare   size={18} color="#f59e0b" />} label="Total Submissions"    value={data.total_submissions ?? 0} accentColor="#f59e0b" loading={loading}     />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
