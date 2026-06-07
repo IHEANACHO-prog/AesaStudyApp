@@ -37,6 +37,7 @@ urlpatterns = [
     path('api/', include('handler.urls.mediaresource_urls')),   # ✅ was missing
     path('api/', include('handler.urls.selfassessment_urls')),  # ✅ was missing
     path('api/', include('handler.urls.forum_urls')),           # ✅ single canonical forum (replaces q_and_a_urls duplicate)
+    path('', include('handler.urls.health_urls')),              # ✅ public health check
 ]
 
 if settings.DEBUG:
