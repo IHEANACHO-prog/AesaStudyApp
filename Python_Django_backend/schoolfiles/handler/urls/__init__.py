@@ -21,6 +21,7 @@ from handler.urls.lecturenote_urls   import urlpatterns as note_patterns
 from handler.urls.mediaresource_urls import urlpatterns as media_patterns   # ✅ kept
 from handler.urls.selfassessment_urls import urlpatterns as sa_patterns     # ✅ kept
 from handler.urls.forum_urls         import urlpatterns as forum_patterns   # ✅ replaces q_and_a_urls
+from handler.urls.health_urls import urlpatterns as health_patterns
 
 urlpatterns = (
     users_patterns      +
@@ -36,5 +37,6 @@ urlpatterns = (
     note_patterns       +
     media_patterns      +
     sa_patterns         +
-    forum_patterns
+    forum_patterns      +
+    health_patterns
 )
