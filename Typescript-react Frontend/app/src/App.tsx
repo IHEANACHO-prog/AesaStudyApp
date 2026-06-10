@@ -39,11 +39,7 @@ const AppInner: React.FC = () => {
 
   React.useEffect(() => {
     const isLogin = location.pathname === '/login';
-    const color = isLogin
-      ? '#0f172a'
-      : theme === 'dark'
-      ? '#0f172a'
-      : '#f8fafc';
+    const color = '#000000';
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', color);
   }, [theme, location.pathname]);
