@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aesastudy-v1';
+const CACHE_NAME = 'aesastudy-v2';
 const urlsToCache = ['/', '/index.html'];
 
 self.addEventListener('install', event => {
