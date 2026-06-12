@@ -2,12 +2,12 @@
   "name": "AESAStudy",
   "short_name": "AESAStudy",
   "description": "Adaptive eLearning & Self-Assessment Platform",
-  "start_url": "/",
+  "start_url": "/login",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#000000"
+  "theme_color": "#000000",
   "orientation": "portrait",
-  "id": "/",
+  "id": "/login",
   "icons": [
     {
       "src": "/AESA icon.png",
